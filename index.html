@@ -2237,18 +2237,13 @@ function removeLastMessage() {
 }
 
 async function sendMessageToAI(message) {
-    var lang = window.currentLang || 'en';
-    
     try {
         var response = await fetch('/api/chat', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ 
-                message: message,
-                language: lang
-            })
+            body: JSON.stringify({ message: message })
         });
 
         if (!response.ok) {
@@ -2261,10 +2256,11 @@ async function sendMessageToAI(message) {
     } catch (error) {
         console.error('Error:', error);
         
+        var lang = window.currentLang || 'en';
         var errorMessages = {
-            en: "Sorry, I'm having trouble connecting. Please contact me directly at ferasatik1@gmail.com or +47 412 05 043 📧",
-            no: "Beklager, jeg har problemer med tilkoblingen. Kontakt meg direkte på ferasatik1@gmail.com eller +47 412 05 043 📧",
-            ar: "عذراً، أواجه مشكلة في الاتصال. يرجى التواصل معي مباشرة على ferasatik1@gmail.com أو +47 412 05 043 📧"
+            en: "Sorry, I'm having trouble connecting. Please contact me at ferasatik1@gmail.com or +47 412 05 043 📧",
+            no: "Beklager, jeg har problemer med tilkoblingen. Kontakt meg på ferasatik1@gmail.com eller +47 412 05 043 📧",
+            ar: "عذراً، أواجه مشكلة في الاتصال. تواصل معي على ferasatik1@gmail.com أو +47 412 05 043 📧"
         };
         
         return errorMessages[lang];
