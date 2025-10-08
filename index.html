@@ -1,0 +1,2383 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdulmalek Al-Darwish - Web Developer & AI Specialist</title>
+    <!-- SEO Meta Tags -->
+<meta name="description" content="Abdulmalek Al-Darwish - Full-Stack Developer & AI Specialist with 5+ years experience in web development, AI automation, and digital marketing. Contact for professional web solutions.">
+<meta name="keywords" content="web developer, AI specialist, full-stack developer, React, Node.js, Python, digital marketing, web development Norway">
+<meta name="author" content="Abdulmalek Al-Darwish">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph Meta Tags (Facebook, LinkedIn) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Abdulmalek Al-Darwish - Web Developer & AI Specialist">
+<meta property="og:description" content="Professional web development and AI solutions. 5+ years experience, 50+ completed projects, 100% client satisfaction.">
+<meta property="og:image" content="https://i.ibb.co/v6GfWRYy/1447-04-14-01-59-41-1370e94e.jpg">
+<meta property="og:url" content="https://abd-ulmalek.vercel.app">
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Abdulmalek Al-Darwish - Web Developer & AI Specialist">
+<meta name="twitter:description" content="Professional web development and AI solutions">
+<meta name="twitter:image" content="https://i.ibb.co/v6GfWRYy/1447-04-14-01-59-41-1370e94e.jpg">
+
+<!-- Disable Safari Reader Mode -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<style>
+/* Force Safari to recognize structured content */
+body::before {
+    content: '';
+    display: block;
+}
+</style>
+
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://abd-ulmalek.vercel.app">
+
+<!-- Structured Data (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Abdulmalek Al-Darwish",
+  "jobTitle": "Full-Stack Developer & AI Specialist",
+  "url": "https://abd-ulmalek.vercel.app",
+  "image": "https://i.ibb.co/v6GfWRYy/1447-04-14-01-59-41-1370e94e.jpg",
+  "email": "ferasatik1@gmail.com",
+  "telephone": "+4741205043",
+  "description": "Full-Stack Developer with 5+ years experience in web development and AI automation"
+}
+</script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            .scroll-buttons {
+                right: 1rem;
+                bottom: 1rem;
+            }
+
+
+        .scroll-btn {
+            width: 45px;
+            height: 45px;
+            font-size: 1.2rem;
+        }
+    }
+
+    :root {
+        --primary: #0a0a0a;
+        --accent: #d4af37;
+        --text-light: #ffffff;
+        --text-dark: #333;
+        --bg-dark: #0f0f0f;
+        --bg-light: #1a1a1a;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        -webkit-text-size-adjust: 100%;
+        background: var(--primary);
+        color: var(--text-light);
+        line-height: 1.6;
+        overflow-x: hidden;
+    }
+
+    /* Scroll Animations */
+    .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .slide-in-left {
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .slide-in-left.visible {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .slide-in-right {
+        opacity: 0;
+        transform: translateX(50px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .slide-in-right.visible {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .scale-in {
+        opacity: 0;
+        transform: scale(0.8);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .scale-in.visible {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .stagger-animation > * {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .stagger-animation.visible > *:nth-child(1) { transition-delay: 0.1s; }
+    .stagger-animation.visible > *:nth-child(2) { transition-delay: 0.2s; }
+    .stagger-animation.visible > *:nth-child(3) { transition-delay: 0.3s; }
+    .stagger-animation.visible > *:nth-child(4) { transition-delay: 0.4s; }
+    .stagger-animation.visible > *:nth-child(5) { transition-delay: 0.5s; }
+    .stagger-animation.visible > *:nth-child(6) { transition-delay: 0.6s; }
+    .stagger-animation.visible > *:nth-child(7) { transition-delay: 0.7s; }
+    .stagger-animation.visible > *:nth-child(8) { transition-delay: 0.8s; }
+
+    .stagger-animation.visible > * {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Header & Navigation */
+    header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        padding: 1rem 0;
+        border-bottom: 2px solid var(--accent);
+        transform: translateY(-100%);
+        animation: slideDown 0.8s ease forwards;
+    }
+
+    @keyframes slideDown {
+        to {
+            transform: translateY(0);
+        }
+    }
+
+    nav {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--accent);
+        text-decoration: none;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+        transform: scale(1.1);
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+    }
+
+    .nav-links a {
+        color: var(--text-light);
+        text-decoration: none;
+        transition: color 0.3s;
+        font-weight: 500;
+    }
+
+    .nav-links a:hover {
+        color: var(--accent);
+    }
+
+    .lang-selector {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .lang-btn {
+        background: transparent;
+        border: 1px solid var(--accent);
+        color: var(--accent);
+        padding: 0.3rem 0.8rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        border-radius: 4px;
+    }
+
+    .lang-btn:hover, .lang-btn.active {
+        background: var(--accent);
+        color: var(--primary);
+    }
+
+    /* Hero Section */
+    .hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-light) 100%);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero::before {
+        content: '';
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        background: var(--accent);
+        border-radius: 50%;
+        filter: blur(150px);
+        opacity: 0.1;
+        animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translate(0, 0); }
+        50% { transform: translate(50px, 50px); }
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 800px;
+        padding: 2rem;
+    }
+
+    .hero-content > * {
+        animation: fadeInUp 0.8s ease forwards;
+        opacity: 0;
+    }
+
+    .hero-content > *:nth-child(1) { animation-delay: 0.2s; }
+    .hero-content > *:nth-child(2) { animation-delay: 0.4s; }
+    .hero-content > *:nth-child(3) { animation-delay: 0.6s; }
+    .hero-content > *:nth-child(4) { animation-delay: 0.8s; }
+    .hero-content > *:nth-child(5) { animation-delay: 1s; }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .profile-img {
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        border: 4px solid var(--accent);
+        margin-bottom: 2rem;
+        object-fit: cover;
+        object-position: center top;
+        box-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
+        animation: zoomIn 1s ease forwards;
+        opacity: 0;
+    }
+
+    @keyframes zoomIn {
+        from {
+            opacity: 0;
+            transform: scale(0);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    .hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        color: var(--accent);
+    }
+
+    .hero h2 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+        font-weight: 300;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+    }
+
+    .cta-btn {
+        display: inline-block;
+        background: var(--accent);
+        color: var(--primary);
+        padding: 1rem 2.5rem;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: bold;
+        transition: all 0.3s;
+        box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+    }
+
+    .cta-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 30px rgba(212, 175, 55, 0.5);
+    }
+
+    /* Sections */
+    section {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 5rem 2rem;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 3rem;
+        color: var(--accent);
+        position: relative;
+    }
+
+    .section-title::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 3px;
+        background: var(--accent);
+        margin: 1rem auto;
+        transition: width 0.8s ease;
+    }
+
+    .section-title.visible::after {
+        width: 100px;
+    }
+
+    /* About Section */
+    #about {
+        background: var(--bg-light);
+    }
+
+    .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: start;
+    }
+
+    .about-text {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: var(--text-light);
+    }
+
+    .about-text p {
+        margin-bottom: 1.5rem;
+    }
+
+    .about-text strong {
+        color: var(--accent);
+        font-weight: 600;
+    }
+
+    .stats {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .stat-item {
+        background: var(--primary);
+        padding: 1.5rem;
+        border-radius: 10px;
+        text-align: center;
+        border: 2px solid var(--accent);
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+        color: var(--accent);
+        font-weight: bold;
+        display: block;
+    }
+
+    .stat-label {
+        color: var(--text-light);
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+    }
+
+    .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .skill-tag {
+        background: var(--primary);
+        color: var(--accent);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        border: 1px solid var(--accent);
+        font-size: 0.9rem;
+        transition: all 0.3s;
+    }
+
+    .skill-tag:hover {
+        background: var(--accent);
+        color: var(--primary);
+        transform: scale(1.05);
+    }
+
+    .services {
+        display: grid;
+        gap: 1.5rem;
+    }
+
+    .service-item {
+        background: var(--bg-light);
+        padding: 1.5rem;
+        border-radius: 10px;
+        border-left: 4px solid var(--accent);
+        transition: all 0.3s;
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    .slide-in-right.visible .service-item {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .slide-in-right.visible .service-item:nth-child(1) {
+        transition-delay: 0.1s;
+    }
+
+    .slide-in-right.visible .service-item:nth-child(2) {
+        transition-delay: 0.2s;
+    }
+
+    .slide-in-right.visible .service-item:nth-child(3) {
+        transition-delay: 0.3s;
+    }
+
+    .service-item:hover {
+        transform: translateX(10px);
+        box-shadow: 0 5px 20px rgba(212, 175, 55, 0.2);
+    }
+
+    .service-item h3 {
+        color: var(--accent);
+        margin-bottom: 0.5rem;
+    }
+
+    /* Portfolio Section */
+    .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+
+    .portfolio-item {
+        background: var(--bg-light);
+        border-radius: 15px;
+        overflow: hidden;
+        transition: all 0.3s;
+        border: 1px solid transparent;
+    }
+
+    .portfolio-item:hover {
+        transform: translateY(-10px);
+        border-color: var(--accent);
+        box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
+    }
+
+    .portfolio-img {
+        width: 100%;
+        height: 200px;
+        background: linear-gradient(135deg, var(--accent) 0%, #b8941e 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        color: var(--primary);
+    }
+
+    .portfolio-info {
+        padding: 1.5rem;
+    }
+
+    .portfolio-info h3 {
+        color: var(--accent);
+        margin-bottom: 0.5rem;
+    }
+
+    /* Modal */
+.modal {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.9);
+z-index: 10000;
+overflow-y: auto;
+animation: fadeIn 0.3s ease;
+}
+
+
+    .modal.active {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+    }
+
+    .modal-content {
+        background: var(--bg-light);
+        border-radius: 20px;
+        max-width: 900px;
+        width: 100%;
+        position: relative;
+        animation: slideUp 0.4s ease;
+        border: 2px solid var(--accent);
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .modal-close {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        width: 40px;
+        height: 40px;
+        background: var(--accent);
+        color: var(--primary);
+        border: none;
+        border-radius: 50%;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        z-index: 10;
+    }
+
+    .modal-close:hover {
+        transform: rotate(90deg);
+        box-shadow: 0 5px 15px rgba(212, 175, 55, 0.5);
+    }
+
+    .modal-header {
+        padding: 3rem 3rem 1.5rem;
+        border-bottom: 2px solid var(--accent);
+    }
+
+    .modal-header h2 {
+        color: var(--accent);
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .modal-client {
+        color: #999;
+        font-size: 0.9rem;
+        font-style: italic;
+    }
+
+    .modal-body {
+        padding: 2rem 3rem;
+    }
+
+    .modal-section {
+        margin-bottom: 2rem;
+    }
+
+    .modal-section h3 {
+        color: var(--accent);
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .modal-section h3::before {
+        content: '▸';
+        color: var(--accent);
+    }
+
+    .modal-section p {
+        color: var(--text-light);
+        line-height: 1.8;
+        margin-bottom: 1rem;
+    }
+
+    .tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        margin-top: 1rem;
+    }
+
+    .tech-tag {
+        background: var(--primary);
+        color: var(--accent);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        border: 1px solid var(--accent);
+        transition: all 0.3s;
+    }
+
+    .tech-tag:hover {
+        background: var(--accent);
+        color: var(--primary);
+        transform: scale(1.05);
+    }
+
+    .results-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .result-item {
+        background: var(--primary);
+        padding: 1.5rem;
+        border-radius: 10px;
+        border-left: 3px solid var(--accent);
+        text-align: center;
+    }
+
+    .result-value {
+        color: var(--accent);
+        font-size: 1.8rem;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+
+    .result-label {
+        color: var(--text-light);
+        font-size: 0.9rem;
+    }
+
+
+    /* Contact Section */
+#contact {
+    background: var(--bg-light);
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.contact-info h3 {
+    color: var(--accent);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.contact-info p {
+    color: var(--text-light);
+    opacity: 0.9;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.contact-detail-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--primary);
+    border-radius: 10px;
+    border-left: 3px solid var(--accent);
+    transition: all 0.3s;
+}
+
+.contact-detail-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+}
+
+.contact-detail-item .contact-icon {
+    font-size: 2rem;
+    color: var(--accent);
+}
+
+.contact-detail-item h4 {
+    color: var(--accent);
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+}
+
+.contact-detail-item a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.contact-detail-item a:hover {
+    color: var(--accent);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.social-btn {
+    width: 50px;
+    height: 50px;
+    background: var(--accent);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 1.3rem;
+    transition: all 0.3s;
+}
+
+.social-btn:hover {
+    transform: scale(1.2) rotate(10deg);
+    box-shadow: 0 5px 20px rgba(212, 175, 55, 0.5);
+}
+
+/* Contact Form */
+.contact-form {
+    background: var(--primary);
+    padding: 2.5rem;
+    border-radius: 15px;
+    border: 2px solid var(--accent);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    background: var(--bg-light);
+    border: 2px solid transparent;
+    border-radius: 8px;
+    color: var(--text-light);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1rem;
+    background: var(--accent);
+    color: var(--primary);
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+/* Responsive Contact */
+@media (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .contact-form {
+        padding: 1.5rem;
+    }
+}
+
+    /* Footer */
+    footer {
+        background: var(--bg-dark);
+        text-align: center;
+        padding: 2rem;
+        border-top: 2px solid var(--accent);
+    }
+
+    /* Scroll Buttons */
+    .scroll-buttons {
+        position: fixed;
+        right: 2rem;
+        bottom: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        z-index: 999;
+        opacity: 0;
+        transform: translateX(100px);
+        transition: all 0.3s ease;
+    }
+
+    .scroll-buttons.visible {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .scroll-btn {
+    width: 50px;
+    height: 50px;
+    background: var(--accent);
+    color: var(--primary);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    transition: all 0.3s ease;
+    will-change: transform;
+    backdrop-filter: blur(10px);
+}
+
+    .scroll-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+    }
+
+    .scroll-btn:active {
+        transform: scale(0.95);
+    }
+
+   /* Responsive */
+@media (max-width: 1024px) {
+    nav {
+        padding: 0 1.5rem;
+    }
+
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero h2 {
+        font-size: 1.5rem;
+    }
+
+    .about-content {
+        gap: 2rem;
+    }
+
+    section {
+        padding: 4rem 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .hero {
+        min-height: 100vh;
+        padding: 6rem 1rem 2rem;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero h2 {
+        font-size: 1.4rem;
+    }
+
+    .profile-img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .stat-item {
+        padding: 1rem;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .social-links {
+        gap: 1.5rem;
+    }
+
+    .social-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+    }
+
+    section {
+        padding: 3rem 1rem;
+    }
+
+    nav {
+        padding: 0 1rem;
+    }
+
+    /* Modal Responsive */
+    .modal.active {
+        padding: 1rem;
+        align-items: flex-start;
+    }
+
+    .modal-content {
+        margin-top: 2rem;
+        max-height: 85vh;
+    }
+
+    .modal-header {
+        padding: 2rem 1.5rem 1rem;
+    }
+
+    .modal-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .modal-body {
+        padding: 1.5rem;
+    }
+
+    .modal-section h3 {
+        font-size: 1.1rem;
+    }
+
+    .tech-tags {
+        gap: 0.5rem;
+    }
+
+    .tech-tag {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .results-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+
+    .result-item {
+        padding: 1rem;
+    }
+
+    .result-value {
+        font-size: 1.5rem;
+    }
+
+    .scroll-buttons {
+        right: 1rem;
+        bottom: 1rem;
+    }
+
+    .scroll-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero h2 {
+        font-size: 1.2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .profile-img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .cta-btn {
+        padding: 0.8rem 2rem;
+        font-size: 0.9rem;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-number {
+        font-size: 1.8rem;
+    }
+
+    .skills {
+        justify-content: center;
+        gap: 0.8rem;
+    }
+
+    .skill-tag {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.9rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .portfolio-img {
+        height: 150px;
+        font-size: 2.5rem;
+    }
+
+    .modal-header {
+        padding: 1.5rem 1rem 1rem;
+    }
+
+    .modal-header h2 {
+        font-size: 1.3rem;
+    }
+
+    .modal-body {
+        padding: 1rem;
+    }
+
+    .modal-section {
+        margin-bottom: 1.5rem;
+    }
+
+    .modal-section h3 {
+        font-size: 1rem;
+    }
+
+    .modal-section p {
+        font-size: 0.9rem;
+    }
+
+    .tech-tag {
+        padding: 0.3rem 0.7rem;
+        font-size: 0.75rem;
+    }
+
+    .result-value {
+        font-size: 1.3rem;
+    }
+
+    .result-label {
+        font-size: 0.85rem;
+    }
+
+    .contact-icon {
+        font-size: 2rem;
+    }
+
+    .social-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+
+    .scroll-buttons {
+        right: 0.5rem;
+        bottom: 0.5rem;
+        gap: 0.5rem;
+    }
+
+    .scroll-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+
+    .lang-btn {
+        padding: 0.25rem 0.6rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* Loading Screen */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loading-screen.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+.loader {
+    width: 60px;
+    height: 60px;
+    border: 4px solid rgba(212, 175, 55, 0.1);
+    border-top: 4px solid var(--accent);
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loader-text {
+    color: var(--accent);
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.loader-subtitle {
+    color: var(--text-light);
+    font-size: 1rem;
+    opacity: 0.7;
+}
+
+    .hidden {
+        display: none;
+    }
+
+
+/* Chatbot Styles */
+.chatbot-button {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--accent) 0%, #b8941e 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+    transition: all 0.3s ease;
+    z-index: 998;
+    border: 3px solid var(--primary);
+}
+
+.chatbot-button:hover {
+    transform: scale(1.1) rotate(10deg);
+    box-shadow: 0 6px 30px rgba(212, 175, 55, 0.6);
+}
+
+.chatbot-button svg {
+    width: 30px;
+    height: 30px;
+    fill: var(--primary);
+}
+
+.chatbot-container {
+    position: fixed;
+    bottom: 5rem;
+    left: 2rem;
+    width: 380px;
+    height: 550px;
+    background: var(--bg-light);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 999;
+    border: 2px solid var(--accent);
+    animation: slideUp 0.4s ease;
+}
+
+.chatbot-container.active {
+    display: flex;
+}
+
+.chatbot-header {
+    background: linear-gradient(135deg, var(--accent) 0%, #b8941e 100%);
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chatbot-header h3 {
+    color: var(--primary);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.chatbot-close {
+    background: transparent;
+    border: none;
+    color: var(--primary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+
+.chatbot-close:hover {
+    background: rgba(0, 0, 0, 0.2);
+    transform: rotate(90deg);
+}
+
+.chatbot-messages {
+    flex: 1;
+    padding: 1.5rem;
+    overflow-y: auto;
+    background: var(--primary);
+}
+
+.chat-message {
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    animation: fadeInUp 0.3s ease;
+}
+
+.chat-message.bot {
+    justify-content: flex-start;
+}
+
+.chat-message.user {
+    justify-content: flex-end;
+}
+
+.message-bubble {
+    max-width: 75%;
+    padding: 0.8rem 1rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.chat-message.bot .message-bubble {
+    background: var(--bg-light);
+    color: var(--text-light);
+    border-bottom-left-radius: 5px;
+}
+
+.chat-message.user .message-bubble {
+    background: var(--accent);
+    color: var(--primary);
+    border-bottom-right-radius: 5px;
+}
+
+.chatbot-options {
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.chat-option {
+    background: var(--bg-light);
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.chat-option:hover {
+    background: var(--accent);
+    color: var(--primary);
+    transform: scale(1.05);
+}
+
+.chatbot-input {
+    padding: 1rem 1.5rem;
+    background: var(--bg-light);
+    border-top: 2px solid var(--accent);
+    display: flex;
+    gap: 0.5rem;
+}
+
+.chatbot-input input {
+    flex: 1;
+    padding: 0.8rem;
+    background: var(--primary);
+    border: 2px solid transparent;
+    border-radius: 25px;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.chatbot-input input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.chatbot-send {
+    background: var(--accent);
+    color: var(--primary);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.chatbot-send:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .chatbot-container {
+        width: calc(100% - 2rem);
+        height: 500px;
+        left: 1rem;
+        bottom: 5rem;
+    }
+    
+    .chatbot-button {
+        bottom: 1.5rem;
+        left: 1rem;
+        width: 55px;
+        height: 55px;
+    }
+}
+
+
+</style>
+
+
+</head>
+<body>
+
+<!-- Article Markup to Control Reader View -->
+<article>
+
+<!-- Loading Screen -->
+<div id="loadingScreen" class="loading-screen">
+    <div class="loader-content">
+        <div class="loader"></div>
+        <h2 class="loader-text">AA</h2>
+        <p class="loader-subtitle">Loading...</p>
+    </div>
+</div>
+
+    <header>
+        <nav>
+            <a href="#" class="logo" onclick="reloadAndScrollTop(); return false;">AA</a>
+            <ul class="nav-links">
+                <li><a href="#about" data-translate="nav_about">About</a></li>
+                <li><a href="#portfolio" data-translate="nav_portfolio">Portfolio</a></li>
+                <li><a href="#contact" data-translate="nav_contact">Contact</a></li>
+            </ul>
+            <div class="lang-selector">
+                <button class="lang-btn active" onclick="changeLang('en')">EN</button>
+                <button class="lang-btn" onclick="changeLang('no')">NO</button>
+                <button class="lang-btn" onclick="changeLang('ar')">AR</button>
+            </div>
+        </nav>
+    </header>
+
+
+<section class="hero">
+    <div class="hero-content">
+        <img src="https://i.ibb.co/v6GfWRYy/1447-04-14-01-59-41-1370e94e.jpg" alt="Abdulmalek Al-Darwish" class="profile-img">
+        <h1>Abdulmalek Al-Darwish</h1>
+        <h2 data-translate="hero_title">Web Developer & AI Specialist</h2>
+        <p data-translate="hero_desc">Transforming ideas into digital reality through innovative web development, AI automation, and strategic digital marketing</p>
+        <a href="#contact" class="cta-btn" data-translate="hero_cta">Get In Touch</a>
+    </div>
+</section>
+
+<section id="about">
+    <h2 class="section-title fade-in" data-translate="about_title">About Me</h2>
+    <div class="about-content">
+        <div class="about-text slide-in-left">
+            <p data-translate="about_intro">
+                <strong>I'm a Full-Stack Developer</strong> with over 5 years of experience in crafting exceptional digital solutions. My journey in web development has been one of continuous growth and innovation, constantly pushing boundaries to deliver excellence.
+            </p>
+            <p data-translate="about_expertise">
+                Through dedication and passion, I've evolved from mastering the fundamentals to becoming a sought-after professional in the industry. I specialize in building scalable web applications, implementing cutting-edge AI solutions, and creating digital strategies that drive real business results.
+            </p>
+            <p data-translate="about_approach">
+                My approach combines technical expertise with creative problem-solving, ensuring every project not only meets but exceeds expectations. Whether it's a complex e-commerce platform, an intelligent automation system, or a sophisticated web application, I deliver solutions that make an impact.
+            </p>
+            
+            <div class="stats stagger-animation">
+                <div class="stat-item">
+                    <span class="stat-number" data-translate="stat1_num">5+</span>
+                    <span class="stat-label" data-translate="stat1_label">Years Experience</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-translate="stat2_num">50+</span>
+                    <span class="stat-label" data-translate="stat2_label">Projects Completed</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-translate="stat3_num">100%</span>
+                    <span class="stat-label" data-translate="stat3_label">Client Satisfaction</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-translate="stat4_num">24/7</span>
+                    <span class="stat-label" data-translate="stat4_label">Support Available</span>
+                </div>
+            </div>
+
+            <div class="skills stagger-animation">
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">AI/ML</span>
+                <span class="skill-tag">TypeScript</span>
+                <span class="skill-tag">Next.js</span>
+                <span class="skill-tag">MongoDB</span>
+                <span class="skill-tag">PostgreSQL</span>
+            </div>
+        </div>
+        <div class="services slide-in-right">
+            <div class="service-item">
+                <h3 data-translate="service1_title">🌐 Web Development</h3>
+                <p data-translate="service1_desc">Full-stack development with modern frameworks - from responsive frontends to robust backends</p>
+            </div>
+            <div class="service-item">
+                <h3 data-translate="service2_title">🤖 AI Automation</h3>
+                <p data-translate="service2_desc">Intelligent systems powered by machine learning to automate and optimize business processes</p>
+            </div>
+            <div class="service-item">
+                <h3 data-translate="service3_title">📱 Digital Marketing</h3>
+                <p data-translate="service3_desc">Data-driven marketing strategies with SEO optimization and conversion-focused campaigns</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="portfolio">
+        <h2 class="section-title fade-in" data-translate="portfolio_title">My Work</h2>
+        <div class="portfolio-grid stagger-animation">
+            <!-- Project 1: Medical Booking -->
+            <div class="portfolio-item" onclick="openModal('project1')">
+                <div class="portfolio-img">
+                    <div class="portfolio-placeholder">🏥</div>
+                </div>
+                <div class="portfolio-info">
+                    <h3 data-translate="project1_title">Smart Medical Booking Platform</h3>
+                    <p data-translate="project1_short">Comprehensive appointment system connecting patients with doctors efficiently</p>
+                    <button class="portfolio-btn" data-translate="learn_more">Learn More →</button>
+                </div>
+            </div>
+
+
+        <!-- Project 2: Restaurant POS -->
+        <div class="portfolio-item" onclick="openModal('project2')">
+            <div class="portfolio-img">
+                <div class="portfolio-placeholder">🍽</div>
+            </div>
+            <div class="portfolio-info">
+                <h3 data-translate="project2_title">Restaurant POS & Management</h3>
+                <p data-translate="project2_short">Complete solution for orders, inventory, and staff management</p>
+                <button class="portfolio-btn" data-translate="learn_more">Learn More →</button>
+            </div>
+        </div>
+
+        <!-- Project 3: AI Chatbot -->
+        <div class="portfolio-item" onclick="openModal('project3')">
+            <div class="portfolio-img">
+                <div class="portfolio-placeholder">🤖</div>
+            </div>
+            <div class="portfolio-info">
+                <h3 data-translate="project3_title">AI Customer Support Assistant</h3>
+                <p data-translate="project3_short">AI-powered chatbot answering customer inquiries 24/7</p>
+                <button class="portfolio-btn" data-translate="learn_more">Learn More →</button>
+            </div>
+        </div>
+
+        <!-- Project 4: Analytics Dashboard -->
+        <div class="portfolio-item" onclick="openModal('project4')">
+            <div class="portfolio-img">
+                <div class="portfolio-placeholder">📊</div>
+            </div>
+            <div class="portfolio-info">
+                <h3 data-translate="project4_title">Business Analytics Dashboard</h3>
+                <p data-translate="project4_short">Analytical system turning complex data into clear insights</p>
+                <button class="portfolio-btn" data-translate="learn_more">Learn More →</button>
+            </div>
+        </div>
+
+        <!-- Project 5: E-Learning -->
+        <div class="portfolio-item" onclick="openModal('project5')">
+            <div class="portfolio-img">
+                <div class="portfolio-placeholder">🎓</div>
+            </div>
+            <div class="portfolio-info">
+                <h3 data-translate="project5_title">Interactive Learning Platform</h3>
+                <p data-translate="project5_short">Complete digital learning environment for students and teachers</p>
+                <button class="portfolio-btn" data-translate="learn_more">Learn More →</button>
+            </div>
+        </div>
+
+        <!-- Project 6: CRM -->
+        <div class="portfolio-item" onclick="openModal('project6')">
+            <div class="portfolio-img">
+                <div class="portfolio-placeholder">💼</div>
+            </div>
+            <div class="portfolio-info">
+                <h3 data-translate="project6_title">CRM System</h3>
+                <p data-translate="project6_short">Comprehensive solution for tracking customers and sales</p>
+                <button class="portfolio-btn" data-translate="learn_more">Learn More →</button>
+            </div>
+        </div>
+
+        <!-- Project 7: Website -->
+        <div class="portfolio-item" onclick="openModal('project7')">
+            <div class="portfolio-img">
+                <div class="portfolio-placeholder">🌐</div>
+            </div>
+            <div class="portfolio-info">
+                <h3 data-translate="project7_title">Professional Multi-Language Website</h3>
+                <p data-translate="project7_short">Corporate website with modern design and SEO optimization</p>
+                <button class="portfolio-btn" data-translate="learn_more">Learn More →</button>
+            </div>
+        </div>
+
+        <!-- Project 8: E-Commerce -->
+        <div class="portfolio-item" onclick="openModal('project8')">
+            <div class="portfolio-img">
+                <div class="portfolio-placeholder">🛒</div>
+            </div>
+            <div class="portfolio-info">
+                <h3 data-translate="project8_title">E-Commerce Platform</h3>
+                <p data-translate="project8_short">Modern online store with secure payment system</p>
+                <button class="portfolio-btn" data-translate="learn_more">Learn More →</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Modal -->
+<div id="modal" class="modal" onclick="closeModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <button class="modal-close" onclick="closeModal()">×</button>
+        <div id="modalContent"></div>
+    </div>
+</div>
+
+
+<section id="contact">
+    <h2 class="section-title fade-in" data-translate="contact_title">Contact Me</h2>
+    
+    <div class="contact-container">
+        <div class="contact-info fade-in">
+            <h3 data-translate="contact_info_title">Get In Touch</h3>
+            <p data-translate="contact_info_desc">Have a project in mind? Let's discuss how I can help bring your ideas to life.</p>
+            
+            <div class="contact-details">
+                <div class="contact-detail-item">
+                    <div class="contact-icon">📧</div>
+                    <div>
+                        <h4 data-translate="contact_email">Email</h4>
+                        <a href="mailto:ferasatik1@gmail.com">ferasatik1@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-detail-item">
+                    <div class="contact-icon">📱</div>
+                    <div>
+                        <h4 data-translate="contact_phone">Phone</h4>
+                        <a href="tel:+4741205043">+47 412 05 043</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://www.facebook.com/share/1AMQeKQNaa/?mibextid=wwXIfr" target="_blank" class="social-btn" title="Facebook">f</a>
+                <a href="https://www.instagram.com/maleekrd?igsh=NTQwemJqcW1wZmQz&utm_source=qr" target="_blank" class="social-btn" title="Instagram">📷</a>
+            </div>
+        </div>
+        
+        <form class="contact-form fade-in" id="contactForm">
+            <div class="form-group">
+                <label for="name" data-translate="form_name">Your Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email" data-translate="form_email">Your Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message" data-translate="form_message">Your Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn" data-translate="form_submit">Send Message</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 Abdulmalek Al-Darwish. <span data-translate="footer_rights">All rights reserved.</span></p>
+</footer>
+
+<!-- Modal -->
+<div id="modal" class="modal" onclick="closeModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <button class="modal-close" onclick="closeModal()">×</button>
+        <div id="modalContent"></div>
+    </div>
+</div>
+
+<!-- Scroll Buttons -->
+<div class="scroll-buttons" id="scrollButtons">
+    <button class="scroll-btn" onclick="scrollToTop()" title="Scroll to top">↑</button>
+    <button class="scroll-btn" onclick="scrollToBottom()" title="Scroll to bottom">↓</button>
+</div>
+
+
+<!-- AI Chatbot -->
+<div class="chatbot-button" id="chatbotButton" onclick="toggleChatbot()">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M12 2C6.48 2 2 6.48 2 12c0 1.54.36 3 .97 4.29L2 22l5.71-.97C9 21.64 10.46 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.38 0-2.63-.35-3.77-.95l-.27-.15-2.83.48.48-2.83-.15-.27C4.85 14.63 4.5 13.38 4.5 12c0-4.14 3.36-7.5 7.5-7.5s7.5 3.36 7.5 7.5-3.36 7.5-7.5 7.5z"/>
+        <circle cx="9" cy="12" r="1"/>
+        <circle cx="12" cy="12" r="1"/>
+        <circle cx="15" cy="12" r="1"/>
+    </svg>
+</div>
+
+<div class="chatbot-container" id="chatbotContainer">
+    <div class="chatbot-header">
+    <h3 data-translate="chatbot_title">💬 Chat with Me</h3>
+    <button class="chatbot-close" onclick="toggleChatbot()">×</button>
+    </div>
+    
+    <div class="chat-message bot">
+    <div class="message-bubble" data-translate="chatbot_welcome">
+        Hi! I'm Abdulmalek's AI assistant 👋<br>
+        How can I help you today?
+ </div>
+</div>
+    
+    <div class="chatbot-options" id="chatbotOptions">
+        <button class="chat-option" onclick="selectOption('services')" data-translate="chat_opt_services">🌐 Your Services</button>
+        <button class="chat-option" onclick="selectOption('experience')" data-translate="chat_opt_experience">💼 Experience</button>
+        <button class="chat-option" onclick="selectOption('pricing')" data-translate="chat_opt_pricing">💰 Pricing</button>
+        <button class="chat-option" onclick="selectOption('contact')" data-translate="chat_opt_contact">📧 Contact Info</button>
+        <button class="chat-option" onclick="selectOption('portfolio')" data-translate="chat_opt_portfolio">🎨 See Projects</button>
+        <button class="chat-option" onclick="selectOption('availability')" data-translate="chat_opt_availability">⏰ Availability</button>
+    </div>
+    
+    <div class="chatbot-input">
+        <input type="text" id="chatInput" data-translate-placeholder="chat_input_placeholder" placeholder="Type your message..." onkeypress="handleEnter(event)">
+        <button class="chatbot-send" onclick="sendMessage()">➤</button>
+    </div>
+</div>
+
+
+<script>
+    const translations = {
+        en: {
+            nav_about: "About",
+            nav_portfolio: "Portfolio",
+            nav_contact: "Contact",
+            hero_title: "Full-Stack Developer & AI Specialist",
+            hero_desc: "Transforming ideas into digital reality through innovative web development, AI automation, and strategic digital marketing",
+            hero_cta: "Get In Touch",
+            about_title: "About Me",
+            about_intro: "I'm a Full-Stack Developer with over 5 years of experience in crafting exceptional digital solutions. My journey in web development has been one of continuous growth and innovation, constantly pushing boundaries to deliver excellence.",
+            about_expertise: "Through dedication and passion, I've evolved from mastering the fundamentals to becoming a sought-after professional in the industry. I specialize in building scalable web applications, implementing cutting-edge AI solutions, and creating digital strategies that drive real business results.",
+            about_approach: "My approach combines technical expertise with creative problem-solving, ensuring every project not only meets but exceeds expectations. Whether it's a complex e-commerce platform, an intelligent automation system, or a sophisticated web application, I deliver solutions that make an impact.",
+            stat1_num: "5+",
+            stat1_label: "Years Experience",
+            stat2_num: "50+",
+            stat2_label: "Projects Completed",
+            stat3_num: "100%",
+            stat3_label: "Client Satisfaction",
+            stat4_num: "24/7",
+            stat4_label: "Support Available",
+            service1_title: "🌐 Web Development",
+            service1_desc: "Full-stack development with modern frameworks - from responsive frontends to robust backends",
+            service2_title: "🤖 AI Automation",
+            service2_desc: "Intelligent systems powered by machine learning to automate and optimize business processes",
+            service3_title: "📱 Digital Marketing",
+            service3_desc: "Data-driven marketing strategies with SEO optimization and conversion-focused campaigns",
+            portfolio_title: "My Work",
+            project1_title: "E-Commerce Platform",
+            project1_short: "Comprehensive appointment system connecting patients with doctors efficiently",
+            project2_title: "AI Chatbot System",
+            project2_short: "Complete solution for orders, inventory, and staff management",
+            project3_title: "Business Dashboard",
+            project3_short: "AI-powered chatbot answering customer inquiries 24/7",
+            project4_title: "Corporate Website",
+            project4_short: "Analytical system turning complex data into clear insights",
+            project5_title: "Interactive Learning Platform",
+            project5_short: "Complete digital learning environment for students and teachers",
+            project6_title: "CRM System",
+            project6_short: "Comprehensive solution for tracking customers and sales",
+            project7_title: "Professional Multi-Language Website",
+            project7_short: "Corporate website with modern design and SEO optimization",
+            project8_title: "E-Commerce Platform",
+            project8_short: "Modern online store with secure payment system",
+            learn_more: "Learn More →",
+            contact_title: "Contact Me",
+            contact_email: "Email",
+            contact_phone: "Phone",
+            footer_rights: "All rights reserved.",
+            contact_info_title: "Get In Touch",
+            contact_info_desc: "Have a project in mind? Let's discuss how I can help bring your ideas to life.",
+            form_name: "Your Name",
+            form_email: "Your Email",
+            form_message: "Your Message",
+            form_submit: "Send Message",
+
+            // Chatbot translations
+            chatbot_title: "💬 Chat with Me",
+            chatbot_welcome: "Hi! I'm Abdulmalek's AI assistant 👋<br>How can I help you today?",
+            chat_opt_services: "🌐 Your Services",
+            chat_opt_experience: "💼 Experience",
+            chat_opt_pricing: "💰 Pricing",
+            chat_opt_contact: "📧 Contact Info",
+            chat_opt_portfolio: "🎨 See Projects",
+            chat_opt_availability: "⏰ Availability",
+            chat_input_placeholder: "Type your message...",
+
+        },
+        no: {
+            nav_about: "Om meg",
+            nav_portfolio: "Portefølje",
+            nav_contact: "Kontakt",
+            hero_title: "Full-Stack-utvikler & AI-spesialist",
+            hero_desc: "Transformerer ideer til digital virkelighet gjennom innovativ webutvikling, AI-automatisering og strategisk digital markedsføring",
+            hero_cta: "Ta kontakt",
+            about_title: "Om meg",
+            about_intro: "Jeg er en Full-Stack-utvikler med over 5 års erfaring med å lage eksepsjonelle digitale løsninger. Min reise innen webutvikling har vært preget av kontinuerlig vekst og innovasjon, der jeg stadig presser grensene for å levere fortreffelighet.",
+            about_expertise: "Gjennom dedikasjon og lidenskap har jeg utviklet meg fra å mestre det grunnleggende til å bli en etterspurt profesjonell i bransjen. Jeg spesialiserer meg på å bygge skalerbare webapplikasjoner, implementere banebrytende AI-løsninger og skape digitale strategier som gir reelle forretningsresultater.",
+            about_approach: "Min tilnærming kombinerer teknisk ekspertise med kreativ problemløsning, og sikrer at hvert prosjekt ikke bare møter, men overgår forventningene. Enten det er en kompleks e-handelsplattform, et intelligent automatiseringssystem eller en sofistikert webapplikasjon, leverer jeg løsninger som gjør en forskjell.",
+            stat1_num: "5+",
+            stat1_label: "Års erfaring",
+            stat2_num: "50+",
+            stat2_label: "Fullførte prosjekter",
+            stat3_num: "100%",
+            stat3_label: "Kundetilfredshet",
+            stat4_num: "24/7",
+            stat4_label: "Support tilgjengelig",
+            service1_title: "🌐 Webutvikling",
+            service1_desc: "Full-stack utvikling med moderne rammeverk - fra responsive frontends til robuste backends",
+            service2_title: "🤖 AI-automatisering",
+            service2_desc: "Intelligente systemer drevet av maskinlæring for å automatisere og optimalisere forretningsprosesser",
+            service3_title: "📱 Digital markedsføring",
+            service3_desc: "Datadrevne markedsføringsstrategier med SEO-optimalisering og konverteringsfokuserte kampanjer",
+            portfolio_title: "Mitt arbeid",
+            project1_title: "E-handelsplattform",
+            project1_short: "Omfattende timesystem som kobler pasienter med leger effektivt",
+            project2_title: "AI Chatbot-system",
+            project2_short: "Komplett løsning for bestillinger, lager og personaladministrasjon",
+            project3_title: "Bedriftsdashboard",
+            project3_short: "AI-drevet chatbot som svarer på kundehenvendelser 24/7",
+            project4_title: "Bedriftsside",
+            project4_short: "Analytisk system som gjør komplekse data om til klare innsikter",
+            project5_title: "Interaktiv læringsplattform",
+            project5_short: "Komplett digitalt læringsmiljø for studenter og lærere",
+            project6_title: "CRM-system",
+            project6_short: "Omfattende løsning for sporing av kunder og salg",
+            project7_title: "Profesjonell flerspråklig nettside",
+            project7_short: "Bedriftsside med moderne design og SEO-optimalisering",
+            project8_title: "E-handelsplattform",
+            project8_short: "Moderne nettbutikk med sikker betalingssystem",
+            learn_more: "Les mer →",
+            contact_title: "Kontakt meg",
+            contact_email: "E-post",
+            contact_phone: "Telefon",
+            footer_rights: "Alle rettigheter reservert.",
+            contact_info_title: "Ta kontakt",
+            contact_info_desc: "Har du et prosjekt i tankene? La oss diskutere hvordan jeg kan hjelpe til med å realisere ideene dine.",
+            form_name: "Ditt navn",
+            form_email: "E-post",
+            form_message: "Din melding",
+            form_submit: "Send melding",
+
+            // Chatbot translations
+            chatbot_title: "💬 Chat med meg",
+            chatbot_welcome: "Hei! Jeg er Abdulmaleks AI-assistent 👋<br>Hvordan kan jeg hjelpe deg i dag?",
+            chat_opt_services: "🌐 Dine tjenester",
+            chat_opt_experience: "💼 Erfaring",
+            chat_opt_pricing: "💰 Priser",
+            chat_opt_contact: "📧 Kontaktinfo",
+            chat_opt_portfolio: "🎨 Se prosjekter",
+            chat_opt_availability: "⏰ Tilgjengelighet",
+            chat_input_placeholder: "Skriv meldingen din...",
+
+        },
+        ar: {
+            nav_about: "عني",
+            nav_portfolio: "معرض الأعمال",
+            nav_contact: "تواصل",
+            hero_title: "مطور Full-Stack ومتخصص في الذكاء الاصطناعي",
+            hero_desc: "أحول الأفكار إلى واقع رقمي من خلال تطوير المواقع المبتكرة، وأتمتة الذكاء الاصطناعي، والتسويق الرقمي الاستراتيجي",
+            hero_cta: "تواصل معي",
+            about_title: "عن عبدالملك",
+            about_intro: "أنا مطور Full-Stack بخبرة تزيد عن 5 سنوات في صناعة الحلول الرقمية الاستثنائية. رحلتي في تطوير الويب كانت مسيرة من النمو المستمر والابتكار، حيث أدفع الحدود باستمرار لتقديم التميز.",
+            about_expertise: "من خلال التفاني والشغف، تطورت من إتقان الأساسيات إلى أن أصبحت محترفاً مطلوباً في الصناعة. أتخصص في بناء تطبيقات ويب قابلة للتوسع، وتطبيق حلول الذكاء الاصطناعي المتطورة، وإنشاء استراتيجيات رقمية تحقق نتائج أعمال حقيقية.",
+            about_approach: "نهجي يجمع بين الخبرة التقنية وحل المشكلات الإبداعي، مما يضمن أن كل مشروع لا يلبي التوقعات فحسب، بل يتجاوزها. سواء كانت منصة تجارة إلكترونية معقدة، أو نظام أتمتة ذكي، أو تطبيق ويب متطور، أقدم حلولاً تحدث تأثيراً.",
+            stat1_num: "5+",
+            stat1_label: "سنوات خبرة",
+            stat2_num: "50+",
+            stat2_label: "مشروع منجز",
+            stat3_num: "100%",
+            stat3_label: "رضا العملاء",
+            stat4_num: "24/7",
+            stat4_label: "دعم متاح",
+            service1_title: "🌐 تطوير المواقع",
+            service1_desc: "تطوير Full-Stack بأطر عمل حديثة - من واجهات أمامية متجاوبة إلى خلفيات قوية",
+            service2_title: "🤖 أتمتة الذكاء الاصطناعي",
+            service2_desc: "أنظمة ذكية مدعومة بالتعلم الآلي لأتمتة وتحسين العمليات التجارية",
+            service3_title: "📱 التسويق الرقمي",
+            service3_desc: "استراتيجيات تسويقية قائمة على البيانات مع تحسين SEO وحملات موجهة للتحويل",
+            portfolio_title: "أعمالي",
+            project1_title: "منصة تجارة إلكترونية",
+            project1_short: "نظام حجز مواعيد شامل يربط المرضى بالأطباء ويدير العيادات بكفاءة",
+            project2_title: "نظام روبوت محادثة ذكي",
+            project2_short: "حل متكامل لإدارة الطلبات، المخزون، والموظفين مع تقارير فورية",
+            project3_title: "لوحة تحكم الأعمال",
+            project3_short: "روبوت محادثة يعمل بالذكاء الاصطناعي يجيب على استفسارات العملاء 24/7",
+            project4_title: "موقع شركة",
+            project4_short: "نظام تحليلي يحول البيانات المعقدة إلى رؤى واضحة وقرارات ذكية",
+            project5_title: "منصة التعليم التفاعلي",
+            project5_short: "بيئة تعليمية رقمية متكاملة تجمع الطلاب والمدرسين في فصول افتراضية",
+            project6_title: "نظام إدارة علاقات العملاء",
+            project6_short: "حل شامل لتتبع العملاء، المبيعات، والحملات التسويقية في مكان واحد",
+            project7_title: "موقع شركة احترافي متعدد اللغات",
+            project7_short: "موقع تعريفي شامل بتصميم عصري يعكس هوية الشركة ويجذب العملاء",
+            project8_title: "منصة تجارة إلكترونية متكاملة",
+            project8_short: "متجر أونلاين حديث مع نظام دفع آمن وإدارة شاملة للمنتجات والطلبات",
+            learn_more: "اعرف أكثر ←",
+            contact_title: "تواصل معي",
+            contact_email: "البريد الإلكتروني",
+            contact_phone: "الهاتف",
+            footer_rights: "جميع الحقوق محفوظة.",
+            contact_info_title: "تواصل معي",
+            contact_info_desc: "هل لديك مشروع في ذهنك؟ دعنا نناقش كيف يمكنني مساعدتك في تحقيق أفكارك.",
+            form_name: "اسمك",
+            form_email: "بريدك الإلكتروني",
+            form_message: "رسالتك",
+            form_submit: "إرسال الرسالة",
+
+            // Chatbot translations
+            chatbot_title: "💬 دردش معي",
+            chatbot_welcome: "مرحباً! أنا مساعد عبدالملك الذكي 👋<br>كيف يمكنني مساعدتك اليوم؟",
+            chat_opt_services: "🌐 خدماتك",
+            chat_opt_experience: "💼 الخبرة",
+            chat_opt_pricing: "💰 الأسعار",
+            chat_opt_contact: "📧 معلومات التواصل",
+            chat_opt_portfolio: "🎨 شاهد المشاريع",
+            chat_opt_availability: "⏰ التوفر",
+            chat_input_placeholder: "اكتب رسالتك...",
+
+        }
+    };
+
+    function changeLang(lang) {
+    window.currentLang = lang;
+    
+    document.querySelectorAll('.lang-btn').forEach(function(btn) {
+        btn.classList.remove('active');
+    });
+    event.target.classList.add('active');
+    
+    // Translate text content
+    document.querySelectorAll('[data-translate]').forEach(function(el) {
+        const key = el.getAttribute('data-translate');
+        if (translations[lang][key]) {
+            el.innerHTML = translations[lang][key];
+        }
+    });
+    
+    // Translate placeholders
+    document.querySelectorAll('[data-translate-placeholder]').forEach(function(el) {
+        const key = el.getAttribute('data-translate-placeholder');
+        if (translations[lang][key]) {
+            el.placeholder = translations[lang][key];
+        }
+    });
+    
+    // Update chatbot welcome message
+    const welcomeMsg = document.querySelector('.chat-message.bot .message-bubble');
+    if (welcomeMsg && translations[lang]['chatbot_welcome']) {
+        welcomeMsg.innerHTML = translations[lang]['chatbot_welcome'];
+    }
+
+    if (lang === 'ar') {
+        document.body.style.direction = 'rtl';
+    } else {
+        document.body.style.direction = 'ltr';
+    }
+}
+
+    // Enhanced Smooth scrolling with offset for header
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        
+        // Handle empty hash (logo click)
+        if (targetId === '#' || targetId === '') {
+            window.scrollTo({ 
+                top: 0, 
+                behavior: 'smooth' 
+            });
+            return;
+        }
+        
+        const target = document.querySelector(targetId);
+        if (target) {
+            const headerHeight = 80; // Height of fixed header
+            const targetPosition = target.offsetTop - headerHeight;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+    // Scroll Animation Observer
+    const observerOptions = {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    // Observe all animated elements
+    document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in, .stagger-animation').forEach(el => {
+        observer.observe(el);
+    });
+
+    // Scroll buttons functionality
+    const scrollButtons = document.getElementById('scrollButtons');
+
+    function scrollToTop() {
+    window.scrollTo({ 
+        top: 0, 
+        behavior: 'smooth' 
+    });
+}
+
+function scrollToBottom() {
+    window.scrollTo({ 
+        top: document.body.scrollHeight, 
+        behavior: 'smooth' 
+    });
+}
+
+    // Show/hide scroll buttons
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        scrollButtons.classList.add('visible');
+    } else {
+        scrollButtons.classList.remove('visible');
+    }
+});
+    // Store current language
+window.currentLang = 'en';
+
+function openModal(projectId) {
+    const modal = document.getElementById('modal');
+    const modalContent = document.getElementById('modalContent');
+    const lang = window.currentLang || 'en';
+    
+    const projectData = {
+        project1: { en: { title: "Smart Medical Booking Platform", client: "Healthcare Provider", overview: "Developed a comprehensive medical appointment system handling 500+ daily bookings.", challenge: "Manual management led to double bookings and long wait times across 5 clinic locations.", solution: "Built real-time booking with intelligent scheduling, automated reminders, and payment processing.", tech: ["React", "Node.js", "PostgreSQL", "Socket.io", "Stripe", "Twilio"], results: [{ value: "75%", label: "Reduced Wait Times" }, { value: "90%", label: "Booking Accuracy" }, { value: "500+", label: "Daily Appointments" }] }, no: { title: "Smart medisinsk bookingplattform", client: "Helsetjenesteleverandør", overview: "Utviklet omfattende timesystem som håndterer 500+ daglige bookinger.", challenge: "Manuell styring førte til dobbeltbookinger og lange ventetider på tvers av 5 klinikker.", solution: "Bygget sanntids booking med intelligente algoritmer, automatiske påminnelser og betalingsbehandling.", tech: ["React", "Node.js", "PostgreSQL", "Socket.io", "Stripe", "Twilio"], results: [{ value: "75%", label: "Reduserte ventetider" }, { value: "90%", label: "Booking-nøyaktighet" }, { value: "500+", label: "Daglige avtaler" }] }, ar: { title: "منصة حجز المواعيد الطبية", client: "مقدم رعاية صحية", overview: "طورت نظام شامل يعالج 500+ حجز يومي.", challenge: "الإدارة اليدوية أدت لحجوزات مزدوجة عبر 5 عيادات.", solution: "بنيت نظام فوري مع جدولة ذكية وتذكيرات تلقائية.", tech: ["React", "Node.js", "PostgreSQL", "Socket.io", "Stripe", "Twilio"], results: [{ value: "75%", label: "تقليل الانتظار" }, { value: "90%", label: "دقة الحجز" }, { value: "500+", label: "موعد يومي" }] } },
+        project2: { en: { title: "Restaurant POS System", client: "Restaurant Chain", overview: "All-in-one system managing orders, inventory, and staff for growing chain.", challenge: "Disconnected systems led to inventory issues and slow processing.", solution: "Cloud-based POS with offline capabilities and real-time sync.", tech: ["Next.js", "Express", "MongoDB", "Redis", "WebSocket"], results: [{ value: "60%", label: "Faster Processing" }, { value: "85%", label: "Inventory Accuracy" }, { value: "$50K+", label: "Monthly Savings" }] }, no: { title: "Restaurant POS-system", client: "Restaurantkjede", overview: "Alt-i-ett system for bestillinger, lager og personale.", challenge: "Frakoblede systemer ga lageravvik og langsom behandling.", solution: "Skybasert POS med offline-funksjoner og sanntidssynkronisering.", tech: ["Next.js", "Express", "MongoDB", "Redis", "WebSocket"], results: [{ value: "60%", label: "Raskere behandling" }, { value: "85%", label: "Lagernøyaktighet" }, { value: "$50K+", label: "Månedlige besparelser" }] }, ar: { title: "نظام نقاط البيع", client: "سلسلة مطاعم", overview: "نظام شامل للطلبات والمخزون والموظفين.", challenge: "أنظمة منفصلة أدت لمشاكل المخزون.", solution: "نظام سحابي مع قدرات غير متصلة.", tech: ["Next.js", "Express", "MongoDB", "Redis", "WebSocket"], results: [{ value: "60%", label: "معالجة أسرع" }, { value: "85%", label: "دقة المخزون" }, { value: "$50K+", label: "توفير شهري" }] } },
+        project3: { en: { title: "AI Support Assistant", client: "E-commerce Company", overview: "Intelligent chatbot handling inquiries 24/7.", challenge: "Support team overwhelmed with repetitive questions.", solution: "AI chatbot with natural language processing.", tech: ["Python", "TensorFlow", "FastAPI", "React", "OpenAI"], results: [{ value: "80%", label: "Automated" }, { value: "2min", label: "Response Time" }, { value: "95%", label: "Satisfaction" }] }, no: { title: "AI støtteassistent", client: "E-handelselskap", overview: "Intelligent chatbot som håndterer forespørsler 24/7.", challenge: "Støtteteam overveldet med repeterende spørsmål.", solution: "AI-chatbot med språkbehandling.", tech: ["Python", "TensorFlow", "FastAPI", "React", "OpenAI"], results: [{ value: "80%", label: "Automatisert" }, { value: "2min", label: "Responstid" }, { value: "95%", label: "Tilfredshet" }] }, ar: { title: "مساعد دعم ذكي", client: "شركة تجارة إلكترونية", overview: "روبوت ذكي يتعامل مع الاستفسارات.", challenge: "فريق الدعم مثقل بالأسئلة المتكررة.", solution: "روبوت ذكي بمعالجة اللغة.", tech: ["Python", "TensorFlow", "FastAPI", "React", "OpenAI"], results: [{ value: "80%", label: "مؤتمت" }, { value: "دقيقتان", label: "وقت الاستجابة" }, { value: "95%", label: "الرضا" }] } },
+        project4: { en: { title: "Analytics Dashboard", client: "Financial Firm", overview: "Platform transforming financial data into insights.", challenge: "Scattered data with no unified view.", solution: "Interactive dashboard with real-time visualization.", tech: ["React", "D3.js", "Python", "PostgreSQL", "AWS"], results: [{ value: "90%", label: "Time Saved" }, { value: "12", label: "Sources Unified" }, { value: "Real-time", label: "Updates" }] }, no: { title: "Analysedashboard", client: "Finansfirma", overview: "Plattform som transformerer data til innsikter.", challenge: "Spredt data uten enhetlig visning.", solution: "Interaktivt dashbord med sanntidsvisualisering.", tech: ["React", "D3.js", "Python", "PostgreSQL", "AWS"], results: [{ value: "90%", label: "Tid spart" }, { value: "12", label: "Kilder forent" }, { value: "Sanntid", label: "Oppdateringer" }] }, ar: { title: "لوحة تحليلات", client: "شركة مالية", overview: "منصة تحول البيانات لرؤى.", challenge: "بيانات مبعثرة بدون رؤية موحدة.", solution: "لوحة تفاعلية بتصور فوري.", tech: ["React", "D3.js", "Python", "PostgreSQL", "AWS"], results: [{ value: "90%", label: "وقت موفر" }, { value: "12", label: "مصدر موحد" }, { value: "فوري", label: "تحديثات" }] } },
+        project5: { en: { title: "Learning Platform", client: "Educational Institution", overview: "E-learning with live classes and assignments.", challenge: "Traditional methods couldn't adapt to remote education.", solution: "LMS with video conferencing and progress tracking.", tech: ["React", "Node.js", "WebRTC", "MongoDB", "AWS"], results: [{ value: "5,000+", label: "Students" }, { value: "85%", label: "Completion" }, { value: "4.8/5", label: "Rating" }] }, no: { title: "Læringsplattform", client: "Utdanningsinstitusjon", overview: "E-læring med live klasser og oppgaver.", challenge: "Tradisjonelle metoder kunne ikke tilpasses fjernundervisning.", solution: "LMS med videokonferanser og fremdriftssporing.", tech: ["React", "Node.js", "WebRTC", "MongoDB", "AWS"], results: [{ value: "5,000+", label: "Studenter" }, { value: "85%", label: "Fullføring" }, { value: "4.8/5", label: "Vurdering" }] }, ar: { title: "منصة تعليمية", client: "مؤسسة تعليمية", overview: "تعليم إلكتروني مع فصول مباشرة.", challenge: "الطرق التقليدية لم تتكيف مع التعليم عن بعد.", solution: "نظام مع مؤتمرات فيديو وتتبع.", tech: ["React", "Node.js", "WebRTC", "MongoDB", "AWS"], results: [{ value: "5,000+", label: "طالب" }, { value: "85%", label: "إكمال" }, { value: "4.8/5", label: "تقييم" }] } },
+        project6: { en: { title: "CRM System", client: "Sales Organization", overview: "CRM centralizing customer data and sales pipelines.", challenge: "Team used spreadsheets, losing track of leads.", solution: "CRM with lead tracking and automated workflows.", tech: ["Vue.js", "Laravel", "MySQL", "Redis", "Flutter"], results: [{ value: "40%", label: "More Conversions" }, { value: "100%", label: "Lead Tracking" }, { value: "3x", label: "Productivity" }] }, no: { title: "CRM-system", client: "Salgsorganisasjon", overview: "CRM som sentraliserer kundedata og salgspipelines.", challenge: "Team brukte regneark og mistet oversikt.", solution: "CRM med lead-sporing og automatiserte arbeidsflyter.", tech: ["Vue.js", "Laravel", "MySQL", "Redis", "Flutter"], results: [{ value: "40%", label: "Flere konverteringer" }, { value: "100%", label: "Lead-sporing" }, { value: "3x", label: "Produktivitet" }] }, ar: { title: "نظام CRM", client: "منظمة مبيعات", overview: "نظام يركز بيانات العملاء.", challenge: "الفريق استخدم جداول وفقد العملاء.", solution: "نظام مع تتبع وسير عمل تلقائي.", tech: ["Vue.js", "Laravel", "MySQL", "Redis", "Flutter"], results: [{ value: "40%", label: "تحويلات أكثر" }, { value: "100%", label: "تتبع" }, { value: "3x", label: "إنتاجية" }] } },
+        project7: { en: { title: "Multi-Language Website", client: "International Corp", overview: "Corporate website supporting 5 languages with SEO.", challenge: "Outdated site with poor mobile experience.", solution: "Modern responsive website with multi-language support.", tech: ["Next.js", "TypeScript", "Tailwind", "Contentful"], results: [{ value: "250%", label: "Traffic Increase" }, { value: "Top 3", label: "Rankings" }, { value: "5", label: "Languages" }] }, no: { title: "Flerspråklig nettside", client: "Internasjonalt selskap", overview: "Bedriftsside som støtter 5 språk med SEO.", challenge: "Utdatert side med dårlig mobilopplevelse.", solution: "Moderne responsiv side med flerspråklig støtte.", tech: ["Next.js", "TypeScript", "Tailwind", "Contentful"], results: [{ value: "250%", label: "Trafikkøkning" }, { value: "Top 3", label: "Rangeringer" }, { value: "5", label: "Språk" }] }, ar: { title: "موقع متعدد اللغات", client: "شركة دولية", overview: "موقع يدعم 5 لغات مع SEO.", challenge: "موقع قديم مع تجربة محمول سيئة.", solution: "موقع حديث متجاوب مع دعم متعدد اللغات.", tech: ["Next.js", "TypeScript", "Tailwind", "Contentful"], results: [{ value: "250%", label: "زيادة الزيارات" }, { value: "Top 3", label: "تصنيفات" }, { value: "5", label: "لغات" }] } },
+        project8: { en: { title: "E-Commerce Platform", client: "Retail Business", overview: "Complete e-commerce with product management and payments.", challenge: "Manual processing causing lost sales.", solution: "Full-featured store with inventory and payment integration.", tech: ["React", "Node.js", "Stripe", "PayPal", "MongoDB"], results: [{ value: "300%", label: "Sales Increase" }, { value: "10K+", label: "Products" }, { value: "98%", label: "Uptime" }] }, no: { title: "E-handelsplattform", client: "Detaljhandel", overview: "Komplett e-handel med produktstyring og betalinger.", challenge: "Manuell behandling forårsaket tapte salg.", solution: "Fullstendig butikk med lager og betalingsintegrering.", tech: ["React", "Node.js", "Stripe", "PayPal", "MongoDB"], results: [{ value: "300%", label: "Salgsøkning" }, { value: "10K+", label: "Produkter" }, { value: "98%", label: "Oppetid" }] }, ar: { title: "منصة تجارة إلكترونية", client: "أعمال التجزئة", overview: "تجارة إلكترونية كاملة مع إدارة ودفع.", challenge: "المعالجة اليدوية تسببت بخسارة مبيعات.", solution: "متجر كامل مع إدارة مخزون ودفع.", tech: ["React", "Node.js", "Stripe", "PayPal", "MongoDB"], results: [{ value: "300%", label: "زيادة المبيعات" }, { value: "10K+", label: "منتج" }, { value: "98%", label: "وقت التشغيل" }] } }
+    };
+
+    const project = projectData[projectId];
+    if (!project) return;
+    
+    const content = project[lang] || project.en;
+    const labels = { en: { client: "Client", overview: "Overview", challenge: "Challenge", solution: "Solution", tech: "Technologies", results: "Results" }, no: { client: "Klient", overview: "Oversikt", challenge: "Utfordring", solution: "Løsning", tech: "Teknologier", results: "Resultater" }, ar: { client: "العميل", overview: "نظرة عامة", challenge: "التحدي", solution: "الحل", tech: "التقنيات", results: "النتائج" } };
+    const lbl = labels[lang] || labels.en;
+
+    let html = '<div class="modal-header"><h2>' + content.title + '</h2><p class="modal-client">' + lbl.client + ': ' + content.client + '</p></div><div class="modal-body">';
+    html += '<div class="modal-section"><h3>' + lbl.overview + '</h3><p>' + content.overview + '</p></div>';
+    html += '<div class="modal-section"><h3>' + lbl.challenge + '</h3><p>' + content.challenge + '</p></div>';
+    html += '<div class="modal-section"><h3>' + lbl.solution + '</h3><p>' + content.solution + '</p></div>';
+    html += '<div class="modal-section"><h3>' + lbl.tech + '</h3><div class="tech-tags">';
+    for (var i = 0; i < content.tech.length; i++) html += '<span class="tech-tag">' + content.tech[i] + '</span>';
+    html += '</div></div><div class="modal-section"><h3>' + lbl.results + '</h3><div class="results-grid">';
+    for (var i = 0; i < content.results.length; i++) html += '<div class="result-item"><span class="result-value">' + content.results[i].value + '</span><span class="result-label">' + content.results[i].label + '</span></div>';
+    html += '</div></div></div>';
+
+    modalContent.innerHTML = html;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal(event) {
+    const modal = document.getElementById('modal');
+    if (!event || event.target.id === 'modal' || event.target.classList.contains('modal-close')) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+}
+    
+// Hide loading screen when page fully loads
+window.addEventListener('load', function() {
+    const loadingScreen = document.getElementById('loadingScreen');
+    setTimeout(function() {
+        loadingScreen.classList.add('fade-out');
+    }, 500);
+});
+
+
+// ============ AI Chatbot Functions ============
+
+function toggleChatbot() {
+    var container = document.getElementById('chatbotContainer');
+    if (container) {
+        container.classList.toggle('active');
+        
+        if (container.classList.contains('active')) {
+            setTimeout(function() {
+                var messages = document.getElementById('chatbotMessages');
+                if (messages) {
+                    messages.scrollTop = messages.scrollHeight;
+                }
+            }, 100);
+        }
+    }
+}
+
+function addMessage(text, isBot) {
+    if (typeof isBot === 'undefined') isBot = true;
+    
+    var messagesContainer = document.getElementById('chatbotMessages');
+    if (!messagesContainer) return;
+    
+    var messageDiv = document.createElement('div');
+    messageDiv.className = 'chat-message ' + (isBot ? 'bot' : 'user');
+    
+    var bubble = document.createElement('div');
+    bubble.className = 'message-bubble';
+    bubble.innerHTML = text;
+    
+    messageDiv.appendChild(bubble);
+    messagesContainer.appendChild(messageDiv);
+    
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+}
+
+function hideOptions() {
+    var opts = document.getElementById('chatbotOptions');
+    if (opts) opts.style.display = 'none';
+}
+
+function showOptions() {
+    var opts = document.getElementById('chatbotOptions');
+    if (opts) opts.style.display = 'flex';
+}
+
+function showTypingIndicator() {
+    var lang = window.currentLang || 'en';
+    var typingText = {
+        en: '💭 Typing...',
+        no: '💭 Skriver...',
+        ar: '💭 يكتب...'
+    };
+    
+    addMessage(typingText[lang], true);
+}
+
+function removeLastMessage() {
+    var messagesContainer = document.getElementById('chatbotMessages');
+    if (messagesContainer && messagesContainer.lastChild) {
+        messagesContainer.removeChild(messagesContainer.lastChild);
+    }
+}
+
+async function sendMessageToAI(message) {
+    var lang = window.currentLang || 'en';
+    
+    try {
+        var response = await fetch('/api/chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ 
+                message: message,
+                language: lang
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to get response');
+        }
+
+        var data = await response.json();
+        return data.reply;
+
+    } catch (error) {
+        console.error('Error:', error);
+        
+        var errorMessages = {
+            en: "Sorry, I'm having trouble connecting. Please contact me directly at ferasatik1@gmail.com or +47 412 05 043 📧",
+            no: "Beklager, jeg har problemer med tilkoblingen. Kontakt meg direkte på ferasatik1@gmail.com eller +47 412 05 043 📧",
+            ar: "عذراً، أواجه مشكلة في الاتصال. يرجى التواصل معي مباشرة على ferasatik1@gmail.com أو +47 412 05 043 📧"
+        };
+        
+        return errorMessages[lang];
+    }
+}
+
+function selectOption(option) {
+    var lang = window.currentLang || 'en';
+    
+    var optionMessages = {
+        services: {
+            en: "Tell me about your services",
+            no: "Fortell meg om tjenestene dine",
+            ar: "أخبرني عن خدماتك"
+        },
+        experience: {
+            en: "What's your experience?",
+            no: "Hva er din erfaring?",
+            ar: "ما هي خبرتك؟"
+        },
+        pricing: {
+            en: "What are your prices?",
+            no: "Hva er prisene dine?",
+            ar: "ما هي أسعارك؟"
+        },
+        contact: {
+            en: "How can I contact you?",
+            no: "Hvordan kan jeg kontakte deg?",
+            ar: "كيف يمكنني التواصل معك؟"
+        },
+        portfolio: {
+            en: "Show me your work",
+            no: "Vis meg arbeidet ditt",
+            ar: "أرني أعمالك"
+        },
+        availability: {
+            en: "Are you available?",
+            no: "Er du tilgjengelig?",
+            ar: "هل أنت متاح؟"
+        }
+    };
+    
+    var userMessage = optionMessages[option][lang];
+    
+    addMessage(userMessage, false);
+    hideOptions();
+    showTypingIndicator();
+    
+    sendMessageToAI(userMessage).then(function(reply) {
+        removeLastMessage();
+        addMessage(reply, true);
+        setTimeout(function() {
+            showOptions();
+        }, 500);
+    });
+}
+
+function sendMessage() {
+    var input = document.getElementById('chatInput');
+    if (!input) return;
+    
+    var message = input.value.trim();
+    if (message === '') return;
+    
+    addMessage(message, false);
+    input.value = '';
+    hideOptions();
+    showTypingIndicator();
+    
+    sendMessageToAI(message).then(function(reply) {
+        removeLastMessage();
+        addMessage(reply, true);
+        setTimeout(function() {
+            showOptions();
+        }, 500);
+    });
+}
+
+function handleEnter(event) {
+    if (event.key === 'Enter') {
+        sendMessage();
+    }
+}
+
+
+// Contact Form Handler
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+    
+    const subject = encodeURIComponent('Portfolio Contact from ' + name);
+    const body = encodeURIComponent(
+        'Name: ' + name + '\n' +
+        'Email: ' + email + '\n\n' +
+        'Message:\n' + message
+    );
+    
+    window.location.href = 'mailto:ferasatik1@gmail.com?subject=' + subject + '&body=' + body;
+});
+
+function reloadAndScrollTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(function() {
+        location.reload();
+    }, 500);
+}
+
+</script>
+
+</article>
+
+</body>
+</html>
