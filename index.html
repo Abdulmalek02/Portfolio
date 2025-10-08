@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -191,6 +190,61 @@ body::before {
         .lang-btn:hover, .lang-btn.active {
             background: var(--accent);
             color: var(--primary);
+        }
+        /* Hamburger Menu Styles */
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            width: 30px;
+            height: 21px;
+            justify-content: space-between;
+            z-index: 1001;
+        }
+        .hamburger-menu span {
+            width: 100%;
+            height: 3px;
+            background: var(--accent);
+            transition: all 0.3s ease;
+        }
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+        .mobile-menu a {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 2rem;
+            margin: 1rem 0;
+            transition: all 0.3s;
+        }
+        .mobile-menu a:hover {
+            color: var(--text-light);
+            transform: scale(1.1);
+        }
+        .mobile-lang-selector {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .mobile-lang-selector .lang-btn {
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+        }
+        /* Mobile Menu Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         /* Hero Section */
         .hero {
@@ -1092,6 +1146,19 @@ body::before {
                 width: 55px;
                 height: 55px;
             }
+            /* Hamburger Menu for Mobile */
+            .nav-links {
+                display: none;
+            }
+            .hamburger-menu {
+                display: flex;
+            }
+            .lang-selector {
+                display: none;
+            }
+            .mobile-menu.active {
+                display: flex;
+            }
         }
     </style>
 </head>
@@ -1118,6 +1185,22 @@ body::before {
                 <button class="lang-btn active" onclick="changeLang('en')">EN</button>
                 <button class="lang-btn" onclick="changeLang('no')">NO</button>
                 <button class="lang-btn" onclick="changeLang('ar')">AR</button>
+            </div>
+            <!-- Hamburger Menu for Mobile -->
+            <div class="hamburger-menu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="#about" data-translate="nav_about" onclick="closeMobileMenu()">About</a>
+                <a href="#portfolio" data-translate="nav_portfolio" onclick="closeMobileMenu()">Portfolio</a>
+                <a href="#contact" data-translate="nav_contact" onclick="closeMobileMenu()">Contact</a>
+                <div class="mobile-lang-selector">
+                    <button class="lang-btn active" onclick="changeLang('en')">EN</button>
+                    <button class="lang-btn" onclick="changeLang('no')">NO</button>
+                    <button class="lang-btn" onclick="changeLang('ar')">AR</button>
+                </div>
             </div>
         </nav>
     </header>
@@ -1857,7 +1940,6 @@ function handleEnter(event) {
 }
 // ========== CAPTCHA FUNCTIONS ==========
 let currentCaptcha = '';
-
 function generateCaptcha() {
     const num1 = Math.floor(Math.random() * 10) + 1;
     const num2 = Math.floor(Math.random() * 10) + 1;
@@ -1865,79 +1947,88 @@ function generateCaptcha() {
     document.getElementById('captchaChallenge').textContent = `${num1} + ${num2} = ?`;
     document.getElementById('captchaInput').value = '';
 }
-
 // Generate CAPTCHA on page load
 window.addEventListener('load', function() {
     generateCaptcha();
 });
-
 // ========== FORM SUBMISSION HANDLER ==========
 document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
     const message = document.getElementById('message').value.trim();
     const captchaInput = document.getElementById('captchaInput').value.trim();
     const formMessage = document.getElementById('formMessage');
     const lang = window.currentLang || 'en';
-    
     // Validate fields
     if (!name || !email || !message) {
         showFormMessage(translations[lang].form_error, 'error');
         return;
     }
-    
     // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
         showFormMessage(translations[lang].form_error, 'error');
         return;
     }
-    
     // Validate CAPTCHA
     if (parseInt(captchaInput) !== currentCaptcha) {
         showFormMessage(translations[lang].form_captcha_error, 'error');
         generateCaptcha(); // Refresh CAPTCHA
         return;
     }
-    
     // Show success message (simulated submission)
     showFormMessage(translations[lang].form_success, 'success');
-    
     // Reset form
     document.getElementById('contactForm').reset();
     generateCaptcha(); // Refresh CAPTCHA
 });
-
 function showFormMessage(message, type) {
     const formMessage = document.getElementById('formMessage');
     formMessage.textContent = message;
     formMessage.className = `form-message ${type}`;
     formMessage.classList.remove('hidden');
-    
     // Hide message after 5 seconds
     setTimeout(() => {
         formMessage.classList.add('hidden');
     }, 5000);
 }
-
 function reloadAndScrollTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setTimeout(function() {
         location.reload();
     }, 500);
 }
-
 function hideOptionsAfterInteraction() {
     const optionsContainer = document.getElementById('chatbotOptions');
     if (optionsContainer) {
         optionsContainer.style.display = 'none';
     }
 }
-
+// ========== HAMBURGER MENU FUNCTIONS ==========
+function toggleMobileMenu() {
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenu.classList.toggle('active');
+}
+function closeMobileMenu() {
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenu.classList.remove('active');
+}
+// Close mobile menu when clicking on links
+document.querySelectorAll('.mobile-menu a').forEach(link => {
+    link.addEventListener('click', closeMobileMenu);
+});
+// Close mobile menu when clicking outside
+document.addEventListener('click', function(event) {
+    const mobileMenu = document.getElementById('mobileMenu');
+    const hamburger = document.querySelector('.hamburger-menu');
+    if (mobileMenu.classList.contains('active') && 
+        !mobileMenu.contains(event.target) && 
+        !hamburger.contains(event.target)) {
+        closeMobileMenu();
+    }
+});
 </script>
 </article>
 </body>
 </html>
-```
