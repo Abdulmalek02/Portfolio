@@ -1764,7 +1764,7 @@ animation: fadeIn 0.3s ease;
 
 
 <!-- AI Chatbot -->
-<div class="chatbot-button" onclick="toggleChatbot()">
+<div class="chatbot-button" id="chatbotButton" onclick="toggleChatbot()">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <path d="M12 2C6.48 2 2 6.48 2 12c0 1.54.36 3 .97 4.29L2 22l5.71-.97C9 21.64 10.46 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.38 0-2.63-.35-3.77-.95l-.27-.15-2.83.48.48-2.83-.15-.27C4.85 14.63 4.5 13.38 4.5 12c0-4.14 3.36-7.5 7.5-7.5s7.5 3.36 7.5 7.5-3.36 7.5-7.5 7.5z"/>
         <circle cx="9" cy="12" r="1"/>
@@ -1775,18 +1775,16 @@ animation: fadeIn 0.3s ease;
 
 <div class="chatbot-container" id="chatbotContainer">
     <div class="chatbot-header">
-        <h3 data-translate="chatbot_title">💬 Chat with Me</h3>
-        <button class="chatbot-close" onclick="toggleChatbot()">×</button>
+    <h3 data-translate="chatbot_title">💬 Chat with Me</h3>
+    <button class="chatbot-close" onclick="toggleChatbot()">×</button>
     </div>
     
-    <div class="chatbot-messages" id="chatbotMessages">
-        <div class="chat-message bot">
-            <div class="message-bubble" data-translate="chatbot_welcome">
-                Hi! I'm Abdulmalek's AI assistant 👋<br>
-                How can I help you today?
-            </div>
-        </div>
-    </div>
+    <div class="chat-message bot">
+    <div class="message-bubble" data-translate="chatbot_welcome">
+        Hi! I'm Abdulmalek's AI assistant 👋<br>
+        How can I help you today?
+ </div>
+</div>
     
     <div class="chatbot-options" id="chatbotOptions">
         <button class="chat-option" onclick="selectOption('services')" data-translate="chat_opt_services">🌐 Your Services</button>
@@ -1798,7 +1796,7 @@ animation: fadeIn 0.3s ease;
     </div>
     
     <div class="chatbot-input">
-        <input type="text" id="chatInput" placeholder="Type your message..." data-translate-placeholder="chat_input_placeholder" onkeypress="handleEnter(event)">
+        <input type="text" id="chatInput" data-translate-placeholder="chat_input_placeholder" placeholder="Type your message..." onkeypress="handleEnter(event)">
         <button class="chatbot-send" onclick="sendMessage()">➤</button>
     </div>
 </div>
@@ -2176,56 +2174,63 @@ window.addEventListener('load', function() {
 // ============ AI Chatbot Functions ============
 
 function toggleChatbot() {
-    const container = document.getElementById('chatbotContainer');
+    var container = document.getElementById('chatbotContainer');
     if (container) {
         container.classList.toggle('active');
+        
         if (container.classList.contains('active')) {
-            setTimeout(() => {
-                const messages = document.getElementById('chatbotMessages');
-                if (messages) messages.scrollTop = messages.scrollHeight;
+            setTimeout(function() {
+                var messages = document.getElementById('chatbotMessages');
+                if (messages) {
+                    messages.scrollTop = messages.scrollHeight;
+                }
             }, 100);
         }
     }
 }
 
-function addMessage(text, isBot = true) {
-    const messagesContainer = document.getElementById('chatbotMessages');
+function addMessage(text, isBot) {
+    if (typeof isBot === 'undefined') isBot = true;
+    
+    var messagesContainer = document.getElementById('chatbotMessages');
     if (!messagesContainer) return;
     
-    const messageDiv = document.createElement('div');
-    messageDiv.className = chat-message ${isBot ? 'bot' : 'user'};
+    var messageDiv = document.createElement('div');
+    messageDiv.className = 'chat-message ' + (isBot ? 'bot' : 'user');
     
-    const bubble = document.createElement('div');
+    var bubble = document.createElement('div');
     bubble.className = 'message-bubble';
     bubble.innerHTML = text;
     
     messageDiv.appendChild(bubble);
     messagesContainer.appendChild(messageDiv);
+    
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
 }
 
 function hideOptions() {
-    const opts = document.getElementById('chatbotOptions');
+    var opts = document.getElementById('chatbotOptions');
     if (opts) opts.style.display = 'none';
 }
 
 function showOptions() {
-    const opts = document.getElementById('chatbotOptions');
+    var opts = document.getElementById('chatbotOptions');
     if (opts) opts.style.display = 'flex';
 }
 
 function showTypingIndicator() {
-    const lang = window.currentLang || 'en';
-    const typingText = {
+    var lang = window.currentLang || 'en';
+    var typingText = {
         en: '💭 Typing...',
         no: '💭 Skriver...',
         ar: '💭 يكتب...'
     };
+    
     addMessage(typingText[lang], true);
 }
 
 function removeLastMessage() {
-    const messagesContainer = document.getElementById('chatbotMessages');
+    var messagesContainer = document.getElementById('chatbotMessages');
     if (messagesContainer && messagesContainer.lastChild) {
         messagesContainer.removeChild(messagesContainer.lastChild);
     }
@@ -2233,60 +2238,91 @@ function removeLastMessage() {
 
 async function sendMessageToAI(message) {
     try {
-        const response = await fetch('/api/chat', {
+        var response = await fetch('/api/chat', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ message })
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ message: message })
         });
 
         if (!response.ok) {
-            const errorData = await response.json();
-            throw new Error(errorData.error || 'Server error');
+            throw new Error('Failed to get response');
         }
 
-        const data = await response.json();
+        var data = await response.json();
         return data.reply;
 
     } catch (error) {
         console.error('Error:', error);
-        const lang = window.currentLang || 'en';
-        const errorMessages = {
+        
+        var lang = window.currentLang || 'en';
+        var errorMessages = {
             en: "Sorry, I'm having trouble connecting. Please contact me at ferasatik1@gmail.com or +47 412 05 043 📧",
             no: "Beklager, jeg har problemer med tilkoblingen. Kontakt meg på ferasatik1@gmail.com eller +47 412 05 043 📧",
             ar: "عذراً، أواجه مشكلة في الاتصال. تواصل معي على ferasatik1@gmail.com أو +47 412 05 043 📧"
         };
+        
         return errorMessages[lang];
     }
 }
 
 function selectOption(option) {
-    const lang = window.currentLang || 'en';
-    const optionMessages = {
-        services: { en: "Tell me about your services", no: "Fortell meg om tjenestene dine", ar: "أخبرني عن خدماتك" },
-        experience: { en: "What's your experience?", no: "Hva er din erfaring?", ar: "ما هي خبرتك؟" },
-        pricing: { en: "What are your prices?", no: "Hva er prisene dine?", ar: "ما هي أسعارك؟" },
-        contact: { en: "How can I contact you?", no: "Hvordan kan jeg kontakte deg?", ar: "كيف يمكنني التواصل معك؟" },
-        portfolio: { en: "Show me your work", no: "Vis meg arbeidet ditt", ar: "أرني أعمالك" },
-        availability: { en: "Are you available?", no: "Er du tilgjengelig?", ar: "هل أنت متاح؟" }
+    var lang = window.currentLang || 'en';
+    
+    var optionMessages = {
+        services: {
+            en: "Tell me about your services",
+            no: "Fortell meg om tjenestene dine",
+            ar: "أخبرني عن خدماتك"
+        },
+        experience: {
+            en: "What's your experience?",
+            no: "Hva er din erfaring?",
+            ar: "ما هي خبرتك؟"
+        },
+        pricing: {
+            en: "What are your prices?",
+            no: "Hva er prisene dine?",
+            ar: "ما هي أسعارك؟"
+        },
+        contact: {
+            en: "How can I contact you?",
+            no: "Hvordan kan jeg kontakte deg?",
+            ar: "كيف يمكنني التواصل معك؟"
+        },
+        portfolio: {
+            en: "Show me your work",
+            no: "Vis meg arbeidet ditt",
+            ar: "أرني أعمالك"
+        },
+        availability: {
+            en: "Are you available?",
+            no: "Er du tilgjengelig?",
+            ar: "هل أنت متاح؟"
+        }
     };
     
-    const userMessage = optionMessages[option][lang];
+    var userMessage = optionMessages[option][lang];
+    
     addMessage(userMessage, false);
     hideOptions();
     showTypingIndicator();
     
-    sendMessageToAI(userMessage).then(reply => {
+    sendMessageToAI(userMessage).then(function(reply) {
         removeLastMessage();
         addMessage(reply, true);
-        setTimeout(showOptions, 500);
+        setTimeout(function() {
+            showOptions();
+        }, 500);
     });
 }
 
 function sendMessage() {
-    const input = document.getElementById('chatInput');
+    var input = document.getElementById('chatInput');
     if (!input) return;
     
-    const message = input.value.trim();
+    var message = input.value.trim();
     if (message === '') return;
     
     addMessage(message, false);
@@ -2294,15 +2330,19 @@ function sendMessage() {
     hideOptions();
     showTypingIndicator();
     
-    sendMessageToAI(message).then(reply => {
+    sendMessageToAI(message).then(function(reply) {
         removeLastMessage();
         addMessage(reply, true);
-        setTimeout(showOptions, 500);
+        setTimeout(function() {
+            showOptions();
+        }, 500);
     });
 }
 
 function handleEnter(event) {
-    if (event.key === 'Enter') sendMessage();
+    if (event.key === 'Enter') {
+        sendMessage();
+    }
 }
 
 
