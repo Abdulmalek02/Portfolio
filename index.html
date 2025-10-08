@@ -207,6 +207,15 @@ body::before {
             background: var(--accent);
             transition: all 0.3s ease;
         }
+        .hamburger-menu.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+        .hamburger-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger-menu.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
         .mobile-menu {
             display: none;
             position: fixed;
@@ -1132,8 +1141,87 @@ body::before {
             transform: scale(1.1);
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.5);
         }
-        /* Responsive */
+        /* Responsive Design - Mobile First */
         @media (max-width: 768px) {
+            /* Header */
+            nav {
+                padding: 0 1.5rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .hamburger-menu {
+                display: flex;
+            }
+            .lang-selector {
+                display: none;
+            }
+            
+            /* Hero Section */
+            .hero {
+                min-height: 100vh;
+                padding: 6rem 1rem 2rem;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero h2 {
+                font-size: 1.4rem;
+            }
+            .profile-img {
+                width: 180px;
+                height: 180px;
+            }
+            .cta-btn {
+                padding: 0.8rem 2rem;
+                font-size: 0.95rem;
+            }
+            
+            /* About Section */
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .stats {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+            .stat-item {
+                padding: 1rem;
+            }
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            /* Sections */
+            .section-title {
+                font-size: 2rem;
+            }
+            section {
+                padding: 3rem 1rem;
+            }
+            
+            /* Portfolio */
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .portfolio-img {
+                height: 150px;
+                font-size: 2.5rem;
+            }
+            
+            /* Contact */
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            .social-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+            
+            /* Chatbot */
             .chatbot-container {
                 width: calc(100% - 2rem);
                 height: 500px;
@@ -1146,18 +1234,95 @@ body::before {
                 width: 55px;
                 height: 55px;
             }
-            /* Hamburger Menu for Mobile */
-            .nav-links {
-                display: none;
+            
+            /* Scroll Buttons */
+            .scroll-buttons {
+                right: 1rem;
+                bottom: 1rem;
             }
-            .hamburger-menu {
-                display: flex;
+            .scroll-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
             }
-            .lang-selector {
-                display: none;
+        }
+        
+        @media (max-width: 480px) {
+            /* Hero */
+            .hero h1 {
+                font-size: 1.8rem;
             }
-            .mobile-menu.active {
-                display: flex;
+            .hero h2 {
+                font-size: 1.2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .profile-img {
+                width: 150px;
+                height: 150px;
+            }
+            .cta-btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            /* Stats */
+            .stats {
+                grid-template-columns: 1fr;
+            }
+            .stat-number {
+                font-size: 1.8rem;
+            }
+            
+            /* Skills */
+            .skills {
+                justify-content: center;
+                gap: 0.8rem;
+            }
+            .skill-tag {
+                font-size: 0.85rem;
+                padding: 0.4rem 0.9rem;
+            }
+            
+            /* Portfolio */
+            .portfolio-img {
+                height: 120px;
+                font-size: 2rem;
+            }
+            
+            /* Contact */
+            .contact-icon {
+                font-size: 1.8rem;
+            }
+            .social-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+            
+            /* Scroll Buttons */
+            .scroll-buttons {
+                right: 0.5rem;
+                bottom: 0.5rem;
+                gap: 0.5rem;
+            }
+            .scroll-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+            
+            /* Language Buttons */
+            .lang-btn {
+                padding: 0.25rem 0.6rem;
+                font-size: 0.85rem;
+            }
+            
+            /* Mobile Menu */
+            .mobile-lang-selector .lang-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -2008,11 +2173,15 @@ function hideOptionsAfterInteraction() {
 // ========== HAMBURGER MENU FUNCTIONS ==========
 function toggleMobileMenu() {
     const mobileMenu = document.getElementById('mobileMenu');
+    const hamburger = document.querySelector('.hamburger-menu');
     mobileMenu.classList.toggle('active');
+    hamburger.classList.toggle('active');
 }
 function closeMobileMenu() {
     const mobileMenu = document.getElementById('mobileMenu');
+    const hamburger = document.querySelector('.hamburger-menu');
     mobileMenu.classList.remove('active');
+    hamburger.classList.remove('active');
 }
 // Close mobile menu when clicking on links
 document.querySelectorAll('.mobile-menu a').forEach(link => {
