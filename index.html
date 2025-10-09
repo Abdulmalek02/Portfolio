@@ -993,6 +993,8 @@
             left: 2rem;
             width: 380px;
             height: 550px;
+            max-width: calc(100vw - 2rem);
+            max-height: calc(100vh - 10rem);
             background: var(--bg-light);
             border-radius: 20px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
@@ -1673,14 +1675,14 @@
                 <a href="https://www.instagram.com/maleekrd?igsh=NTQwemJqcW1wZmQz&utm_source=qr" target="_blank" class="social-btn">📷</a>
             </div>
         </div>
-        <form class="contact-form fade-in" id="contactForm">
+        <form class="contact-form fade-in" id="contactForm" action="https://formspree.io/f/xyznddnj" method="POST">
             <div class="form-group">
                 <label for="name" data-translate="form_name">Your Name</label>
                 <input type="text" id="name" name="name" required>
             </div>
             <div class="form-group">
                 <label for="email" data-translate="form_email">Your Email</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="_replyto" required>
             </div>
             <div class="form-group">
                 <label for="message" data-translate="form_message">Your Message</label>
@@ -1924,12 +1926,17 @@ window.addEventListener('load', function() {
 function toggleChatbot() {
     const container = document.getElementById('chatbotContainer');
     if (container) {
+        const isOpening = !container.classList.contains('active');
         container.classList.toggle('active');
-        if (container.classList.contains('active')) {
+        
+        if (isOpening) {
+            document.body.style.overflow = 'hidden';
             setTimeout(() => {
                 const messages = document.getElementById('chatbotMessages');
                 if (messages) messages.scrollTop = messages.scrollHeight;
             }, 100);
+        } else {
+            document.body.style.overflow = 'auto';
         }
     }
 }
@@ -2064,7 +2071,7 @@ window.addEventListener('load', function() {
     generateCaptcha();
 });
 
-document.getElementById('contactForm').addEventListener('submit', function(e) {
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
@@ -2089,9 +2096,27 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
         return;
     }
     
-    showFormMessage(translations[lang].form_success, 'success');
-    document.getElementById('contactForm').reset();
-    generateCaptcha();
+    // إرسال الفورم
+    try {
+        const formData = new FormData(this);
+        const response = await fetch(this.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+        
+        if (response.ok) {
+            showFormMessage(translations[lang].form_success, 'success');
+            document.getElementById('contactForm').reset();
+            generateCaptcha();
+        } else {
+            showFormMessage(translations[lang].form_error, 'error');
+        }
+    } catch (error) {
+        showFormMessage(translations[lang].form_error, 'error');
+    }
 });
 
 function showFormMessage(message, type) {
