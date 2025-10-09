@@ -59,7 +59,6 @@
             line-height: 1.6;
             overflow-x: hidden;
         }
-
         /* Scroll Animations */
         .fade-in {
             opacity: 0;
@@ -229,6 +228,30 @@
             display: flex;
             opacity: 1;
         }
+        .mobile-menu-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            color: var(--primary);
+            border: none;
+            border-radius: 50%;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 10001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            line-height: 1;
+        }
+        .mobile-menu-close:hover {
+            transform: rotate(90deg) scale(1.1);
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.5);
+        }
         .mobile-menu a {
             color: var(--accent);
             text-decoration: none;
@@ -250,7 +273,6 @@
             padding: 0.5rem 1rem;
             font-size: 1rem;
         }
-
         /* Hero Section */
         .hero {
             height: 100vh;
@@ -479,7 +501,6 @@
             color: var(--accent);
             margin-bottom: 0.5rem;
         }
-
         /* Portfolio Section */
         .portfolio-grid {
             display: grid;
@@ -1135,7 +1156,6 @@
             transform: scale(1.1);
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.5);
         }
-
         /* Responsive Design - FIXED FOR MOBILE */
         @media (max-width: 768px) {
             nav { padding: 0 1.5rem; }
@@ -1499,6 +1519,7 @@
 
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" onclick="closeMobileMenu()">×</button>
     <a href="#about" data-translate="nav_about" onclick="closeMobileMenu()">About</a>
     <a href="#portfolio" data-translate="nav_portfolio" onclick="closeMobileMenu()">Portfolio</a>
     <a href="#contact" data-translate="nav_contact" onclick="closeMobileMenu()">Contact</a>
@@ -1750,26 +1771,50 @@
 </div>
 
 <script>
+// ========================================
+// 🌍 نظام الترجمات الكامل - Complete Translation System
+// ========================================
+
 const translations = {
+    // ============================================
+    // 🇬🇧 اللغة الإنجليزية - English Language
+    // ============================================
     en: {
-        nav_about: "About", nav_portfolio: "Portfolio", nav_contact: "Contact",
+        // === Navigation Menu ===
+        nav_about: "About",
+        nav_portfolio: "Portfolio",
+        nav_contact: "Contact",
+        
+        // === Hero Section (القسم الرئيسي) ===
         hero_title: "Full-Stack Developer & AI Specialist",
         hero_desc: "Transforming ideas into digital reality through innovative web development, AI automation, and strategic digital marketing",
         hero_cta: "Get In Touch",
+        
+        // === About Section (قسم عني) ===
         about_title: "About Me",
         about_intro: "I'm a Full-Stack Developer with over 5 years of experience in crafting exceptional digital solutions. My journey in web development has been one of continuous growth and innovation, constantly pushing boundaries to deliver excellence.",
         about_expertise: "Through dedication and passion, I've evolved from mastering the fundamentals to becoming a sought-after professional in the industry. I specialize in building scalable web applications, implementing cutting-edge AI solutions, and creating digital strategies that drive real business results.",
         about_approach: "My approach combines technical expertise with creative problem-solving, ensuring every project not only meets but exceeds expectations. Whether it's a complex e-commerce platform, an intelligent automation system, or a sophisticated web application, I deliver solutions that make an impact.",
-        stat1_num: "5+", stat1_label: "Years Experience",
-        stat2_num: "50+", stat2_label: "Projects Completed",
-        stat3_num: "100%", stat3_label: "Client Satisfaction",
-        stat4_num: "24/7", stat4_label: "Support Available",
+        
+        // === Statistics (الإحصائيات) ===
+        stat1_num: "5+",
+        stat1_label: "Years Experience",
+        stat2_num: "50+",
+        stat2_label: "Projects Completed",
+        stat3_num: "100%",
+        stat3_label: "Client Satisfaction",
+        stat4_num: "24/7",
+        stat4_label: "Support Available",
+        
+        // === Services (الخدمات) ===
         service1_title: "🌐 Web Development",
         service1_desc: "Full-stack development with modern frameworks - from responsive frontends to robust backends",
         service2_title: "🤖 AI Automation",
         service2_desc: "Intelligent systems powered by machine learning to automate and optimize business processes",
         service3_title: "📱 Digital Marketing",
         service3_desc: "Data-driven marketing strategies with SEO optimization and conversion-focused campaigns",
+        
+        // === Portfolio Section (معرض الأعمال) ===
         portfolio_title: "My Work",
         project1_title: "Smart Medical Booking Platform",
         project1_short: "Comprehensive appointment system connecting patients with doctors efficiently",
@@ -1787,77 +1832,275 @@ const translations = {
         project7_short: "Corporate website with modern design and SEO optimization",
         project8_title: "E-Commerce Platform",
         project8_short: "Modern online store with secure payment system",
-        contact_title: "Contact Me", contact_email: "Email", contact_phone: "Phone",
-        footer_rights: "All rights reserved.",
+        
+        // === Contact Section (قسم التواصل) ===
+        contact_title: "Contact Me",
         contact_info_title: "Get In Touch",
         contact_info_desc: "Have a project in mind? Let's discuss how I can help bring your ideas to life.",
-        form_name: "Your Name", form_email: "Your Email", form_message: "Your Message",
-        form_captcha: "I'm not a robot", form_submit: "Send Message",
+        contact_email: "Email",
+        contact_phone: "Phone",
+        
+        // === Contact Form (نموذج التواصل) ===
+        form_name: "Your Name",
+        form_email: "Your Email",
+        form_message: "Your Message",
+        form_captcha: "I'm not a robot",
+        form_submit: "Send Message",
         form_success: "Message sent successfully! I'll get back to you soon.",
         form_error: "Please check your information and try again.",
         form_captcha_error: "Incorrect CAPTCHA. Please try again.",
+        
+        // === Footer (التذييل) ===
+        footer_rights: "All rights reserved.",
+        
+        // === Chatbot (المساعد الذكي) ===
         chatbot_title: "💬 Chat with Me",
         chatbot_welcome: "Hi! I'm Abdulmalek's AI assistant 👋<br>How can I help you today?",
-        chat_opt_services: "🌐 Your Services", chat_opt_experience: "💼 Experience",
-        chat_opt_pricing: "💰 Pricing", chat_opt_contact: "📧 Contact Info",
-        chat_opt_portfolio: "🎨 See Projects", chat_opt_availability: "⏰ Availability",
+        chat_opt_services: "🌐 Your Services",
+        chat_opt_experience: "💼 Experience",
+        chat_opt_pricing: "💰 Pricing",
+        chat_opt_contact: "📧 Contact Info",
+        chat_opt_portfolio: "🎨 See Projects",
+        chat_opt_availability: "⏰ Availability",
         chat_input_placeholder: "Type your message..."
     },
+    // ============================================
+    // 🇳🇴 اللغة النرويجية - Norwegian Language
+    // ============================================
     no: {
-        nav_about: "Om meg", nav_portfolio: "Portefølje", nav_contact: "Kontakt",
+        // === Navigation Menu ===
+        nav_about: "Om meg",
+        nav_portfolio: "Portefølje",
+        nav_contact: "Kontakt",
+        
+        // === Hero Section ===
         hero_title: "Full-Stack-utvikler & AI-spesialist",
         hero_desc: "Transformerer ideer til digital virkelighet gjennom innovativ webutvikling, AI-automatisering og strategisk digital markedsføring",
-        hero_cta: "Ta kontakt", about_title: "Om meg",
-        stat1_num: "5+", stat1_label: "Års erfaring",
-        stat2_num: "50+", stat2_label: "Fullførte prosjekter",
-        stat3_num: "100%", stat3_label: "Kundetilfredshet",
-        stat4_num: "24/7", stat4_label: "Support tilgjengelig",
+        hero_cta: "Ta kontakt",
+        
+        // === About Section ===
+        about_title: "Om meg",
+        about_intro: "Jeg er en Full-Stack-utvikler med over 5 års erfaring med å skape eksepsjonelle digitale løsninger. Min reise innen webutvikling har vært preget av kontinuerlig vekst og innovasjon, og jeg presser stadig grensene for å levere fortreffelighet.",
+        about_expertise: "Gjennom dedikasjon og lidenskap har jeg utviklet meg fra å mestre det grunnleggende til å bli en ettertraktet profesjonell i bransjen. Jeg spesialiserer meg på å bygge skalerbare webapplikasjoner, implementere banebrytende AI-løsninger og skape digitale strategier som gir reelle forretningsresultater.",
+        about_approach: "Min tilnærming kombinerer teknisk ekspertise med kreativ problemløsning, og sikrer at hvert prosjekt ikke bare møter, men overgår forventningene. Enten det er en kompleks e-handelsplattform, et intelligent automatiseringssystem eller en sofistikert webapplikasjon, leverer jeg løsninger som gjør en forskjell.",
+        
+        // === Statistics ===
+        stat1_num: "5+",
+        stat1_label: "Års erfaring",
+        stat2_num: "50+",
+        stat2_label: "Fullførte prosjekter",
+        stat3_num: "100%",
+        stat3_label: "Kundetilfredshet",
+        stat4_num: "24/7",
+        stat4_label: "Support tilgjengelig",
+        
+        // === Services ===
+        service1_title: "🌐 Webutvikling",
+        service1_desc: "Full-stack utvikling med moderne rammeverk - fra responsive frontends til robuste backends",
+        service2_title: "🤖 AI-automatisering",
+        service2_desc: "Intelligente systemer drevet av maskinlæring for å automatisere og optimalisere forretningsprosesser",
+        service3_title: "📱 Digital markedsføring",
+        service3_desc: "Datadrevne markedsføringsstrategier med SEO-optimalisering og konverteringsfokuserte kampanjer",
+        
+        // === Portfolio Section ===
+        portfolio_title: "Mine arbeider",
+        project1_title: "Smart medisinsk bookingplattform",
+        project1_short: "Omfattende timeavtalesystem som kobler pasienter med leger effektivt",
+        project2_title: "Restaurant POS & ledelse",
+        project2_short: "Komplett løsning for bestillinger, lagerstyring og personaladministrasjon",
+        project3_title: "AI kundeserviceassistent",
+        project3_short: "AI-drevet chatbot som svarer på kundehenvendelser 24/7",
+        project4_title: "Forretningsanalysedashboard",
+        project4_short: "Analytisk system som gjør komplekse data om til klare innsikter",
+        project5_title: "Interaktiv læringsplattform",
+        project5_short: "Komplett digitalt læringsmiljø for studenter og lærere",
+        project6_title: "CRM-system",
+        project6_short: "Omfattende løsning for sporing av kunder og salg",
+        project7_title: "Profesjonell flerspråklig nettside",
+        project7_short: "Bedriftsnettside med moderne design og SEO-optimalisering",
+        project8_title: "E-handelsplattform",
+        project8_short: "Moderne nettbutikk med sikkert betalingssystem",
+        
+        // === Contact Section ===
+        contact_title: "Kontakt meg",
+        contact_info_title: "Ta kontakt",
+        contact_info_desc: "Har du et prosjekt i tankene? La oss diskutere hvordan jeg kan hjelpe deg med å realisere ideene dine.",
+        contact_email: "E-post",
+        contact_phone: "Telefon",
+        
+        // === Contact Form ===
+        form_name: "Ditt navn",
+        form_email: "Din e-post",
+        form_message: "Din melding",
+        form_captcha: "Jeg er ikke en robot",
+        form_submit: "Send melding",
+        form_success: "Melding sendt! Jeg tar kontakt snart.",
+        form_error: "Vennligst sjekk informasjonen din og prøv igjen.",
+        form_captcha_error: "Feil CAPTCHA. Vennligst prøv igjen.",
+        
+        // === Footer ===
+        footer_rights: "Alle rettigheter reservert.",
+        
+        // === Chatbot ===
         chatbot_title: "💬 Chat med meg",
         chatbot_welcome: "Hei! Jeg er Abdulmaleks AI-assistent 👋<br>Hvordan kan jeg hjelpe deg i dag?",
+        chat_opt_services: "🌐 Dine tjenester",
+        chat_opt_experience: "💼 Erfaring",
+        chat_opt_pricing: "💰 Priser",
+        chat_opt_contact: "📧 Kontaktinfo",
+        chat_opt_portfolio: "🎨 Se prosjekter",
+        chat_opt_availability: "⏰ Tilgjengelighet",
         chat_input_placeholder: "Skriv meldingen din..."
     },
+    
+    // ============================================
+    // 🇸🇦 اللغة العربية - Arabic Language
+    // ============================================
     ar: {
-        nav_about: "عني", nav_portfolio: "معرض الأعمال", nav_contact: "تواصل",
+        // === Navigation Menu ===
+        nav_about: "عني",
+        nav_portfolio: "معرض الأعمال",
+        nav_contact: "تواصل",
+        
+        // === Hero Section ===
         hero_title: "مطور Full-Stack ومتخصص في الذكاء الاصطناعي",
         hero_desc: "أحول الأفكار إلى واقع رقمي من خلال تطوير المواقع المبتكرة، وأتمتة الذكاء الاصطناعي، والتسويق الرقمي الاستراتيجي",
-        hero_cta: "تواصل معي", about_title: "عن عبدالملك",
-        stat1_num: "5+", stat1_label: "سنوات خبرة",
-        stat2_num: "50+", stat2_label: "مشروع منجز",
-        stat3_num: "100%", stat3_label: "رضا العملاء",
-        stat4_num: "24/7", stat4_label: "دعم متاح",
+        hero_cta: "تواصل معي",
+        
+        // === About Section ===
+        about_title: "عن عبدالملك",
+        about_intro: "أنا مطور Full-Stack بخبرة تزيد عن 5 سنوات في صناعة الحلول الرقمية الاستثنائية. رحلتي في تطوير الويب كانت رحلة نمو وابتكار مستمر، أدفع دائماً الحدود لتقديم التميز.",
+        about_expertise: "من خلال التفاني والشغف، تطورت من إتقان الأساسيات إلى أن أصبحت محترفاً مطلوباً في الصناعة. أتخصص في بناء تطبيقات ويب قابلة للتطوير، وتطبيق حلول ذكاء اصطناعي متطورة، وإنشاء استراتيجيات رقمية تحقق نتائج أعمال حقيقية.",
+        about_approach: "نهجي يجمع بين الخبرة التقنية وحل المشكلات الإبداعي، مما يضمن أن كل مشروع لا يلبي التوقعات فحسب، بل يتجاوزها. سواء كانت منصة تجارة إلكترونية معقدة، أو نظام أتمتة ذكي، أو تطبيق ويب متطور، أقدم حلولاً تُحدث تأثيراً.",
+        
+        // === Statistics ===
+        stat1_num: "5+",
+        stat1_label: "سنوات خبرة",
+        stat2_num: "50+",
+        stat2_label: "مشروع منجز",
+        stat3_num: "100%",
+        stat3_label: "رضا العملاء",
+        stat4_num: "24/7",
+        stat4_label: "دعم متاح",
+        
+        // === Services ===
+        service1_title: "🌐 تطوير المواقع",
+        service1_desc: "تطوير Full-Stack بأطر عمل حديثة - من الواجهات الأمامية المتجاوبة إلى الخلفيات القوية",
+        service2_title: "🤖 أتمتة الذكاء الاصطناعي",
+        service2_desc: "أنظمة ذكية مدعومة بالتعلم الآلي لأتمتة وتحسين العمليات التجارية",
+        service3_title: "📱 التسويق الرقمي",
+        service3_desc: "استراتيجيات تسويق مدفوعة بالبيانات مع تحسين SEO وحملات مركزة على التحويل",
+        
+        // === Portfolio Section ===
+        portfolio_title: "أعمالي",
+        project1_title: "منصة حجز طبي ذكية",
+        project1_short: "نظام مواعيد شامل يربط المرضى بالأطباء بكفاءة",
+        project2_title: "نظام نقاط البيع وإدارة المطاعم",
+        project2_short: "حل كامل للطلبات والمخزون وإدارة الموظفين",
+        project3_title: "مساعد دعم العملاء بالذكاء الاصطناعي",
+        project3_short: "روبوت محادثة مدعوم بالذكاء الاصطناعي يجيب على استفسارات العملاء 24/7",
+        project4_title: "لوحة تحليلات الأعمال",
+        project4_short: "نظام تحليلي يحول البيانات المعقدة إلى رؤى واضحة",
+        project5_title: "منصة تعليمية تفاعلية",
+        project5_short: "بيئة تعليمية رقمية كاملة للطلاب والمعلمين",
+        project6_title: "نظام إدارة علاقات العملاء",
+        project6_short: "حل شامل لتتبع العملاء والمبيعات",
+        project7_title: "موقع احترافي متعدد اللغات",
+        project7_short: "موقع شركات بتصميم عصري وتحسين SEO",
+        project8_title: "منصة تجارة إلكترونية",
+        project8_short: "متجر إلكتروني عصري بنظام دفع آمن",
+        
+        // === Contact Section ===
+        contact_title: "تواصل معي",
+        contact_info_title: "ابقَ على تواصل",
+        contact_info_desc: "هل لديك مشروع في ذهنك؟ لنناقش كيف يمكنني مساعدتك في تحقيق أفكارك.",
+        contact_email: "البريد الإلكتروني",
+        contact_phone: "الهاتف",
+        
+        // === Contact Form ===
+        form_name: "اسمك",
+        form_email: "بريدك الإلكتروني",
+        form_message: "رسالتك",
+        form_captcha: "أنا لست روبوت",
+        form_submit: "إرسال الرسالة",
+        form_success: "تم إرسال الرسالة بنجاح! سأتواصل معك قريباً.",
+        form_error: "يرجى التحقق من معلوماتك والمحاولة مرة أخرى.",
+        form_captcha_error: "خطأ في CAPTCHA. يرجى المحاولة مرة أخرى.",
+        
+        // === Footer ===
+        footer_rights: "جميع الحقوق محفوظة.",
+        
+        // === Chatbot ===
         chatbot_title: "💬 دردش معي",
         chatbot_welcome: "مرحباً! أنا مساعد عبدالملك الذكي 👋<br>كيف يمكنني مساعدتك اليوم؟",
+        chat_opt_services: "🌐 خدماتك",
+        chat_opt_experience: "💼 الخبرة",
+        chat_opt_pricing: "💰 الأسعار",
+        chat_opt_contact: "📧 معلومات التواصل",
+        chat_opt_portfolio: "🎨 شاهد المشاريع",
+        chat_opt_availability: "⏰ التوفر",
         chat_input_placeholder: "اكتب رسالتك..."
     }
 };
 
+// ========================================
+// 🌐 تعيين اللغة الافتراضية
+// ========================================
 window.currentLang = 'en';
-
+// ========================================
+// 🔄 دالة تغيير اللغة - Language Switcher
+// ========================================
 function changeLang(lang) {
+    // حفظ اللغة الحالية
     window.currentLang = lang;
-    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
+    
+    // تحديث أزرار اللغة (إضافة active للزر المختار)
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        // البحث عن الزر المطابق للغة المختارة
+        if (btn.textContent.toLowerCase() === lang) {
+            btn.classList.add('active');
+        }
+    });
+    
+    // تحديث جميع النصوص في الصفحة
     document.querySelectorAll('[data-translate]').forEach(el => {
         const key = el.getAttribute('data-translate');
-        if (translations[lang][key]) el.innerHTML = translations[lang][key];
+        if (translations[lang] && translations[lang][key]) {
+            el.innerHTML = translations[lang][key];
+        }
     });
+    
+    // تحديث placeholders (النصوص داخل حقول الإدخال)
     document.querySelectorAll('[data-translate-placeholder]').forEach(el => {
         const key = el.getAttribute('data-translate-placeholder');
-        if (translations[lang][key]) el.placeholder = translations[lang][key];
+        if (translations[lang] && translations[lang][key]) {
+            el.placeholder = translations[lang][key];
+        }
     });
+    
+    // تغيير اتجاه النص للعربية (من اليمين لليسار)
     document.body.style.direction = lang === 'ar' ? 'rtl' : 'ltr';
 }
 
+// ========================================
+// 📜 Smooth Scrolling - التمرير الناعم للروابط
+// ========================================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const targetId = this.getAttribute('href');
+        
+        // إذا كان الرابط فارغ، اذهب لأعلى الصفحة
         if (targetId === '#' || targetId === '') {
             window.scrollTo({ top: 0, behavior: 'smooth' });
             return;
         }
+        
+        // البحث عن القسم المستهدف
         const target = document.querySelector(targetId);
         if (target) {
+            // التمرير للقسم مع ترك مسافة 80px من الأعلى
             window.scrollTo({
                 top: target.offsetTop - 80,
                 behavior: 'smooth'
@@ -1866,237 +2109,346 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -50px 0px' };
+// ========================================
+// 👁️ Scroll Animations - تفعيل الأنيميشن عند الظهور
+// ========================================
+const observerOptions = { 
+    threshold: 0.15,  // يبدأ الأنيميشن عندما يظهر 15% من العنصر
+    rootMargin: '0px 0px -50px 0px'  // هامش إضافي
+};
+
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
+        if (entry.isIntersecting) {
+            // إضافة class "visible" لتفعيل الأنيميشن
+            entry.target.classList.add('visible');
+        }
     });
 }, observerOptions);
 
+// مراقبة جميع العناصر التي تحتوي على أنيميشن
 document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in, .stagger-animation').forEach(el => {
     observer.observe(el);
 });
 
+// ========================================
+// ⬆️⬇️ أزرار التمرير - Scroll Buttons
+// ========================================
 const scrollButtons = document.getElementById('scrollButtons');
-function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
-function scrollToBottom() { window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' }); }
 
+// دالة التمرير لأعلى الصفحة
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// دالة التمرير لأسفل الصفحة
+function scrollToBottom() {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+}
+
+// إظهار/إخفاء أزرار التمرير بناءً على موضع الصفحة
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) scrollButtons.classList.add('visible');
-    else scrollButtons.classList.remove('visible');
+    if (window.scrollY > 300) {
+        scrollButtons.classList.add('visible');
+    } else {
+        scrollButtons.classList.remove('visible');
+    }
 });
 
+// ========================================
+// 🍔 قائمة الهامبرغر - Mobile Menu
+// ========================================
+function toggleMobileMenu() {
+    const mobileMenu = document.getElementById('mobileMenu');
+    const hamburger = document.querySelector('.hamburger-menu');
+    
+    if (!mobileMenu || !hamburger) return;
+    
+    const isActive = mobileMenu.classList.contains('active');
+    
+    if (isActive) {
+        // إغلاق القائمة
+        mobileMenu.classList.remove('active');
+        hamburger.classList.remove('active');
+        document.body.style.overflow = 'auto';  // السماح بالتمرير
+    } else {
+        // فتح القائمة
+        mobileMenu.classList.add('active');
+        hamburger.classList.add('active');
+        document.body.style.overflow = 'hidden';  // منع التمرير
+    }
+}
+
+// دالة إغلاق القائمة
+function closeMobileMenu() {
+    const mobileMenu = document.getElementById('mobileMenu');
+    const hamburger = document.querySelector('.hamburger-menu');
+    
+    if (!mobileMenu || !hamburger) return;
+    
+    mobileMenu.classList.remove('active');
+    hamburger.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+// إغلاق القائمة عند الضغط على أي رابط
+document.querySelectorAll('.mobile-menu a').forEach(link => {
+    link.addEventListener('click', closeMobileMenu);
+});
+
+// إغلاق القائمة عند الضغط خارجها
+document.addEventListener('click', function(event) {
+    const mobileMenu = document.getElementById('mobileMenu');
+    const hamburger = document.querySelector('.hamburger-menu');
+    
+    if (mobileMenu && mobileMenu.classList.contains('active') && 
+        !mobileMenu.contains(event.target) && 
+        !hamburger.contains(event.target)) {
+        closeMobileMenu();
+    }
+});
+
+// دالة إعادة التحميل والذهاب لأعلى الصفحة
+function reloadAndScrollTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(() => location.reload(), 500);
+}
+// ========================================
+// 🖼️ Modal Functions - وظائف النافذة المنبثقة
+// ========================================
 function openModal(projectId) {
     const modal = document.getElementById('modal');
     const modalContent = document.getElementById('modalContent');
     const lang = window.currentLang || 'en';
+    
+    // ========================================
+    // 📊 بيانات المشاريع - Projects Data
+    // ========================================
     const projectData = {
-        project1: { en: { title: "Smart Medical Booking Platform", client: "Healthcare Provider", overview: "Developed a comprehensive medical appointment system handling 500+ daily bookings.", challenge: "Manual management led to double bookings and long wait times across 5 clinic locations.", solution: "Built real-time booking with intelligent scheduling, automated reminders, and payment processing.", tech: ["React", "Node.js", "PostgreSQL", "Socket.io", "Stripe", "Twilio"], results: [{ value: "75%", label: "Reduced Wait Times" }, { value: "90%", label: "Booking Accuracy" }, { value: "500+", label: "Daily Appointments" }] } },
-        project2: { en: { title: "Restaurant POS System", client: "Restaurant Chain", overview: "All-in-one system managing orders, inventory, and staff for growing chain.", challenge: "Disconnected systems led to inventory issues and slow processing.", solution: "Cloud-based POS with offline capabilities and real-time sync.", tech: ["Next.js", "Express", "MongoDB", "Redis", "WebSocket"], results: [{ value: "60%", label: "Faster Processing" }, { value: "85%", label: "Inventory Accuracy" }, { value: "$50K+", label: "Monthly Savings" }] } }
+        project1: {
+            en: {
+                title: "Smart Medical Booking Platform",
+                client: "Healthcare Provider",
+                overview: "Developed a comprehensive medical appointment system handling 500+ daily bookings.",
+                challenge: "Manual management led to double bookings and long wait times across 5 clinic locations.",
+                solution: "Built real-time booking with intelligent scheduling, automated reminders, and payment processing.",
+                tech: ["React", "Node.js", "PostgreSQL", "Socket.io", "Stripe", "Twilio"],
+                results: [
+                    { value: "75%", label: "Reduced Wait Times" },
+                    { value: "90%", label: "Booking Accuracy" },
+                    { value: "500+", label: "Daily Appointments" }
+                ]
+            },
+            no: {
+                title: "Smart medisinsk bookingplattform",
+                client: "Helsetjenesteleverandør",
+                overview: "Utviklet et omfattende medisinsk timeavtalesystem som håndterer 500+ daglige bookinger.",
+                challenge: "Manuell håndtering førte til dobbeltbookinger og lange ventetider på tvers av 5 klinikklokasjoner.",
+                solution: "Bygget sanntidsbooking med intelligent planlegging, automatiske påminnelser og betalingsbehandling.",
+                tech: ["React", "Node.js", "PostgreSQL", "Socket.io", "Stripe", "Twilio"],
+                results: [
+                    { value: "75%", label: "Reduserte ventetider" },
+                    { value: "90%", label: "Bookingsnøyaktighet" },
+                    { value: "500+", label: "Daglige avtaler" }
+                ]
+            },
+            ar: {
+                title: "منصة حجز طبي ذكية",
+                client: "مزود خدمات صحية",
+                overview: "تطوير نظام مواعيد طبية شامل يتعامل مع أكثر من 500 حجز يومي.",
+                challenge: "أدت الإدارة اليدوية إلى حجوزات مزدوجة وأوقات انتظار طويلة عبر 5 مواقع عيادات.",
+                solution: "بناء حجز فوري مع جدولة ذكية وتذكيرات تلقائية ومعالجة الدفع.",
+                tech: ["React", "Node.js", "PostgreSQL", "Socket.io", "Stripe", "Twilio"],
+                results: [
+                    { value: "75%", label: "تقليل أوقات الانتظار" },
+                    { value: "90%", label: "دقة الحجز" },
+                    { value: "500+", label: "موعد يومي" }
+                ]
+            }
+        },
+        project2: {
+            en: {
+                title: "Restaurant POS System",
+                client: "Restaurant Chain",
+                overview: "All-in-one system managing orders, inventory, and staff for growing chain.",
+                challenge: "Disconnected systems led to inventory issues and slow processing.",
+                solution: "Cloud-based POS with offline capabilities and real-time sync.",
+                tech: ["Next.js", "Express", "MongoDB", "Redis", "WebSocket"],
+                results: [
+                    { value: "60%", label: "Faster Processing" },
+                    { value: "85%", label: "Inventory Accuracy" },
+                    { value: "$50K+", label: "Monthly Savings" }
+                ]
+            },
+            no: {
+                title: "Restaurant POS-system",
+                client: "Restaurantkjede",
+                overview: "Alt-i-ett-system som administrerer bestillinger, lager og personale for voksende kjede.",
+                challenge: "Frakoblede systemer førte til lagerproblemer og langsom behandling.",
+                solution: "Skybasert POS med offline-funksjoner og sanntidssynkronisering.",
+                tech: ["Next.js", "Express", "MongoDB", "Redis", "WebSocket"],
+                results: [
+                    { value: "60%", label: "Raskere behandling" },
+                    { value: "85%", label: "Lagernøyaktighet" },
+                    { value: "$50K+", label: "Månedlige besparelser" }
+                ]
+            },
+            ar: {
+                title: "نظام نقاط البيع للمطاعم",
+                client: "سلسلة مطاعم",
+                overview: "نظام شامل يدير الطلبات والمخزون والموظفين لسلسلة متنامية.",
+                challenge: "أدت الأنظمة غير المتصلة إلى مشاكل في المخزون ومعالجة بطيئة.",
+                solution: "نظام POS سحابي مع قدرات غير متصلة بالإنترنت ومزامنة فورية.",
+                tech: ["Next.js", "Express", "MongoDB", "Redis", "WebSocket"],
+                results: [
+                    { value: "60%", label: "معالجة أسرع" },
+                    { value: "85%", label: "دقة المخزون" },
+                    { value: "$50K+", label: "وفورات شهرية" }
+                ]
+            }
+        }
     };
+    
+    // الحصول على بيانات المشروع المطلوب
     const project = projectData[projectId];
     if (!project) return;
+    
+    // اختيار اللغة المناسبة
     const content = project[lang] || project.en;
-    let html = '<div class="modal-header"><h2>' + content.title + '</h2><p class="modal-client">Client: ' + content.client + '</p></div><div class="modal-body">';
-    html += '<div class="modal-section"><h3>Overview</h3><p>' + content.overview + '</p></div>';
-    html += '<div class="modal-section"><h3>Challenge</h3><p>' + content.challenge + '</p></div>';
-    html += '<div class="modal-section"><h3>Solution</h3><p>' + content.solution + '</p></div>';
-    html += '<div class="modal-section"><h3>Technologies</h3><div class="tech-tags">';
-    content.tech.forEach(t => html += '<span class="tech-tag">' + t + '</span>');
-    html += '</div></div><div class="modal-section"><h3>Results</h3><div class="results-grid">';
-    content.results.forEach(r => html += '<div class="result-item"><span class="result-value">' + r.value + '</span><span class="result-label">' + r.label + '</span></div>');
-    html += '</div></div></div>';
+    
+    // بناء محتوى النافذة المنبثقة
+    let html = `
+        <div class="modal-header">
+            <h2>${content.title}</h2>
+            <p class="modal-client">Client: ${content.client}</p>
+        </div>
+        <div class="modal-body">
+            <div class="modal-section">
+                <h3>Overview</h3>
+                <p>${content.overview}</p>
+            </div>
+            <div class="modal-section">
+                <h3>Challenge</h3>
+                <p>${content.challenge}</p>
+            </div>
+            <div class="modal-section">
+                <h3>Solution</h3>
+                <p>${content.solution}</p>
+            </div>
+            <div class="modal-section">
+                <h3>Technologies</h3>
+                <div class="tech-tags">
+    `;
+    
+    // إضافة التقنيات المستخدمة
+    content.tech.forEach(tech => {
+        html += `<span class="tech-tag">${tech}</span>`;
+    });
+    
+    html += `
+                </div>
+            </div>
+            <div class="modal-section">
+                <h3>Results</h3>
+                <div class="results-grid">
+    `;
+    
+    // إضافة النتائج
+    content.results.forEach(result => {
+        html += `
+            <div class="result-item">
+                <span class="result-value">${result.value}</span>
+                <span class="result-label">${result.label}</span>
+            </div>
+        `;
+    });
+    
+    html += `
+                </div>
+            </div>
+        </div>
+    `;
+    
+    // عرض المحتوى في النافذة المنبثقة
     modalContent.innerHTML = html;
     modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden'; // منع التمرير في الخلفية
 }
 
+// دالة إغلاق النافذة المنبثقة
 function closeModal(event) {
     const modal = document.getElementById('modal');
+    
+    // إغلاق فقط عند الضغط على الخلفية أو زر الإغلاق
     if (!event || event.target.id === 'modal' || event.target.classList.contains('modal-close')) {
         modal.classList.remove('active');
-        document.body.style.overflow = 'auto';
+        document.body.style.overflow = 'auto'; // السماح بالتمرير
     }
 }
 
+// ========================================
+// ⏳ Loading Screen - شاشة التحميل
+// ========================================
 window.addEventListener('load', function() {
-    setTimeout(() => document.getElementById('loadingScreen').classList.add('fade-out'), 500);
+    setTimeout(() => {
+        document.getElementById('loadingScreen').classList.add('fade-out');
+    }, 500);
 });
 
-function toggleChatbot() {
-    const container = document.getElementById('chatbotContainer');
-    if (container) {
-        const isOpening = !container.classList.contains('active');
-        container.classList.toggle('active');
-        
-        if (isOpening) {
-            document.body.style.overflow = 'hidden';
-            setTimeout(() => {
-                const messages = document.getElementById('chatbotMessages');
-                if (messages) messages.scrollTop = messages.scrollHeight;
-            }, 100);
-        } else {
-            document.body.style.overflow = 'auto';
-        }
-    }
-}
-
-function addMessage(text, isBot = true) {
-    const messagesContainer = document.getElementById('chatbotMessages');
-    if (!messagesContainer) return;
-    const messageDiv = document.createElement('div');
-    messageDiv.className = `chat-message ${isBot ? 'bot' : 'user'}`;
-    const bubble = document.createElement('div');
-    bubble.className = 'message-bubble';
-    bubble.innerHTML = text;
-    messageDiv.appendChild(bubble);
-    messagesContainer.appendChild(messageDiv);
-    messagesContainer.scrollTop = messagesContainer.scrollHeight;
-}
-
-function hideOptions() {
-    const opts = document.getElementById('chatbotOptions');
-    if (opts) {
-        opts.classList.add('hidden');
-        opts.style.display = 'none';
-    }
-}
-
-function showOptions() {
-    const opts = document.getElementById('chatbotOptions');
-    if (opts) {
-        opts.classList.remove('hidden');
-        opts.style.display = 'flex';
-    }
-}
-
-function showTypingIndicator() {
-    const lang = window.currentLang || 'en';
-    const typingText = {
-        en: '💭 Typing...',
-        no: '💭 Skriver...',
-        ar: '💭 يكتب...'
-    };
-    addMessage(typingText[lang], true);
-}
-
-function removeLastMessage() {
-    const messagesContainer = document.getElementById('chatbotMessages');
-    if (messagesContainer && messagesContainer.lastChild) {
-        messagesContainer.removeChild(messagesContainer.lastChild);
-    }
-}
-
-async function sendMessageToAI(message) {
-    try {
-        const response = await fetch('/api/chat', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ 
-                message: message,
-                language: window.currentLang || 'en'
-            })
-        });
-        
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        
-        const data = await response.json();
-        return data.reply || data.message || "I apologize, I couldn't process that.";
-        
-    } catch (error) {
-        console.error('Error:', error);
-        const lang = window.currentLang || 'en';
-        const errorMessages = {
-            en: "Sorry, I'm having trouble connecting. Please contact me at ferasatik1@gmail.com or +47 412 05 043 📧",
-            no: "Beklager, jeg har problemer med tilkoblingen. Kontakt meg på ferasatik1@gmail.com eller +47 412 05 043 📧",
-            ar: "عذراً، أواجه مشكلة في الاتصال. تواصل معي على ferasatik1@gmail.com أو +47 412 05 043 📧"
-        };
-        return errorMessages[lang];
-    }
-}
-
-async function selectOption(option) {
-    const lang = window.currentLang || 'en';
-    const optionMessages = {
-        services: { en: "Tell me about your services", no: "Fortell meg om tjenestene dine", ar: "أخبرني عن خدماتك" },
-        experience: { en: "What's your experience?", no: "Hva er din erfaring?", ar: "ما هي خبرتك؟" },
-        pricing: { en: "What are your prices?", no: "Hva er prisene dine?", ar: "ما هي أسعارك؟" },
-        contact: { en: "How can I contact you?", no: "Hvordan kan jeg kontakte deg?", ar: "كيف يمكنني التواصل معك؟" },
-        portfolio: { en: "Show me your work", no: "Vis meg arbeidet ditt", ar: "أرني أعمالك" },
-        availability: { en: "Are you available?", no: "Er du tilgjengelig?", ar: "هل أنت متاح؟" }
-    };
-    const userMessage = optionMessages[option][lang];
-    addMessage(userMessage, false);
-    hideOptions();
-    showTypingIndicator();
-    
-    const reply = await sendMessageToAI(userMessage);
-    removeLastMessage();
-    addMessage(reply, true);
-}
-
-async function sendMessage() {
-    const input = document.getElementById('chatInput');
-    if (!input) return;
-    const message = input.value.trim();
-    if (message === '') return;
-    addMessage(message, false);
-    input.value = '';
-    hideOptions();
-    showTypingIndicator();
-    
-    const reply = await sendMessageToAI(message);
-    removeLastMessage();
-    addMessage(reply, true);
-}
-
-function handleEnter(event) {
-    if (event.key === 'Enter') sendMessage();
-}
-
+// ========================================
+// 🔢 CAPTCHA Functions - وظائف التحقق من الإنسان
+// ========================================
 let currentCaptcha = '';
+
+// دالة توليد CAPTCHA جديد
 function generateCaptcha() {
     const num1 = Math.floor(Math.random() * 10) + 1;
     const num2 = Math.floor(Math.random() * 10) + 1;
     currentCaptcha = num1 + num2;
+    
     document.getElementById('captchaChallenge').textContent = `${num1} + ${num2} = ?`;
     document.getElementById('captchaInput').value = '';
 }
 
+// توليد CAPTCHA عند تحميل الصفحة
 window.addEventListener('load', function() {
     generateCaptcha();
 });
 
+// ========================================
+// 📧 Contact Form - نموذج التواصل
+// ========================================
 document.getElementById('contactForm').addEventListener('submit', async function(e) {
     e.preventDefault();
+    
+    // الحصول على قيم الحقول
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
     const message = document.getElementById('message').value.trim();
     const captchaInput = document.getElementById('captchaInput').value.trim();
     const lang = window.currentLang || 'en';
     
+    // التحقق من عدم وجود حقول فارغة
     if (!name || !email || !message) {
         showFormMessage(translations[lang].form_error, 'error');
         return;
     }
     
+    // التحقق من صحة البريد الإلكتروني
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
         showFormMessage(translations[lang].form_error, 'error');
         return;
     }
     
+    // التحقق من CAPTCHA
     if (parseInt(captchaInput) !== currentCaptcha) {
         showFormMessage(translations[lang].form_captcha_error, 'error');
         generateCaptcha();
         return;
     }
     
-    // إرسال الفورم
+    // إرسال النموذج
     try {
         const formData = new FormData(this);
         const response = await fetch(this.action, {
@@ -2119,59 +2471,230 @@ document.getElementById('contactForm').addEventListener('submit', async function
     }
 });
 
+// دالة عرض رسالة النموذج (نجاح أو خطأ)
 function showFormMessage(message, type) {
     const formMessage = document.getElementById('formMessage');
     formMessage.textContent = message;
     formMessage.className = `form-message ${type}`;
     formMessage.classList.remove('hidden');
+    
+    // إخفاء الرسالة بعد 5 ثواني
     setTimeout(() => {
         formMessage.classList.add('hidden');
     }, 5000);
 }
+// ========================================
+// 💬 Chatbot Functions - وظائف المساعد الذكي
+// ========================================
 
-function reloadAndScrollTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    setTimeout(() => location.reload(), 500);
-}
-
-function toggleMobileMenu() {
-    const mobileMenu = document.getElementById('mobileMenu');
-    const hamburger = document.querySelector('.hamburger-menu');
-    if (!mobileMenu || !hamburger) return;
-    const isActive = mobileMenu.classList.contains('active');
-    if (isActive) {
-        mobileMenu.classList.remove('active');
-        hamburger.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    } else {
-        mobileMenu.classList.add('active');
-        hamburger.classList.add('active');
+// دالة فتح/إغلاق Chatbot
+function toggleChatbot() {
+    const container = document.getElementById('chatbotContainer');
+    if (!container) return;
+    
+    const isOpening = !container.classList.contains('active');
+    container.classList.toggle('active');
+    
+    if (isOpening) {
+        // عند الفتح: منع التمرير والذهاب لآخر رسالة
         document.body.style.overflow = 'hidden';
+        setTimeout(() => {
+            const messages = document.getElementById('chatbotMessages');
+            if (messages) messages.scrollTop = messages.scrollHeight;
+        }, 100);
+    } else {
+        // عند الإغلاق: السماح بالتمرير
+        document.body.style.overflow = 'auto';
     }
 }
 
-function closeMobileMenu() {
-    const mobileMenu = document.getElementById('mobileMenu');
-    const hamburger = document.querySelector('.hamburger-menu');
-    if (!mobileMenu || !hamburger) return;
-    mobileMenu.classList.remove('active');
-    hamburger.classList.remove('active');
-    document.body.style.overflow = 'auto';
+// دالة إضافة رسالة للـ Chatbot
+function addMessage(text, isBot = true) {
+    const messagesContainer = document.getElementById('chatbotMessages');
+    if (!messagesContainer) return;
+    
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `chat-message ${isBot ? 'bot' : 'user'}`;
+    
+    const bubble = document.createElement('div');
+    bubble.className = 'message-bubble';
+    bubble.innerHTML = text;
+    
+    messageDiv.appendChild(bubble);
+    messagesContainer.appendChild(messageDiv);
+    
+    // التمرير التلقائي لآخر رسالة
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
 }
 
-document.querySelectorAll('.mobile-menu a').forEach(link => {
-    link.addEventListener('click', closeMobileMenu);
-});
-
-document.addEventListener('click', function(event) {
-    const mobileMenu = document.getElementById('mobileMenu');
-    const hamburger = document.querySelector('.hamburger-menu');
-    if (mobileMenu && mobileMenu.classList.contains('active') && 
-        !mobileMenu.contains(event.target) && 
-        !hamburger.contains(event.target)) {
-        closeMobileMenu();
+// دالة إخفاء خيارات الـ Chatbot
+function hideOptions() {
+    const opts = document.getElementById('chatbotOptions');
+    if (opts) {
+        opts.classList.add('hidden');
+        opts.style.display = 'none';
     }
-});
+}
+
+// دالة إظهار خيارات الـ Chatbot
+function showOptions() {
+    const opts = document.getElementById('chatbotOptions');
+    if (opts) {
+        opts.classList.remove('hidden');
+        opts.style.display = 'flex';
+    }
+}
+
+// دالة عرض مؤشر الكتابة
+function showTypingIndicator() {
+    const lang = window.currentLang || 'en';
+    const typingText = {
+        en: '💭 Typing...',
+        no: '💭 Skriver...',
+        ar: '💭 يكتب...'
+    };
+    addMessage(typingText[lang], true);
+}
+
+// دالة حذف آخر رسالة
+function removeLastMessage() {
+    const messagesContainer = document.getElementById('chatbotMessages');
+    if (messagesContainer && messagesContainer.lastChild) {
+        messagesContainer.removeChild(messagesContainer.lastChild);
+    }
+}
+
+// دالة إرسال رسالة للذكاء الاصطناعي (OpenAI API)
+async function sendMessageToAI(message) {
+    const lang = window.currentLang || 'en';
+    
+    try {
+        // إرسال الطلب لـ API
+        const response = await fetch('/api/chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ 
+                message: message,
+                language: lang
+            })
+        });
+        
+        // التحقق من نجاح الطلب
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        
+        // استخراج الرد
+        const data = await response.json();
+        return data.reply || data.message || getDefaultResponse(lang);
+        
+    } catch (error) {
+        console.error('Chatbot Error:', error);
+        return getDefaultResponse(lang);
+    }
+}
+
+// دالة الردود الاحتياطية في حال فشل الاتصال
+function getDefaultResponse(lang) {
+    const fallbackResponses = {
+        en: "I'm having trouble connecting right now. Please contact me directly at:\n\n📧 ferasatik1@gmail.com\n📱 +47 412 05 043",
+        no: "Jeg har problemer med tilkoblingen akkurat nå. Kontakt meg direkte på:\n\n📧 ferasatik1@gmail.com\n📱 +47 412 05 043",
+        ar: "أواجه مشكلة في الاتصال الآن. تواصل معي مباشرة على:\n\n📧 ferasatik1@gmail.com\n📱 +47 412 05 043"
+    };
+    return fallbackResponses[lang] || fallbackResponses.en;
+}
+
+// دالة اختيار خيار من الـ Chatbot
+async function selectOption(option) {
+    const lang = window.currentLang || 'en';
+    
+    // رسائل الخيارات
+    const optionMessages = {
+        services: { 
+            en: "Tell me about your services", 
+            no: "Fortell meg om tjenestene dine", 
+            ar: "أخبرني عن خدماتك" 
+        },
+        experience: { 
+            en: "What's your experience?", 
+            no: "Hva er din erfaring?", 
+            ar: "ما هي خبرتك؟" 
+        },
+        pricing: { 
+            en: "What are your prices?", 
+            no: "Hva er prisene dine?", 
+            ar: "ما هي أسعارك؟" 
+        },
+        contact: { 
+            en: "How can I contact you?", 
+            no: "Hvordan kan jeg kontakte deg?", 
+            ar: "كيف يمكنني التواصل معك؟" 
+        },
+        portfolio: { 
+            en: "Show me your work", 
+            no: "Vis meg arbeidet ditt", 
+            ar: "أرني أعمالك" 
+        },
+        availability: { 
+            en: "Are you available?", 
+            no: "Er du tilgjengelig?", 
+            ar: "هل أنت متاح؟" 
+        }
+    };
+    
+    const userMessage = optionMessages[option][lang];
+    
+    // إضافة رسالة المستخدم
+    addMessage(userMessage, false);
+    
+    // إخفاء الخيارات وعرض مؤشر الكتابة
+    hideOptions();
+    showTypingIndicator();
+    
+    // الحصول على الرد من الذكاء الاصطناعي
+    const reply = await sendMessageToAI(userMessage);
+    
+    // حذف مؤشر الكتابة وإضافة الرد
+    removeLastMessage();
+    addMessage(reply, true);
+}
+
+// دالة إرسال رسالة من حقل الإدخال
+async function sendMessage() {
+    const input = document.getElementById('chatInput');
+    if (!input) return;
+    
+    const message = input.value.trim();
+    if (message === '') return;
+    
+    // إضافة رسالة المستخدم
+    addMessage(message, false);
+    input.value = '';
+    
+    // إخفاء الخيارات وعرض مؤشر الكتابة
+    hideOptions();
+    showTypingIndicator();
+    
+    // الحصول على الرد
+    const reply = await sendMessageToAI(message);
+    
+    // حذف مؤشر الكتابة وإضافة الرد
+    removeLastMessage();
+    addMessage(reply, true);
+}
+
+// دالة معالجة الضغط على Enter في حقل الإدخال
+function handleEnter(event) {
+    if (event.key === 'Enter') {
+        sendMessage();
+    }
+}
+
+// ========================================
+// 🎉 نهاية الكود - End of JavaScript
+// ========================================
 </script>
 </article>
 </body>
