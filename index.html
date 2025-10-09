@@ -580,6 +580,7 @@
             position: absolute;
             top: 1.5rem;
             right: 1.5rem;
+            left: auto;
             width: 40px;
             height: 40px;
             background: var(--accent);
@@ -590,6 +591,18 @@
             cursor: pointer;
             transition: all 0.3s;
             z-index: 10;
+        }
+
+        /* تعديل موضع زر الإغلاق للغة العربية */
+        body[dir="rtl"] .modal-close {
+            right: auto;
+            left: 1.5rem;
+        }
+
+        /* تعديل موضع زر الإغلاق للغة العربية */
+        body[dir="rtl"] .modal-close {
+            right: auto;
+            left: 1.5rem;
         }
         .modal-close:hover {
             transform: rotate(90deg);
@@ -1235,9 +1248,16 @@
             .modal-close {
                 top: 1rem;
                 right: 1rem;
+                left: auto;
                 width: 35px;
                 height: 35px;
                 font-size: 1.3rem;
+            }
+    
+            /* للغة العربية على الموبايل */
+            body[dir="rtl"] .modal-close {
+                right: auto;
+                left: 1rem;
             }
             
             .chatbot-container {
@@ -2304,6 +2324,252 @@ function openModal(projectId) {
                     { value: "60%", label: "معالجة أسرع" },
                     { value: "85%", label: "دقة المخزون" },
                     { value: "$50K+", label: "وفورات شهرية" }
+                ]
+            }
+        },
+        project3: {
+            en: {
+                title: "AI Customer Support Assistant",
+                client: "E-commerce Company",
+                overview: "Built an intelligent AI chatbot handling 1000+ customer inquiries daily with natural language processing.",
+                challenge: "High volume of repetitive customer questions causing support team burnout and delayed responses.",
+                solution: "Developed AI-powered chatbot with OpenAI integration, multi-language support, and seamless human handoff.",
+                tech: ["Python", "OpenAI API", "React", "WebSocket", "MongoDB"],
+                results: [
+                    { value: "80%", label: "Reduced Support Tickets" },
+                    { value: "24/7", label: "Availability" },
+                    { value: "95%", label: "Customer Satisfaction" }
+                ]
+            },
+            no: {
+                title: "AI kundeserviceassistent",
+                client: "E-handelselskap",
+                overview: "Bygget en intelligent AI chatbot som håndterer 1000+ kundehenvendelser daglig med naturlig språkbehandling.",
+                challenge: "Høyt volum av repeterende kundespørsmål som forårsaket utbrenthet i supportteamet og forsinkede svar.",
+                solution: "Utviklet AI-drevet chatbot med OpenAI-integrasjon, flerspråklig støtte og sømløs overføring til mennesker.",
+                tech: ["Python", "OpenAI API", "React", "WebSocket", "MongoDB"],
+                results: [
+                    { value: "80%", label: "Reduserte supportforespørsler" },
+                    { value: "24/7", label: "Tilgjengelighet" },
+                    { value: "95%", label: "Kundetilfredshet" }
+                ]
+            },
+            ar: {
+                title: "مساعد دعم العملاء بالذكاء الاصطناعي",
+                client: "شركة تجارة إلكترونية",
+                overview: "بناء روبوت محادثة ذكي يتعامل مع أكثر من 1000 استفسار عميل يومياً بمعالجة اللغة الطبيعية.",
+                challenge: "حجم كبير من أسئلة العملاء المتكررة تسبب إرهاق فريق الدعم وتأخير الردود.",
+                solution: "تطوير روبوت محادثة مدعوم بالذكاء الاصطناعي مع تكامل OpenAI ودعم متعدد اللغات ونقل سلس للبشر.",
+                tech: ["Python", "OpenAI API", "React", "WebSocket", "MongoDB"],
+                results: [
+                    { value: "80%", label: "تقليل تذاكر الدعم" },
+                    { value: "24/7", label: "التوفر" },
+                    { value: "95%", label: "رضا العملاء" }
+                ]
+            }
+        },
+        project4: {
+            en: {
+                title: "Business Analytics Dashboard",
+                client: "Marketing Agency",
+                overview: "Created comprehensive analytics platform visualizing complex data from multiple sources in real-time.",
+                challenge: "Data scattered across different tools making it impossible to get unified business insights.",
+                solution: "Built centralized dashboard with API integrations, custom visualizations, and automated reporting.",
+                tech: ["React", "D3.js", "Node.js", "PostgreSQL", "Redis"],
+                results: [
+                    { value: "70%", label: "Faster Decision Making" },
+                    { value: "10+", label: "Data Sources Integrated" },
+                    { value: "50%", label: "Time Saved on Reports" }
+                ]
+            },
+            no: {
+                title: "Forretningsanalysedashboard",
+                client: "Markedsføringsbyrå",
+                overview: "Opprettet omfattende analyseplattform som visualiserer komplekse data fra flere kilder i sanntid.",
+                challenge: "Data spredt over forskjellige verktøy som gjorde det umulig å få enhetlige forretningsinnsikter.",
+                solution: "Bygget sentralisert dashboard med API-integrasjoner, tilpassede visualiseringer og automatisert rapportering.",
+                tech: ["React", "D3.js", "Node.js", "PostgreSQL", "Redis"],
+                results: [
+                    { value: "70%", label: "Raskere beslutningstaking" },
+                    { value: "10+", label: "Datakilder integrert" },
+                    { value: "50%", label: "Tid spart på rapporter" }
+                ]
+            },
+            ar: {
+                title: "لوحة تحليلات الأعمال",
+                client: "وكالة تسويق",
+                overview: "إنشاء منصة تحليلات شاملة تصور البيانات المعقدة من مصادر متعددة في الوقت الفعلي.",
+                challenge: "بيانات متناثرة عبر أدوات مختلفة مما جعل من المستحيل الحصول على رؤى أعمال موحدة.",
+                solution: "بناء لوحة تحكم مركزية مع تكامل API وتصورات مخصصة وإعداد تقارير تلقائي.",
+                tech: ["React", "D3.js", "Node.js", "PostgreSQL", "Redis"],
+                results: [
+                    { value: "70%", label: "اتخاذ قرارات أسرع" },
+                    { value: "10+", label: "مصادر بيانات متكاملة" },
+                    { value: "50%", label: "وقت موفر في التقارير" }
+                ]
+            }
+        },
+        project5: {
+            en: {
+                title: "Interactive Learning Platform",
+                client: "Educational Institute",
+                overview: "Developed complete e-learning platform with video streaming, assignments, and progress tracking.",
+                challenge: "Traditional classroom limitations preventing scalable education delivery to remote students.",
+                solution: "Built modern LMS with interactive lessons, real-time collaboration, and AI-powered assessments.",
+                tech: ["Next.js", "Firebase", "WebRTC", "Stripe", "TensorFlow"],
+                results: [
+                    { value: "5000+", label: "Active Students" },
+                    { value: "300+", label: "Courses Available" },
+                    { value: "92%", label: "Completion Rate" }
+                ]
+            },
+            no: {
+                title: "Interaktiv læringsplattform",
+                client: "Utdanningsinstitusjon",
+                overview: "Utviklet komplett e-læringsplattform med videostreaming, oppgaver og fremgangssporing.",
+                challenge: "Tradisjonelle klasserombegrensninger som forhindret skalerbar utdanningsleveranse til fjernstigende studenter.",
+                solution: "Bygget moderne LMS med interaktive leksjoner, sanntidssamarbeid og AI-drevne vurderinger.",
+                tech: ["Next.js", "Firebase", "WebRTC", "Stripe", "TensorFlow"],
+                results: [
+                    { value: "5000+", label: "Aktive studenter" },
+                    { value: "300+", label: "Tilgjengelige kurs" },
+                    { value: "92%", label: "Fullføringsrate" }
+                ]
+            },
+            ar: {
+                title: "منصة تعليمية تفاعلية",
+                client: "مؤسسة تعليمية",
+                overview: "تطوير منصة تعليم إلكتروني كاملة مع بث الفيديو والمهام وتتبع التقدم.",
+                challenge: "قيود الفصول الدراسية التقليدية تمنع تقديم التعليم القابل للتوسع للطلاب عن بُعد.",
+                solution: "بناء نظام إدارة تعلم حديث مع دروس تفاعلية وتعاون في الوقت الفعلي وتقييمات مدعومة بالذكاء الاصطناعي.",
+                tech: ["Next.js", "Firebase", "WebRTC", "Stripe", "TensorFlow"],
+                results: [
+                    { value: "5000+", label: "طالب نشط" },
+                    { value: "300+", label: "دورات متاحة" },
+                    { value: "92%", label: "معدل الإنجاز" }
+                ]
+            }
+        },
+        project6: {
+            en: {
+                title: "CRM System",
+                client: "Sales Company",
+                overview: "Custom CRM solution managing customer relationships, sales pipeline, and team performance.",
+                challenge: "Generic CRM tools didn't fit unique business processes causing low adoption and poor data quality.",
+                solution: "Built tailored CRM with custom workflows, automation, and integration with existing tools.",
+                tech: ["Vue.js", "Laravel", "MySQL", "Redis", "Docker"],
+                results: [
+                    { value: "40%", label: "Increased Sales" },
+                    { value: "100%", label: "Team Adoption" },
+                    { value: "30%", label: "More Closed Deals" }
+                ]
+            },
+            no: {
+                title: "CRM-system",
+                client: "Salgsselskap",
+                overview: "Tilpasset CRM-løsning som administrerer kunderelasjoner, salgspipeline og teamytelse.",
+                challenge: "Generiske CRM-verktøy passet ikke unike forretningsprosesser som forårsaket lav adopsjon og dårlig datakvalitet.",
+                solution: "Bygget skreddersydd CRM med tilpassede arbeidsflyter, automatisering og integrasjon med eksisterende verktøy.",
+                tech: ["Vue.js", "Laravel", "MySQL", "Redis", "Docker"],
+                results: [
+                    { value: "40%", label: "Økt salg" },
+                    { value: "100%", label: "Teamadopsjon" },
+                    { value: "30%", label: "Flere lukkede avtaler" }
+                ]
+            },
+            ar: {
+                title: "نظام إدارة علاقات العملاء",
+                client: "شركة مبيعات",
+                overview: "حل CRM مخصص لإدارة علاقات العملاء وخط المبيعات وأداء الفريق.",
+                challenge: "أدوات CRM العامة لم تتناسب مع عمليات الأعمال الفريدة مما تسبب في انخفاض التبني وجودة البيانات الرديئة.",
+                solution: "بناء CRM مخصص مع سير عمل مخصص وأتمتة وتكامل مع الأدوات الحالية.",
+                tech: ["Vue.js", "Laravel", "MySQL", "Redis", "Docker"],
+                results: [
+                    { value: "40%", label: "زيادة المبيعات" },
+                    { value: "100%", label: "تبني الفريق" },
+                    { value: "30%", label: "المزيد من الصفقات المغلقة" }
+                ]
+            }
+        },
+        project7: {
+            en: {
+                title: "Professional Multi-Language Website",
+                client: "International Corporation",
+                overview: "Corporate website with 5 languages, advanced SEO, and content management system.",
+                challenge: "Needed professional online presence reaching global markets with localized content.",
+                solution: "Built multilingual website with automatic translation, SEO optimization for each market, and easy content updates.",
+                tech: ["Next.js", "Strapi CMS", "i18n", "Vercel", "Google Analytics"],
+                results: [
+                    { value: "200%", label: "Organic Traffic Growth" },
+                    { value: "5", label: "Languages Supported" },
+                    { value: "90+", label: "PageSpeed Score" }
+                ]
+            },
+            no: {
+                title: "Profesjonell flerspråklig nettside",
+                client: "Internasjonal bedrift",
+                overview: "Bedriftsnettside med 5 språk, avansert SEO og innholdsstyringssystem.",
+                challenge: "Trengte profesjonell online tilstedeværelse som når globale markeder med lokalisert innhold.",
+                solution: "Bygget flerspråklig nettside med automatisk oversettelse, SEO-optimalisering for hvert marked og enkle innholdsoppdateringer.",
+                tech: ["Next.js", "Strapi CMS", "i18n", "Vercel", "Google Analytics"],
+                results: [
+                    { value: "200%", label: "Organisk trafikkøkning" },
+                    { value: "5", label: "Støttede språk" },
+                    { value: "90+", label: "PageSpeed-poengsum" }
+                ]
+            },
+            ar: {
+                title: "موقع احترافي متعدد اللغات",
+                client: "شركة دولية",
+                overview: "موقع شركة مع 5 لغات وSEO متقدم ونظام إدارة محتوى.",
+                challenge: "الحاجة إلى حضور احترافي عبر الإنترنت يصل إلى الأسواق العالمية بمحتوى محلي.",
+                solution: "بناء موقع متعدد اللغات مع ترجمة تلقائية وتحسين SEO لكل سوق وتحديثات محتوى سهلة.",
+                tech: ["Next.js", "Strapi CMS", "i18n", "Vercel", "Google Analytics"],
+                results: [
+                    { value: "200%", label: "نمو الزيارات العضوية" },
+                    { value: "5", label: "لغات مدعومة" },
+                    { value: "90+", label: "درجة PageSpeed" }
+                ]
+            }
+        },
+        project8: {
+            en: {
+                title: "E-Commerce Platform",
+                client: "Retail Business",
+                overview: "Complete online store with product catalog, shopping cart, and secure payment processing.",
+                challenge: "Losing sales to competitors with better online shopping experience and mobile presence.",
+                solution: "Developed modern e-commerce platform with intuitive UX, fast checkout, and integrated payment gateways.",
+                tech: ["React", "Node.js", "Stripe", "AWS", "MongoDB"],
+                results: [
+                    { value: "150%", label: "Revenue Increase" },
+                    { value: "65%", label: "Mobile Conversion" },
+                    { value: "3x", label: "Faster Checkout" }
+                ]
+            },
+            no: {
+                title: "E-handelsplattform",
+                client: "Detaljhandelsbedrift",
+                overview: "Komplett nettbutikk med produktkatalog, handlekurv og sikker betalingsbehandling.",
+                challenge: "Mistet salg til konkurrenter med bedre netthandelsopplevelse og mobiltilstedeværelse.",
+                solution: "Utviklet moderne e-handelsplattform med intuitiv UX, rask kasse og integrerte betalingsgatewayer.",
+                tech: ["React", "Node.js", "Stripe", "AWS", "MongoDB"],
+                results: [
+                    { value: "150%", label: "Inntektsøkning" },
+                    { value: "65%", label: "Mobilkonvertering" },
+                    { value: "3x", label: "Raskere kasse" }
+                ]
+            },
+            ar: {
+                title: "منصة تجارة إلكترونية",
+                client: "شركة بيع بالتجزئة",
+                overview: "متجر إلكتروني كامل مع كتالوج منتجات وسلة تسوق ومعالجة دفع آمنة.",
+                challenge: "خسارة المبيعات للمنافسين مع تجربة تسوق أفضل عبر الإنترنت وحضور على الهاتف المحمول.",
+                solution: "تطوير منصة تجارة إلكترونية حديثة مع تجربة مستخدم بديهية وخروج سريع وبوابات دفع متكاملة.",
+                tech: ["React", "Node.js", "Stripe", "AWS", "MongoDB"],
+                results: [
+                    { value: "150%", label: "زيادة الإيرادات" },
+                    { value: "65%", label: "تحويل الموبايل" },
+                    { value: "3x", label: "خروج أسرع" }
                 ]
             }
         }
