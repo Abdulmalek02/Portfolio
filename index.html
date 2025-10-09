@@ -1980,17 +1980,39 @@ function removeLastMessage() {
     }
 }
 
-function sendMessageToAI(message) {
-    const lang = window.currentLang || 'en';
-    const errorMessages = {
-        en: "Sorry, I'm having trouble connecting. Please contact me at ferasatik1@gmail.com or +47 412 05 043 📧",
-        no: "Beklager, jeg har problemer med tilkoblingen. Kontakt meg på ferasatik1@gmail.com eller +47 412 05 043 📧",
-        ar: "عذراً، أواجه مشكلة في الاتصال. تواصل معي على ferasatik1@gmail.com أو +47 412 05 043 📧"
-    };
-    return errorMessages[lang];
+async function sendMessageToAI(message) {
+    try {
+        const response = await fetch('/api/chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ 
+                message: message,
+                language: window.currentLang || 'en'
+            })
+        });
+        
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        
+        const data = await response.json();
+        return data.reply || data.message || "I apologize, I couldn't process that.";
+        
+    } catch (error) {
+        console.error('Error:', error);
+        const lang = window.currentLang || 'en';
+        const errorMessages = {
+            en: "Sorry, I'm having trouble connecting. Please contact me at ferasatik1@gmail.com or +47 412 05 043 📧",
+            no: "Beklager, jeg har problemer med tilkoblingen. Kontakt meg på ferasatik1@gmail.com eller +47 412 05 043 📧",
+            ar: "عذراً، أواجه مشكلة في الاتصال. تواصل معي على ferasatik1@gmail.com أو +47 412 05 043 📧"
+        };
+        return errorMessages[lang];
+    }
 }
 
-function selectOption(option) {
+async function selectOption(option) {
     const lang = window.currentLang || 'en';
     const optionMessages = {
         services: { en: "Tell me about your services", no: "Fortell meg om tjenestene dine", ar: "أخبرني عن خدماتك" },
@@ -2004,14 +2026,13 @@ function selectOption(option) {
     addMessage(userMessage, false);
     hideOptions();
     showTypingIndicator();
-    setTimeout(() => {
-        const reply = sendMessageToAI(userMessage);
-        removeLastMessage();
-        addMessage(reply, true);
-    }, 800);
+    
+    const reply = await sendMessageToAI(userMessage);
+    removeLastMessage();
+    addMessage(reply, true);
 }
 
-function sendMessage() {
+async function sendMessage() {
     const input = document.getElementById('chatInput');
     if (!input) return;
     const message = input.value.trim();
@@ -2020,11 +2041,10 @@ function sendMessage() {
     input.value = '';
     hideOptions();
     showTypingIndicator();
-    setTimeout(() => {
-        const reply = sendMessageToAI(message);
-        removeLastMessage();
-        addMessage(reply, true);
-    }, 800);
+    
+    const reply = await sendMessageToAI(message);
+    removeLastMessage();
+    addMessage(reply, true);
 }
 
 function handleEnter(event) {
