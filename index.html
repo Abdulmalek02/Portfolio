@@ -3,46 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- منع زر القارئ في Safari -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
     <title>Abdulmalek Al-Darwish - Web Developer & AI Specialist</title>
+    
     <!-- SEO Meta Tags -->
-<meta name="description" content="Abdulmalek Al-Darwish - Full-Stack Developer & AI Specialist with 5+ years experience in web development, AI automation, and digital marketing. Contact for professional web solutions.">
-<meta name="keywords" content="web developer, AI specialist, full-stack developer, React, Node.js, Python, digital marketing, web development Norway">
-<meta name="author" content="Abdulmalek Al-Darwish">
-<meta name="robots" content="index, follow">
-<!-- Open Graph Meta Tags (Facebook, LinkedIn) -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="Abdulmalek Al-Darwish - Web Developer & AI Specialist">
-<meta property="og:description" content="Professional web development and AI solutions. 5+ years experience, 50+ completed projects, 100% client satisfaction.">
-<meta property="og:image" content="https://i.ibb.co/v6GfWRYy/1447-04-14-01-59-41-1370e94e.jpg">
-<meta property="og:url" content="https://abd-ulmalek.vercel.app">
-<!-- Twitter Card Meta Tags -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Abdulmalek Al-Darwish - Web Developer & AI Specialist">
-<meta name="twitter:description" content="Professional web development and AI solutions">
-<meta name="twitter:image" content="https://i.ibb.co/v6GfWRYy/1447-04-14-01-59-41-1370e94e.jpg">
-<!-- Canonical URL -->
-<link rel="canonical" href="https://abd-ulmalek.vercel.app">
-<!-- Structured Data (JSON-LD) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Abdulmalek Al-Darwish",
-  "jobTitle": "Full-Stack Developer & AI Specialist",
-  "url": "https://abd-ulmalek.vercel.app",
-  "image": "https://i.ibb.co/v6GfWRYy/1447-04-14-01-59-41-1370e94e.jpg",
-  "email": "ferasatik1@gmail.com",
-  "telephone": "+4741205043",
-  "description": "Full-Stack Developer with 5+ years experience in web development and AI automation"
-}
-</script>
+    <meta name="description" content="Abdulmalek Al-Darwish - Full-Stack Developer & AI Specialist with 5+ years experience in web development, AI automation, and digital marketing. Contact for professional web solutions.">
+    <meta name="keywords" content="web developer, AI specialist, full-stack developer, React, Node.js, Python, digital marketing, web development Norway">
+    <meta name="author" content="Abdulmalek Al-Darwish">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags (Facebook, LinkedIn) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Abdulmalek Al-Darwish - Web Developer & AI Specialist">
+    <meta property="og:description" content="Professional web development and AI solutions. 5+ years experience, 50+ completed projects, 100% client satisfaction.">
+    <meta property="og:image" content="https://i.ibb.co/v6GfWRYy/1447-04-14-01-59-41-1370e94e.jpg">
+    <meta property="og:url" content="https://abd-ulmalek.vercel.app">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Abdulmalek Al-Darwish - Web Developer & AI Specialist">
+    <meta name="twitter:description" content="Professional web development and AI solutions">
+    <meta name="twitter:image" content="https://i.ibb.co/v6GfWRYy/1447-04-14-01-59-41-1370e94e.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://abd-ulmalek.vercel.app">
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Abdulmalek Al-Darwish",
+      "jobTitle": "Full-Stack Developer & AI Specialist",
+      "url": "https://abd-ulmalek.vercel.app",
+      "image": "https://i.ibb.co/v6GfWRYy/1447-04-14-01-59-41-1370e94e.jpg",
+      "email": "ferasatik1@gmail.com",
+      "telephone": "+4741205043",
+      "description": "Full-Stack Developer with 5+ years experience in web development and AI automation"
+    }
+    </script>
+    
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
         }
+        
         :root {
             --primary: #0a0a0a;
             --accent: #d4af37;
@@ -51,6 +66,17 @@
             --bg-dark: #0f0f0f;
             --bg-light: #1a1a1a;
         }
+        
+        /* إصلاح الألوان على شاشات OLED/AMOLED */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary: #0a0a0a;
+                --accent: #d4af37;
+                --bg-dark: #0f0f0f;
+                --bg-light: #1a1a1a;
+            }
+        }
+        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             -webkit-text-size-adjust: 100%;
@@ -58,6 +84,20 @@
             color: var(--text-light);
             line-height: 1.6;
             overflow-x: hidden;
+        }
+        
+        /* منع تغيير الألوان التلقائي في المتصفحات */
+        input, textarea, select, button {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+        
+        /* منع تكبير تلقائي عند Focus في iOS */
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            font-size: 16px !important;
         }
         /* Scroll Animations */
         .fade-in {
@@ -113,6 +153,7 @@
             opacity: 1;
             transform: translateY(0);
         }
+        
         /* Header & Navigation */
         header {
             position: fixed;
@@ -181,7 +222,8 @@
             background: var(--accent);
             color: var(--primary);
         }
-        /* Hamburger Menu Styles - FIXED */
+        
+        /* Hamburger Menu */
         .hamburger-menu {
             display: none;
             flex-direction: column;
@@ -376,6 +418,7 @@
             transform: translateY(-3px);
             box-shadow: 0 8px 30px rgba(212, 175, 55, 0.5);
         }
+        
         /* Sections */
         section {
             max-width: 1200px;
@@ -401,6 +444,7 @@
         .section-title.visible::after {
             width: 100px;
         }
+        
         /* About Section */
         #about {
             background: var(--bg-light);
@@ -537,6 +581,7 @@
             color: var(--accent);
             margin-bottom: 0.5rem;
         }
+        
         /* Modal */
         .modal {
             display: none;
@@ -592,14 +637,6 @@
             transition: all 0.3s;
             z-index: 10;
         }
-
-        /* تعديل موضع زر الإغلاق للغة العربية */
-        body[dir="rtl"] .modal-close {
-            right: auto;
-            left: 1.5rem;
-        }
-
-        /* تعديل موضع زر الإغلاق للغة العربية */
         body[dir="rtl"] .modal-close {
             right: auto;
             left: 1.5rem;
@@ -689,6 +726,7 @@
             color: var(--text-light);
             font-size: 0.9rem;
         }
+        
         /* Contact Section */
         #contact {
             background: var(--bg-light);
@@ -769,7 +807,7 @@
             transform: scale(1.2) rotate(10deg);
             box-shadow: 0 5px 20px rgba(212, 175, 55, 0.5);
         }
-
+        
         /* Contact Form */
         .contact-form {
             background: var(--primary);
@@ -828,7 +866,6 @@
         .submit-btn:active {
             transform: translateY(0);
         }
-        /* CAPTCHA Styles */
         .captcha-container {
             margin-bottom: 1.5rem;
             text-align: center;
@@ -875,7 +912,6 @@
         .captcha-refresh:hover {
             transform: rotate(180deg);
         }
-        /* Success/Error Messages */
         .form-message {
             padding: 1rem;
             border-radius: 8px;
@@ -893,6 +929,7 @@
             color: #dc3545;
             border: 1px solid #dc3545;
         }
+        
         /* Footer */
         footer {
             background: var(--bg-dark);
@@ -941,6 +978,7 @@
         .scroll-btn:active {
             transform: scale(0.95);
         }
+        
         /* Loading Screen */
         .loading-screen {
             position: fixed;
@@ -994,7 +1032,10 @@
         .hidden {
             display: none;
         }
-        /* Chatbot Styles - FIXED */
+        
+        /* ========================================
+           💬 Chatbot Styles - UPDATED & FIXED
+           ======================================== */
         .chatbot-button {
             position: fixed;
             bottom: 2rem;
@@ -1021,14 +1062,15 @@
             height: 30px;
             fill: var(--primary);
         }
+        
         .chatbot-container {
             position: fixed;
             bottom: 5rem;
             left: 2rem;
             width: 380px;
             height: 550px;
-            max-width: calc(100vw - 2rem);
-            max-height: calc(100vh - 10rem);
+            max-width: calc(100vw - 4rem);
+            max-height: calc(100vh - 12rem);
             background: var(--bg-light);
             border-radius: 20px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
@@ -1038,10 +1080,12 @@
             z-index: 999;
             border: 2px solid var(--accent);
             animation: slideUp 0.4s ease;
+            -webkit-overflow-scrolling: touch;
         }
         .chatbot-container.active {
             display: flex;
         }
+        
         .chatbot-header {
             background: linear-gradient(135deg, var(--accent) 0%, #b8941e 100%);
             padding: 1.5rem;
@@ -1072,6 +1116,7 @@
             background: rgba(0, 0, 0, 0.2);
             transform: rotate(90deg);
         }
+        
         .chatbot-messages {
             flex: 1;
             padding: 1.5rem;
@@ -1107,6 +1152,7 @@
             color: var(--primary);
             border-bottom-right-radius: 5px;
         }
+        
         .chatbot-options {
             padding: 1rem 1.5rem;
             display: flex;
@@ -1132,6 +1178,7 @@
             color: var(--primary);
             transform: scale(1.05);
         }
+        
         .chatbot-input {
             padding: 1rem 1.5rem;
             background: var(--bg-light);
@@ -1169,7 +1216,34 @@
             transform: scale(1.1);
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.5);
         }
-        /* Responsive Design - FIXED FOR MOBILE */
+        
+        /* ========================================
+           📱 إصلاح Viewport على iOS
+           ======================================== */
+        @supports (-webkit-touch-callout: none) {
+            .chatbot-container {
+                height: -webkit-fill-available;
+                max-height: 70vh;
+            }
+            .chatbot-messages {
+                height: -webkit-fill-available;
+            }
+        }
+        
+        /* ========================================
+           📱 إصلاح Safe Area على الهواتف الحديثة
+           ======================================== */
+        @supports (padding: max(0px)) {
+            .chatbot-container {
+                padding-bottom: max(0px, env(safe-area-inset-bottom));
+            }
+            .chatbot-input {
+                padding-bottom: max(0.8rem, calc(0.8rem + env(safe-area-inset-bottom)));
+            }
+        }
+        /* ========================================
+           📱 Responsive Design - UPDATED
+           ======================================== */
         @media (max-width: 768px) {
             nav { padding: 0 1.5rem; }
             .nav-links { display: none; }
@@ -1253,20 +1327,40 @@
                 height: 35px;
                 font-size: 1.3rem;
             }
-    
-            /* للغة العربية على الموبايل */
             body[dir="rtl"] .modal-close {
                 right: auto;
                 left: 1rem;
             }
             
+            /* Chatbot - FIXED للموبايل */
             .chatbot-container {
-                width: calc(100vw - 2rem);
-                height: calc(100vh - 12rem);
-                max-height: 500px;
-                left: 1rem;
-                right: 1rem;
-                bottom: 5rem;
+                width: min(90vw, 380px);
+                height: auto;
+                max-height: 70vh;
+                min-height: 400px;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: 6rem;
+                border-radius: 16px;
+            }
+            .chatbot-container.active {
+                display: flex;
+            }
+            .chatbot-messages {
+                padding: 1rem;
+                flex: 1;
+                min-height: 250px;
+                max-height: calc(70vh - 180px);
+            }
+            .chatbot-input {
+                padding: 0.8rem 1rem;
+                position: sticky;
+                bottom: 0;
+                background: var(--bg-light);
+                z-index: 10;
+            }
+            .chatbot-input input {
+                font-size: 16px;
             }
             .chatbot-button {
                 bottom: 1.5rem;
@@ -1278,7 +1372,6 @@
                 width: 26px;
                 height: 26px;
             }
-            .chatbot-messages { padding: 1rem; }
             .message-bubble {
                 max-width: 85%;
                 font-size: 0.85rem;
@@ -1291,11 +1384,6 @@
             .chat-option {
                 font-size: 0.8rem;
                 padding: 0.4rem 0.8rem;
-            }
-            .chatbot-input { padding: 0.8rem 1rem; }
-            .chatbot-input input {
-                padding: 0.7rem;
-                font-size: 0.85rem;
             }
             .chatbot-send {
                 width: 38px;
@@ -1388,6 +1476,17 @@
             .result-item { padding: 1rem; }
             .result-value { font-size: 1.5rem; }
             .result-label { font-size: 0.8rem; }
+            .modal-close {
+                top: 0.5rem;
+                right: 0.5rem;
+                width: 32px;
+                height: 32px;
+                font-size: 1.2rem;
+            }
+            body[dir="rtl"] .modal-close {
+                right: auto;
+                left: 0.5rem;
+            }
             
             .contact-info h3 { font-size: 1.5rem; }
             .contact-info p { font-size: 0.95rem; }
@@ -1450,14 +1549,28 @@
                 font-size: 0.9rem;
             }
             
+            /* Chatbot - للشاشات الصغيرة جداً */
             .chatbot-container {
-                width: calc(100vw - 1rem);
-                height: calc(100vh - 10rem);
-                max-height: 450px;
-                left: 0.5rem;
-                right: 0.5rem;
-                bottom: 5rem;
-                border-radius: 15px;
+                width: min(95vw, 360px);
+                height: auto;
+                max-height: 65vh;
+                min-height: 350px;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: 5.5rem;
+                border-radius: 14px;
+            }
+            .chatbot-messages {
+                padding: 0.8rem;
+                min-height: 200px;
+                max-height: calc(65vh - 160px);
+            }
+            .chatbot-input {
+                padding: 0.6rem 0.8rem;
+            }
+            .chatbot-input input {
+                padding: 0.6rem 0.8rem;
+                font-size: 16px;
             }
             .chatbot-button {
                 width: 50px;
@@ -1476,7 +1589,6 @@
                 height: 28px;
                 font-size: 1.2rem;
             }
-            .chatbot-messages { padding: 0.8rem; }
             .message-bubble {
                 font-size: 0.8rem;
                 padding: 0.6rem 0.8rem;
@@ -1490,11 +1602,6 @@
                 padding: 0.35rem 0.7rem;
                 font-size: 0.75rem;
             }
-            .chatbot-input { padding: 0.6rem 0.8rem; }
-            .chatbot-input input {
-                padding: 0.6rem;
-                font-size: 0.8rem;
-            }
             .chatbot-send {
                 width: 35px;
                 height: 35px;
@@ -1505,7 +1612,7 @@
 </head>
 
 <body>
-<article>
+<div role="main">
 <!-- Loading Screen -->
 <div id="loadingScreen" class="loading-screen">
     <div class="loader-content">
@@ -1528,7 +1635,6 @@
             <button class="lang-btn" onclick="changeLang('no')">NO</button>
             <button class="lang-btn" onclick="changeLang('ar')">AR</button>
         </div>
-        <!-- Hamburger Menu -->
         <div class="hamburger-menu" onclick="toggleMobileMenu()">
             <span></span>
             <span></span>
@@ -1537,7 +1643,6 @@
     </nav>
 </header>
 
-<!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
     <button class="mobile-menu-close" onclick="closeMobileMenu()">×</button>
     <a href="#about" data-translate="nav_about" onclick="closeMobileMenu()">About</a>
@@ -1681,7 +1786,6 @@
     </div>
 </section>
 
-<!-- Modal -->
 <div id="modal" class="modal" onclick="closeModal(event)">
     <div class="modal-content" onclick="event.stopPropagation()">
         <button class="modal-close" onclick="closeModal()">×</button>
@@ -1747,13 +1851,11 @@
     <p>&copy; 2025 Abdulmalek Al-Darwish. <span data-translate="footer_rights">All rights reserved.</span></p>
 </footer>
 
-<!-- Scroll Buttons -->
 <div class="scroll-buttons" id="scrollButtons">
     <button class="scroll-btn" onclick="scrollToTop()" title="Scroll to top">↑</button>
     <button class="scroll-btn" onclick="scrollToBottom()" title="Scroll to bottom">↓</button>
 </div>
 
-<!-- Chatbot -->
 <div class="chatbot-button" id="chatbotButton" onclick="toggleChatbot()">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <path d="M12 2C6.48 2 2 6.48 2 12c0 1.54.36 3 .97 4.29L2 22l5.71-.97C9 21.64 10.46 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.38 0-2.63-.35-3.77-.95l-.27-.15-2.83.48.48-2.83-.15-.27C4.85 14.63 4.5 13.38 4.5 12c0-4.14 3.36-7.5 7.5-7.5s7.5 3.36 7.5 7.5-3.36 7.5-7.5 7.5z"/>
@@ -1792,31 +1894,21 @@
 
 <script>
 // ========================================
-// 🌍 نظام الترجمات الكامل - Complete Translation System
+// 🌍 نظام الترجمات الكامل
 // ========================================
 
 const translations = {
-    // ============================================
-    // 🇬🇧 اللغة الإنجليزية - English Language
-    // ============================================
     en: {
-        // === Navigation Menu ===
         nav_about: "About",
         nav_portfolio: "Portfolio",
         nav_contact: "Contact",
-        
-        // === Hero Section (القسم الرئيسي) ===
         hero_title: "Full-Stack Developer & AI Specialist",
         hero_desc: "Transforming ideas into digital reality through innovative web development, AI automation, and strategic digital marketing",
         hero_cta: "Get In Touch",
-        
-        // === About Section (قسم عني) ===
         about_title: "About Me",
         about_intro: "I'm a Full-Stack Developer with over 5 years of experience in crafting exceptional digital solutions. My journey in web development has been one of continuous growth and innovation, constantly pushing boundaries to deliver excellence.",
         about_expertise: "Through dedication and passion, I've evolved from mastering the fundamentals to becoming a sought-after professional in the industry. I specialize in building scalable web applications, implementing cutting-edge AI solutions, and creating digital strategies that drive real business results.",
         about_approach: "My approach combines technical expertise with creative problem-solving, ensuring every project not only meets but exceeds expectations. Whether it's a complex e-commerce platform, an intelligent automation system, or a sophisticated web application, I deliver solutions that make an impact.",
-        
-        // === Statistics (الإحصائيات) ===
         stat1_num: "5+",
         stat1_label: "Years Experience",
         stat2_num: "50+",
@@ -1825,16 +1917,12 @@ const translations = {
         stat3_label: "Client Satisfaction",
         stat4_num: "24/7",
         stat4_label: "Support Available",
-        
-        // === Services (الخدمات) ===
         service1_title: "🌐 Web Development",
         service1_desc: "Full-stack development with modern frameworks - from responsive frontends to robust backends",
         service2_title: "🤖 AI Automation",
         service2_desc: "Intelligent systems powered by machine learning to automate and optimize business processes",
         service3_title: "📱 Digital Marketing",
         service3_desc: "Data-driven marketing strategies with SEO optimization and conversion-focused campaigns",
-        
-        // === Portfolio Section (معرض الأعمال) ===
         portfolio_title: "My Work",
         project1_title: "Smart Medical Booking Platform",
         project1_short: "Comprehensive appointment system connecting patients with doctors efficiently",
@@ -1852,15 +1940,11 @@ const translations = {
         project7_short: "Corporate website with modern design and SEO optimization",
         project8_title: "E-Commerce Platform",
         project8_short: "Modern online store with secure payment system",
-        
-        // === Contact Section (قسم التواصل) ===
         contact_title: "Contact Me",
         contact_info_title: "Get In Touch",
         contact_info_desc: "Have a project in mind? Let's discuss how I can help bring your ideas to life.",
         contact_email: "Email",
         contact_phone: "Phone",
-        
-        // === Contact Form (نموذج التواصل) ===
         form_name: "Your Name",
         form_email: "Your Email",
         form_message: "Your Message",
@@ -1869,11 +1953,7 @@ const translations = {
         form_success: "Message sent successfully! I'll get back to you soon.",
         form_error: "Please check your information and try again.",
         form_captcha_error: "Incorrect CAPTCHA. Please try again.",
-        
-        // === Footer (التذييل) ===
         footer_rights: "All rights reserved.",
-        
-        // === Chatbot (المساعد الذكي) ===
         chatbot_title: "💬 Chat with Me",
         chatbot_welcome: "Hi! I'm Abdulmalek's AI assistant 👋<br>How can I help you today?",
         chat_opt_services: "🌐 Your Services",
@@ -1884,27 +1964,17 @@ const translations = {
         chat_opt_availability: "⏰ Availability",
         chat_input_placeholder: "Type your message..."
     },
-    // ============================================
-    // 🇳🇴 اللغة النرويجية - Norwegian Language
-    // ============================================
     no: {
-        // === Navigation Menu ===
         nav_about: "Om meg",
         nav_portfolio: "Portefølje",
         nav_contact: "Kontakt",
-        
-        // === Hero Section ===
         hero_title: "Full-Stack-utvikler & AI-spesialist",
         hero_desc: "Transformerer ideer til digital virkelighet gjennom innovativ webutvikling, AI-automatisering og strategisk digital markedsføring",
         hero_cta: "Ta kontakt",
-        
-        // === About Section ===
         about_title: "Om meg",
         about_intro: "Jeg er en Full-Stack-utvikler med over 5 års erfaring med å skape eksepsjonelle digitale løsninger. Min reise innen webutvikling har vært preget av kontinuerlig vekst og innovasjon, og jeg presser stadig grensene for å levere fortreffelighet.",
         about_expertise: "Gjennom dedikasjon og lidenskap har jeg utviklet meg fra å mestre det grunnleggende til å bli en ettertraktet profesjonell i bransjen. Jeg spesialiserer meg på å bygge skalerbare webapplikasjoner, implementere banebrytende AI-løsninger og skape digitale strategier som gir reelle forretningsresultater.",
         about_approach: "Min tilnærming kombinerer teknisk ekspertise med kreativ problemløsning, og sikrer at hvert prosjekt ikke bare møter, men overgår forventningene. Enten det er en kompleks e-handelsplattform, et intelligent automatiseringssystem eller en sofistikert webapplikasjon, leverer jeg løsninger som gjør en forskjell.",
-        
-        // === Statistics ===
         stat1_num: "5+",
         stat1_label: "Års erfaring",
         stat2_num: "50+",
@@ -1913,16 +1983,12 @@ const translations = {
         stat3_label: "Kundetilfredshet",
         stat4_num: "24/7",
         stat4_label: "Support tilgjengelig",
-        
-        // === Services ===
         service1_title: "🌐 Webutvikling",
         service1_desc: "Full-stack utvikling med moderne rammeverk - fra responsive frontends til robuste backends",
         service2_title: "🤖 AI-automatisering",
         service2_desc: "Intelligente systemer drevet av maskinlæring for å automatisere og optimalisere forretningsprosesser",
         service3_title: "📱 Digital markedsføring",
         service3_desc: "Datadrevne markedsføringsstrategier med SEO-optimalisering og konverteringsfokuserte kampanjer",
-        
-        // === Portfolio Section ===
         portfolio_title: "Mine arbeider",
         project1_title: "Smart medisinsk bookingplattform",
         project1_short: "Omfattende timeavtalesystem som kobler pasienter med leger effektivt",
@@ -1940,15 +2006,11 @@ const translations = {
         project7_short: "Bedriftsnettside med moderne design og SEO-optimalisering",
         project8_title: "E-handelsplattform",
         project8_short: "Moderne nettbutikk med sikkert betalingssystem",
-        
-        // === Contact Section ===
         contact_title: "Kontakt meg",
         contact_info_title: "Ta kontakt",
         contact_info_desc: "Har du et prosjekt i tankene? La oss diskutere hvordan jeg kan hjelpe deg med å realisere ideene dine.",
         contact_email: "E-post",
         contact_phone: "Telefon",
-        
-        // === Contact Form ===
         form_name: "Ditt navn",
         form_email: "Din e-post",
         form_message: "Din melding",
@@ -1957,11 +2019,7 @@ const translations = {
         form_success: "Melding sendt! Jeg tar kontakt snart.",
         form_error: "Vennligst sjekk informasjonen din og prøv igjen.",
         form_captcha_error: "Feil CAPTCHA. Vennligst prøv igjen.",
-        
-        // === Footer ===
         footer_rights: "Alle rettigheter reservert.",
-        
-        // === Chatbot ===
         chatbot_title: "💬 Chat med meg",
         chatbot_welcome: "Hei! Jeg er Abdulmaleks AI-assistent 👋<br>Hvordan kan jeg hjelpe deg i dag?",
         chat_opt_services: "🌐 Dine tjenester",
@@ -1972,28 +2030,17 @@ const translations = {
         chat_opt_availability: "⏰ Tilgjengelighet",
         chat_input_placeholder: "Skriv meldingen din..."
     },
-    
-    // ============================================
-    // 🇸🇦 اللغة العربية - Arabic Language
-    // ============================================
     ar: {
-        // === Navigation Menu ===
         nav_about: "عني",
         nav_portfolio: "معرض الأعمال",
         nav_contact: "تواصل",
-        
-        // === Hero Section ===
         hero_title: "مطور Full-Stack ومتخصص في الذكاء الاصطناعي",
         hero_desc: "أحول الأفكار إلى واقع رقمي من خلال تطوير المواقع المبتكرة، وأتمتة الذكاء الاصطناعي، والتسويق الرقمي الاستراتيجي",
         hero_cta: "تواصل معي",
-        
-        // === About Section ===
         about_title: "عن عبدالملك",
         about_intro: "أنا مطور Full-Stack بخبرة تزيد عن 5 سنوات في صناعة الحلول الرقمية الاستثنائية. رحلتي في تطوير الويب كانت رحلة نمو وابتكار مستمر، أدفع دائماً الحدود لتقديم التميز.",
         about_expertise: "من خلال التفاني والشغف، تطورت من إتقان الأساسيات إلى أن أصبحت محترفاً مطلوباً في الصناعة. أتخصص في بناء تطبيقات ويب قابلة للتطوير، وتطبيق حلول ذكاء اصطناعي متطورة، وإنشاء استراتيجيات رقمية تحقق نتائج أعمال حقيقية.",
         about_approach: "نهجي يجمع بين الخبرة التقنية وحل المشكلات الإبداعي، مما يضمن أن كل مشروع لا يلبي التوقعات فحسب، بل يتجاوزها. سواء كانت منصة تجارة إلكترونية معقدة، أو نظام أتمتة ذكي، أو تطبيق ويب متطور، أقدم حلولاً تُحدث تأثيراً.",
-        
-        // === Statistics ===
         stat1_num: "5+",
         stat1_label: "سنوات خبرة",
         stat2_num: "50+",
@@ -2002,16 +2049,12 @@ const translations = {
         stat3_label: "رضا العملاء",
         stat4_num: "24/7",
         stat4_label: "دعم متاح",
-        
-        // === Services ===
         service1_title: "🌐 تطوير المواقع",
         service1_desc: "تطوير Full-Stack بأطر عمل حديثة - من الواجهات الأمامية المتجاوبة إلى الخلفيات القوية",
         service2_title: "🤖 أتمتة الذكاء الاصطناعي",
         service2_desc: "أنظمة ذكية مدعومة بالتعلم الآلي لأتمتة وتحسين العمليات التجارية",
         service3_title: "📱 التسويق الرقمي",
         service3_desc: "استراتيجيات تسويق مدفوعة بالبيانات مع تحسين SEO وحملات مركزة على التحويل",
-        
-        // === Portfolio Section ===
         portfolio_title: "أعمالي",
         project1_title: "منصة حجز طبي ذكية",
         project1_short: "نظام مواعيد شامل يربط المرضى بالأطباء بكفاءة",
@@ -2029,15 +2072,11 @@ const translations = {
         project7_short: "موقع شركات بتصميم عصري وتحسين SEO",
         project8_title: "منصة تجارة إلكترونية",
         project8_short: "متجر إلكتروني عصري بنظام دفع آمن",
-        
-        // === Contact Section ===
         contact_title: "تواصل معي",
         contact_info_title: "ابقَ على تواصل",
         contact_info_desc: "هل لديك مشروع في ذهنك؟ لنناقش كيف يمكنني مساعدتك في تحقيق أفكارك.",
         contact_email: "البريد الإلكتروني",
         contact_phone: "الهاتف",
-        
-        // === Contact Form ===
         form_name: "اسمك",
         form_email: "بريدك الإلكتروني",
         form_message: "رسالتك",
@@ -2046,11 +2085,7 @@ const translations = {
         form_success: "تم إرسال الرسالة بنجاح! سأتواصل معك قريباً.",
         form_error: "يرجى التحقق من معلوماتك والمحاولة مرة أخرى.",
         form_captcha_error: "خطأ في CAPTCHA. يرجى المحاولة مرة أخرى.",
-        
-        // === Footer ===
         footer_rights: "جميع الحقوق محفوظة.",
-        
-        // === Chatbot ===
         chatbot_title: "💬 دردش معي",
         chatbot_welcome: "مرحباً! أنا مساعد عبدالملك الذكي 👋<br>كيف يمكنني مساعدتك اليوم؟",
         chat_opt_services: "🌐 خدماتك",
@@ -2063,27 +2098,18 @@ const translations = {
     }
 };
 
-// ========================================
-// 🌐 تعيين اللغة الافتراضية
-// ========================================
 window.currentLang = 'en';
-// ========================================
-// 🔄 دالة تغيير اللغة - Language Switcher
-// ========================================
+
 function changeLang(lang) {
-    // حفظ اللغة الحالية
     window.currentLang = lang;
     
-    // تحديث أزرار اللغة (إضافة active للزر المختار)
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.remove('active');
-        // البحث عن الزر المطابق للغة المختارة
         if (btn.textContent.toLowerCase() === lang) {
             btn.classList.add('active');
         }
     });
     
-    // تحديث جميع النصوص في الصفحة
     document.querySelectorAll('[data-translate]').forEach(el => {
         const key = el.getAttribute('data-translate');
         if (translations[lang] && translations[lang][key]) {
@@ -2091,7 +2117,6 @@ function changeLang(lang) {
         }
     });
     
-    // تحديث placeholders (النصوص داخل حقول الإدخال)
     document.querySelectorAll('[data-translate-placeholder]').forEach(el => {
         const key = el.getAttribute('data-translate-placeholder');
         if (translations[lang] && translations[lang][key]) {
@@ -2099,28 +2124,29 @@ function changeLang(lang) {
         }
     });
     
-    // تغيير اتجاه النص للعربية (من اليمين لليسار)
     document.body.style.direction = lang === 'ar' ? 'rtl' : 'ltr';
+    if (lang === 'ar') {
+        document.body.setAttribute('dir', 'rtl');
+    } else {
+        document.body.setAttribute('dir', 'ltr');
+    }
 }
 
 // ========================================
-// 📜 Smooth Scrolling - التمرير الناعم للروابط
+// 📜 Smooth Scrolling
 // ========================================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const targetId = this.getAttribute('href');
         
-        // إذا كان الرابط فارغ، اذهب لأعلى الصفحة
         if (targetId === '#' || targetId === '') {
             window.scrollTo({ top: 0, behavior: 'smooth' });
             return;
         }
         
-        // البحث عن القسم المستهدف
         const target = document.querySelector(targetId);
         if (target) {
-            // التمرير للقسم مع ترك مسافة 80px من الأعلى
             window.scrollTo({
                 top: target.offsetTop - 80,
                 behavior: 'smooth'
@@ -2130,43 +2156,38 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ========================================
-// 👁️ Scroll Animations - تفعيل الأنيميشن عند الظهور
+// 👁️ Scroll Animations
 // ========================================
 const observerOptions = { 
-    threshold: 0.15,  // يبدأ الأنيميشن عندما يظهر 15% من العنصر
-    rootMargin: '0px 0px -50px 0px'  // هامش إضافي
+    threshold: 0.15,
+    rootMargin: '0px 0px -50px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            // إضافة class "visible" لتفعيل الأنيميشن
             entry.target.classList.add('visible');
         }
     });
 }, observerOptions);
 
-// مراقبة جميع العناصر التي تحتوي على أنيميشن
 document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in, .stagger-animation').forEach(el => {
     observer.observe(el);
 });
 
 // ========================================
-// ⬆️⬇️ أزرار التمرير - Scroll Buttons
+// ⬆️⬇️ Scroll Buttons
 // ========================================
 const scrollButtons = document.getElementById('scrollButtons');
 
-// دالة التمرير لأعلى الصفحة
 function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// دالة التمرير لأسفل الصفحة
 function scrollToBottom() {
     window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
 }
 
-// إظهار/إخفاء أزرار التمرير بناءً على موضع الصفحة
 window.addEventListener('scroll', () => {
     if (window.scrollY > 300) {
         scrollButtons.classList.add('visible');
@@ -2176,7 +2197,7 @@ window.addEventListener('scroll', () => {
 });
 
 // ========================================
-// 🍔 قائمة الهامبرغر - Mobile Menu
+// 🍔 Mobile Menu
 // ========================================
 function toggleMobileMenu() {
     const mobileMenu = document.getElementById('mobileMenu');
@@ -2187,19 +2208,16 @@ function toggleMobileMenu() {
     const isActive = mobileMenu.classList.contains('active');
     
     if (isActive) {
-        // إغلاق القائمة
         mobileMenu.classList.remove('active');
         hamburger.classList.remove('active');
-        document.body.style.overflow = 'auto';  // السماح بالتمرير
+        document.body.style.overflow = 'auto';
     } else {
-        // فتح القائمة
         mobileMenu.classList.add('active');
         hamburger.classList.add('active');
-        document.body.style.overflow = 'hidden';  // منع التمرير
+        document.body.style.overflow = 'hidden';
     }
 }
 
-// دالة إغلاق القائمة
 function closeMobileMenu() {
     const mobileMenu = document.getElementById('mobileMenu');
     const hamburger = document.querySelector('.hamburger-menu');
@@ -2211,12 +2229,10 @@ function closeMobileMenu() {
     document.body.style.overflow = 'auto';
 }
 
-// إغلاق القائمة عند الضغط على أي رابط
 document.querySelectorAll('.mobile-menu a').forEach(link => {
     link.addEventListener('click', closeMobileMenu);
 });
 
-// إغلاق القائمة عند الضغط خارجها
 document.addEventListener('click', function(event) {
     const mobileMenu = document.getElementById('mobileMenu');
     const hamburger = document.querySelector('.hamburger-menu');
@@ -2228,22 +2244,18 @@ document.addEventListener('click', function(event) {
     }
 });
 
-// دالة إعادة التحميل والذهاب لأعلى الصفحة
 function reloadAndScrollTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setTimeout(() => location.reload(), 500);
 }
 // ========================================
-// 🖼️ Modal Functions - وظائف النافذة المنبثقة
+// 🖼️ Modal Functions
 // ========================================
 function openModal(projectId) {
     const modal = document.getElementById('modal');
     const modalContent = document.getElementById('modalContent');
     const lang = window.currentLang || 'en';
     
-    // ========================================
-    // 📊 بيانات المشاريع - Projects Data
-    // ========================================
     const projectData = {
         project1: {
             en: {
@@ -2575,14 +2587,11 @@ function openModal(projectId) {
         }
     };
     
-    // الحصول على بيانات المشروع المطلوب
     const project = projectData[projectId];
     if (!project) return;
     
-    // اختيار اللغة المناسبة
     const content = project[lang] || project.en;
     
-    // بناء محتوى النافذة المنبثقة
     let html = `
         <div class="modal-header">
             <h2>${content.title}</h2>
@@ -2606,7 +2615,6 @@ function openModal(projectId) {
                 <div class="tech-tags">
     `;
     
-    // إضافة التقنيات المستخدمة
     content.tech.forEach(tech => {
         html += `<span class="tech-tag">${tech}</span>`;
     });
@@ -2619,7 +2627,6 @@ function openModal(projectId) {
                 <div class="results-grid">
     `;
     
-    // إضافة النتائج
     content.results.forEach(result => {
         html += `
             <div class="result-item">
@@ -2635,25 +2642,22 @@ function openModal(projectId) {
         </div>
     `;
     
-    // عرض المحتوى في النافذة المنبثقة
     modalContent.innerHTML = html;
     modal.classList.add('active');
-    document.body.style.overflow = 'hidden'; // منع التمرير في الخلفية
+    document.body.style.overflow = 'hidden';
 }
 
-// دالة إغلاق النافذة المنبثقة
 function closeModal(event) {
     const modal = document.getElementById('modal');
     
-    // إغلاق فقط عند الضغط على الخلفية أو زر الإغلاق
     if (!event || event.target.id === 'modal' || event.target.classList.contains('modal-close')) {
         modal.classList.remove('active');
-        document.body.style.overflow = 'auto'; // السماح بالتمرير
+        document.body.style.overflow = 'auto';
     }
 }
 
 // ========================================
-// ⏳ Loading Screen - شاشة التحميل
+// ⏳ Loading Screen
 // ========================================
 window.addEventListener('load', function() {
     setTimeout(() => {
@@ -2662,11 +2666,10 @@ window.addEventListener('load', function() {
 });
 
 // ========================================
-// 🔢 CAPTCHA Functions - وظائف التحقق من الإنسان
+// 🔢 CAPTCHA Functions
 // ========================================
 let currentCaptcha = '';
 
-// دالة توليد CAPTCHA جديد
 function generateCaptcha() {
     const num1 = Math.floor(Math.random() * 10) + 1;
     const num2 = Math.floor(Math.random() * 10) + 1;
@@ -2676,45 +2679,39 @@ function generateCaptcha() {
     document.getElementById('captchaInput').value = '';
 }
 
-// توليد CAPTCHA عند تحميل الصفحة
 window.addEventListener('load', function() {
     generateCaptcha();
 });
 
 // ========================================
-// 📧 Contact Form - نموذج التواصل
+// 📧 Contact Form
 // ========================================
 document.getElementById('contactForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     
-    // الحصول على قيم الحقول
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
     const message = document.getElementById('message').value.trim();
     const captchaInput = document.getElementById('captchaInput').value.trim();
     const lang = window.currentLang || 'en';
     
-    // التحقق من عدم وجود حقول فارغة
     if (!name || !email || !message) {
         showFormMessage(translations[lang].form_error, 'error');
         return;
     }
     
-    // التحقق من صحة البريد الإلكتروني
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
         showFormMessage(translations[lang].form_error, 'error');
         return;
     }
     
-    // التحقق من CAPTCHA
     if (parseInt(captchaInput) !== currentCaptcha) {
         showFormMessage(translations[lang].form_captcha_error, 'error');
         generateCaptcha();
         return;
     }
     
-    // إرسال النموذج
     try {
         const formData = new FormData(this);
         const response = await fetch(this.action, {
@@ -2737,23 +2734,20 @@ document.getElementById('contactForm').addEventListener('submit', async function
     }
 });
 
-// دالة عرض رسالة النموذج (نجاح أو خطأ)
 function showFormMessage(message, type) {
     const formMessage = document.getElementById('formMessage');
     formMessage.textContent = message;
     formMessage.className = `form-message ${type}`;
     formMessage.classList.remove('hidden');
     
-    // إخفاء الرسالة بعد 5 ثواني
     setTimeout(() => {
         formMessage.classList.add('hidden');
     }, 5000);
 }
 // ========================================
-// 💬 Chatbot Functions - وظائف المساعد الذكي
+// 💬 Chatbot Functions - UPDATED
 // ========================================
 
-// دالة فتح/إغلاق Chatbot
 function toggleChatbot() {
     const container = document.getElementById('chatbotContainer');
     if (!container) return;
@@ -2762,19 +2756,51 @@ function toggleChatbot() {
     container.classList.toggle('active');
     
     if (isOpening) {
-        // عند الفتح: منع التمرير والذهاب لآخر رسالة
         document.body.style.overflow = 'hidden';
+        
+        // إصلاح مشكلة Viewport على iOS
+        if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+            document.body.style.position = 'fixed';
+            document.body.style.width = '100%';
+        }
+        
         setTimeout(() => {
             const messages = document.getElementById('chatbotMessages');
             if (messages) messages.scrollTop = messages.scrollHeight;
         }, 100);
+        
+        fixKeyboardIssue();
     } else {
-        // عند الإغلاق: السماح بالتمرير
         document.body.style.overflow = 'auto';
+        
+        if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+            document.body.style.position = '';
+            document.body.style.width = '';
+        }
     }
 }
 
-// دالة إضافة رسالة للـ Chatbot
+// دالة إصلاح مشكلة لوحة المفاتيح
+function fixKeyboardIssue() {
+    const chatInput = document.getElementById('chatInput');
+    if (!chatInput) return;
+    
+    chatInput.addEventListener('focus', function() {
+        setTimeout(() => {
+            const container = document.getElementById('chatbotContainer');
+            if (container) {
+                this.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }, 300);
+    });
+    
+    chatInput.addEventListener('blur', function() {
+        setTimeout(() => {
+            window.scrollTo(0, 0);
+        }, 100);
+    });
+}
+
 function addMessage(text, isBot = true) {
     const messagesContainer = document.getElementById('chatbotMessages');
     if (!messagesContainer) return;
@@ -2789,11 +2815,9 @@ function addMessage(text, isBot = true) {
     messageDiv.appendChild(bubble);
     messagesContainer.appendChild(messageDiv);
     
-    // التمرير التلقائي لآخر رسالة
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
 }
 
-// دالة إخفاء خيارات الـ Chatbot
 function hideOptions() {
     const opts = document.getElementById('chatbotOptions');
     if (opts) {
@@ -2802,7 +2826,6 @@ function hideOptions() {
     }
 }
 
-// دالة إظهار خيارات الـ Chatbot
 function showOptions() {
     const opts = document.getElementById('chatbotOptions');
     if (opts) {
@@ -2811,7 +2834,6 @@ function showOptions() {
     }
 }
 
-// دالة عرض مؤشر الكتابة
 function showTypingIndicator() {
     const lang = window.currentLang || 'en';
     const typingText = {
@@ -2822,7 +2844,6 @@ function showTypingIndicator() {
     addMessage(typingText[lang], true);
 }
 
-// دالة حذف آخر رسالة
 function removeLastMessage() {
     const messagesContainer = document.getElementById('chatbotMessages');
     if (messagesContainer && messagesContainer.lastChild) {
@@ -2830,12 +2851,10 @@ function removeLastMessage() {
     }
 }
 
-// دالة إرسال رسالة للذكاء الاصطناعي (OpenAI API)
 async function sendMessageToAI(message) {
     const lang = window.currentLang || 'en';
     
     try {
-        // إرسال الطلب لـ API
         const response = await fetch('/api/chat', {
             method: 'POST',
             headers: {
@@ -2847,12 +2866,10 @@ async function sendMessageToAI(message) {
             })
         });
         
-        // التحقق من نجاح الطلب
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
         
-        // استخراج الرد
         const data = await response.json();
         return data.reply || data.message || getDefaultResponse(lang);
         
@@ -2862,7 +2879,6 @@ async function sendMessageToAI(message) {
     }
 }
 
-// دالة الردود الاحتياطية في حال فشل الاتصال
 function getDefaultResponse(lang) {
     const fallbackResponses = {
         en: "I'm having trouble connecting right now. Please contact me directly at:\n\n📧 ferasatik1@gmail.com\n📱 +47 412 05 043",
@@ -2872,11 +2888,9 @@ function getDefaultResponse(lang) {
     return fallbackResponses[lang] || fallbackResponses.en;
 }
 
-// دالة اختيار خيار من الـ Chatbot
 async function selectOption(option) {
     const lang = window.currentLang || 'en';
     
-    // رسائل الخيارات
     const optionMessages = {
         services: { 
             en: "Tell me about your services", 
@@ -2912,22 +2926,17 @@ async function selectOption(option) {
     
     const userMessage = optionMessages[option][lang];
     
-    // إضافة رسالة المستخدم
     addMessage(userMessage, false);
     
-    // إخفاء الخيارات وعرض مؤشر الكتابة
     hideOptions();
     showTypingIndicator();
     
-    // الحصول على الرد من الذكاء الاصطناعي
     const reply = await sendMessageToAI(userMessage);
     
-    // حذف مؤشر الكتابة وإضافة الرد
     removeLastMessage();
     addMessage(reply, true);
 }
 
-// دالة إرسال رسالة من حقل الإدخال
 async function sendMessage() {
     const input = document.getElementById('chatInput');
     if (!input) return;
@@ -2935,23 +2944,18 @@ async function sendMessage() {
     const message = input.value.trim();
     if (message === '') return;
     
-    // إضافة رسالة المستخدم
     addMessage(message, false);
     input.value = '';
     
-    // إخفاء الخيارات وعرض مؤشر الكتابة
     hideOptions();
     showTypingIndicator();
     
-    // الحصول على الرد
     const reply = await sendMessageToAI(message);
     
-    // حذف مؤشر الكتابة وإضافة الرد
     removeLastMessage();
     addMessage(reply, true);
 }
 
-// دالة معالجة الضغط على Enter في حقل الإدخال
 function handleEnter(event) {
     if (event.key === 'Enter') {
         sendMessage();
@@ -2962,6 +2966,6 @@ function handleEnter(event) {
 // 🎉 نهاية الكود - End of JavaScript
 // ========================================
 </script>
-</article>
+</div>
 </body>
 </html>
