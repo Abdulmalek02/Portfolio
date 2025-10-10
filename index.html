@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- منع زر القارئ في Safari -->
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -16,7 +15,7 @@
     <meta name="author" content="Abdulmalek Al-Darwish">
     <meta name="robots" content="index, follow">
     
-    <!-- Open Graph Meta Tags (Facebook, LinkedIn) -->
+    <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Abdulmalek Al-Darwish - Web Developer & AI Specialist">
     <meta property="og:description" content="Professional web development and AI solutions. 5+ years experience, 50+ completed projects, 100% client satisfaction.">
@@ -46,316 +45,149 @@
       "description": "Full-Stack Developer with 5+ years experience in web development and AI automation"
     }
     </script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
+        /* ========================================
+           🎨 CSS Variables & Reset
+           ======================================== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             scroll-behavior: smooth;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            text-rendering: optimizeLegibility;
         }
         
         :root {
-            --primary: #0a0a0a;
-            --accent: #d4af37;
-            --text-light: #ffffff;
-            --text-dark: #333;
-            --bg-dark: #0f0f0f;
-            --bg-light: #1a1a1a;
+            /* Primary Colors - من الموقع المرجعي */
+            --primary-color: #1e1e2e;
+            --secondary-color: #2a2a3e;
+            --accent-color: #ff6b6b;
+            --accent-hover: #ff5252;
+            
+            /* Text Colors */
+            --text-primary: #ffffff;
+            --text-secondary: #b8b8d4;
+            --text-muted: #8b8b9e;
+            
+            /* Background Colors */
+            --bg-dark: #151521;
+            --bg-card: #1e1e2e;
+            --bg-light: #2a2a3e;
+            
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+            --gradient-secondary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-dark: linear-gradient(180deg, #151521 0%, #1e1e2e 100%);
+            
+            /* Shadows */
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.2);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-accent: 0 8px 24px rgba(255, 107, 107, 0.3);
+            
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 6rem;
+            
+            /* Border Radius */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-xl: 30px;
+            
+            /* Transitions */
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.5s ease;
+            
+            /* Font Families */
+            --font-primary: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-secondary: 'Poppins', sans-serif;
         }
         
-        /* إصلاح الألوان على شاشات OLED/AMOLED */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --primary: #0a0a0a;
-                --accent: #d4af37;
-                --bg-dark: #0f0f0f;
-                --bg-light: #1a1a1a;
-            }
-        }
-        
+        /* ========================================
+           📱 Base Styles
+           ======================================== */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            -webkit-text-size-adjust: 100%;
-            background: var(--primary);
-            color: var(--text-light);
+            font-family: var(--font-primary);
+            background: var(--bg-dark);
+            color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         
-        /* منع تغيير الألوان التلقائي في المتصفحات */
-        input, textarea, select, button {
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-        }
-        
-        /* منع تكبير تلقائي عند Focus في iOS */
-        input[type="text"],
-        input[type="email"],
-        textarea {
-            font-size: 16px !important;
-        }
-        /* Scroll Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .slide-in-left {
-            opacity: 0;
-            transform: translateX(-50px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        .slide-in-left.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        .slide-in-right {
-            opacity: 0;
-            transform: translateX(50px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        .slide-in-right.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        .scale-in {
-            opacity: 0;
-            transform: scale(0.8);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .scale-in.visible {
-            opacity: 1;
-            transform: scale(1);
-        }
-        .stagger-animation > * {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .stagger-animation.visible > *:nth-child(1) { transition-delay: 0.1s; }
-        .stagger-animation.visible > *:nth-child(2) { transition-delay: 0.2s; }
-        .stagger-animation.visible > *:nth-child(3) { transition-delay: 0.3s; }
-        .stagger-animation.visible > *:nth-child(4) { transition-delay: 0.4s; }
-        .stagger-animation.visible > *:nth-child(5) { transition-delay: 0.5s; }
-        .stagger-animation.visible > *:nth-child(6) { transition-delay: 0.6s; }
-        .stagger-animation.visible > *:nth-child(7) { transition-delay: 0.7s; }
-        .stagger-animation.visible > *:nth-child(8) { transition-delay: 0.8s; }
-        .stagger-animation.visible > * {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Header & Navigation */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
-            border-bottom: 2px solid var(--accent);
-            transform: translateY(-100%);
-            animation: slideDown 0.8s ease forwards;
-        }
-        @keyframes slideDown {
-            to {
-                transform: translateY(0);
-            }
-        }
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--accent);
-            text-decoration: none;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-        .logo:hover {
-            transform: scale(1.1);
-        }
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-        .nav-links a {
-            color: var(--text-light);
-            text-decoration: none;
-            transition: color 0.3s;
-            font-weight: 500;
-        }
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-        .lang-selector {
-            display: flex;
-            gap: 0.5rem;
-        }
-        .lang-btn {
-            background: transparent;
-            border: 1px solid var(--accent);
-            color: var(--accent);
-            padding: 0.3rem 0.8rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            border-radius: 4px;
-        }
-        .lang-btn:hover, .lang-btn.active {
-            background: var(--accent);
-            color: var(--primary);
-        }
-        
-        /* Hamburger Menu */
-        .hamburger-menu {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            width: 30px;
-            height: 21px;
-            justify-content: space-between;
-            z-index: 10001;
-            position: relative;
-        }
-        .hamburger-menu span {
-            width: 100%;
-            height: 3px;
-            background: var(--accent);
-            transition: all 0.3s ease;
-            display: block;
-        }
-        .hamburger-menu.active span:nth-child(1) {
-            transform: rotate(45deg) translate(8px, 8px);
-        }
-        .hamburger-menu.active span:nth-child(2) {
-            opacity: 0;
-        }
-        .hamburger-menu.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(8px, -8px);
-        }
-        .mobile-menu {
-            display: none;
+        /* ========================================
+           🎭 Loading Screen
+           ======================================== */
+        .loading-screen {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100vh;
-            background: rgba(10, 10, 10, 0.98);
-            backdrop-filter: blur(10px);
-            flex-direction: column;
-            justify-content: center;
+            height: 100%;
+            background: var(--bg-dark);
+            display: flex;
             align-items: center;
-            z-index: 10000;
+            justify-content: center;
+            z-index: 99999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        
+        .loading-screen.fade-out {
             opacity: 0;
-            transition: opacity 0.3s ease;
+            visibility: hidden;
         }
-        .mobile-menu.active {
-            display: flex;
-            opacity: 1;
+        
+        .loader-content {
+            text-align: center;
         }
-        .mobile-menu-close {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            background: var(--accent);
-            color: var(--primary);
-            border: none;
+        
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(255, 107, 107, 0.1);
+            border-top: 4px solid var(--accent-color);
             border-radius: 50%;
-            font-size: 2rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            z-index: 10001;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            line-height: 1;
+            margin: 0 auto 1.5rem;
+            animation: spin 1s linear infinite;
         }
-        .mobile-menu-close:hover {
-            transform: rotate(90deg) scale(1.1);
-            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.5);
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
-        .mobile-menu a {
-            color: var(--accent);
-            text-decoration: none;
-            font-size: 2rem;
-            margin: 1rem 0;
-            transition: all 0.3s;
-            padding: 1rem 2rem;
+        
+        .loader-text {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            animation: pulse 2s ease-in-out infinite;
         }
-        .mobile-menu a:hover {
-            color: var(--text-light);
-            transform: scale(1.1);
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
         }
-        .mobile-lang-selector {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-        .mobile-lang-selector .lang-btn {
-            padding: 0.5rem 1rem;
+        
+        .loader-subtitle {
+            color: var(--text-secondary);
             font-size: 1rem;
         }
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-light) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: var(--accent);
-            border-radius: 50%;
-            filter: blur(150px);
-            opacity: 0.1;
-            animation: float 6s ease-in-out infinite;
-        }
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(50px, 50px); }
-        }
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            padding: 2rem;
-        }
-        .hero-content > * {
-            animation: fadeInUp 0.8s ease forwards;
-            opacity: 0;
-        }
-        .hero-content > *:nth-child(1) { animation-delay: 0.2s; }
-        .hero-content > *:nth-child(2) { animation-delay: 0.4s; }
-        .hero-content > *:nth-child(3) { animation-delay: 0.6s; }
-        .hero-content > *:nth-child(4) { animation-delay: 0.8s; }
-        .hero-content > *:nth-child(5) { animation-delay: 1s; }
+        /* ========================================
+           ✨ Animations & Keyframes
+           ======================================== */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -366,223 +198,791 @@
                 transform: translateY(0);
             }
         }
-        .profile-img {
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
-            border: 4px solid var(--accent);
-            margin-bottom: 2rem;
-            object-fit: cover;
-            object-position: center top;
-            box-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
-            animation: zoomIn 1s ease forwards;
-            opacity: 0;
-        }
-        @keyframes zoomIn {
+        
+        @keyframes fadeInDown {
             from {
                 opacity: 0;
-                transform: scale(0);
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
             }
             to {
                 opacity: 1;
                 transform: scale(1);
             }
         }
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            color: var(--accent);
-        }
-        .hero h2 {
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
-            font-weight: 300;
-        }
-        .hero p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-        .cta-btn {
-            display: inline-block;
-            background: var(--accent);
-            color: var(--primary);
-            padding: 1rem 2.5rem;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: all 0.3s;
-            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
-        }
-        .cta-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.5);
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
         }
         
-        /* Sections */
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(255, 107, 107, 0.6);
+            }
+        }
+        
+        /* ========================================
+           🎯 Scroll Animations
+           ======================================== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .stagger-animation > * {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .stagger-animation.visible > *:nth-child(1) { transition-delay: 0.1s; }
+        .stagger-animation.visible > *:nth-child(2) { transition-delay: 0.2s; }
+        .stagger-animation.visible > *:nth-child(3) { transition-delay: 0.3s; }
+        .stagger-animation.visible > *:nth-child(4) { transition-delay: 0.4s; }
+        .stagger-animation.visible > *:nth-child(5) { transition-delay: 0.5s; }
+        .stagger-animation.visible > *:nth-child(6) { transition-delay: 0.6s; }
+        .stagger-animation.visible > *:nth-child(7) { transition-delay: 0.7s; }
+        .stagger-animation.visible > *:nth-child(8) { transition-delay: 0.8s; }
+        
+        .stagger-animation.visible > * {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* ========================================
+           🧩 Header & Navigation
+           ======================================== */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(21, 21, 33, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1.2rem 0;
+            border-bottom: 1px solid rgba(255, 107, 107, 0.1);
+            box-shadow: var(--shadow-md);
+            animation: fadeInDown 0.8s ease;
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform var(--transition-normal);
+            font-family: var(--font-secondary);
+            letter-spacing: -1px;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color var(--transition-normal);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width var(--transition-normal);
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .lang-selector {
+            display: flex;
+            gap: 0.5rem;
+            background: var(--bg-card);
+            padding: 0.3rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 107, 107, 0.1);
+        }
+        
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            padding: 0.4rem 1rem;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 0.85rem;
+            font-family: var(--font-primary);
+        }
+        
+        .lang-btn:hover {
+            color: var(--text-primary);
+            background: rgba(255, 107, 107, 0.1);
+        }
+        
+        .lang-btn.active {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: var(--shadow-accent);
+        }
+        
+        /* ========================================
+           🍔 Mobile Menu
+           ======================================== */
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            width: 30px;
+            height: 24px;
+            justify-content: space-between;
+            z-index: 10001;
+        }
+        
+        .hamburger-menu span {
+            width: 100%;
+            height: 3px;
+            background: var(--accent-color);
+            transition: all var(--transition-normal);
+            border-radius: 2px;
+        }
+        
+        .hamburger-menu.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+        
+        .hamburger-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger-menu.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(21, 21, 33, 0.98);
+            backdrop-filter: blur(20px);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            opacity: 0;
+            transition: opacity var(--transition-normal);
+        }
+        
+        .mobile-menu.active {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .mobile-menu a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 2rem;
+            font-weight: 600;
+            margin: 1rem 0;
+            transition: all var(--transition-normal);
+            padding: 1rem 2rem;
+            position: relative;
+        }
+        
+        .mobile-menu a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width var(--transition-normal);
+            transform: translateY(-50%);
+        }
+        
+        .mobile-menu a:hover {
+            color: var(--accent-color);
+            transform: translateX(20px);
+        }
+        
+        .mobile-menu a:hover::before {
+            width: 40px;
+        }
+        
+        .mobile-lang-selector {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .mobile-lang-selector .lang-btn {
+            padding: 0.6rem 1.5rem;
+            font-size: 1rem;
+        }
+        /* ========================================
+           🌟 Hero Section
+           ======================================== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem 4rem;
+            background: var(--gradient-dark);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(255, 107, 107, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            left: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            text-align: center;
+        }
+        
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center top;
+            margin-bottom: 2rem;
+            border: 4px solid var(--accent-color);
+            box-shadow: 0 0 50px rgba(255, 107, 107, 0.4), var(--shadow-lg);
+            animation: scaleIn 1s ease, glow 3s ease-in-out infinite;
+            transition: transform var(--transition-normal);
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+            font-family: var(--font-secondary);
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+        
+        .hero h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 1.2rem 3rem;
+            text-decoration: none;
+            border-radius: var(--radius-xl);
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all var(--transition-normal);
+            box-shadow: var(--shadow-accent);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease 0.8s both;
+        }
+        
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(255, 107, 107, 0.5);
+        }
+        
+        .cta-btn:hover::before {
+            left: 100%;
+        }
+        
+        .cta-btn:active {
+            transform: translateY(-1px);
+        }
+        
+        /* ========================================
+           📊 Section Base Styles
+           ======================================== */
         section {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 5rem 2rem;
-        }
-        .section-title {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--accent);
+            padding: 6rem 2rem;
             position: relative;
         }
+        
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: var(--font-secondary);
+            position: relative;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
         .section-title::after {
             content: '';
             display: block;
             width: 0;
-            height: 3px;
-            background: var(--accent);
-            margin: 1rem auto;
+            height: 4px;
+            background: var(--gradient-primary);
+            margin: 1.5rem auto 0;
+            border-radius: 2px;
             transition: width 0.8s ease;
         }
+        
         .section-title.visible::after {
-            width: 100px;
+            width: 80px;
+        }
+        /* ========================================
+           👤 About Section
+           ======================================== */
+        #about {
+            background: var(--bg-card);
+            border-radius: var(--radius-xl);
+            padding: 6rem 3rem;
+            margin: 0 2rem;
+            box-shadow: var(--shadow-lg);
         }
         
-        /* About Section */
-        #about {
-            background: var(--bg-light);
-        }
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            gap: 4rem;
             align-items: start;
         }
+        
         .about-text {
             font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-light);
+            line-height: 1.9;
+            color: var(--text-secondary);
         }
+        
         .about-text p {
             margin-bottom: 1.5rem;
         }
+        
         .about-text strong {
-            color: var(--accent);
-            font-weight: 600;
+            color: var(--accent-color);
+            font-weight: 700;
         }
+        
         .stats {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 1.5rem;
-            margin-top: 2rem;
+            margin-top: 2.5rem;
         }
+        
         .stat-item {
-            background: var(--primary);
-            padding: 1.5rem;
-            border-radius: 10px;
+            background: var(--bg-light);
+            padding: 2rem 1.5rem;
+            border-radius: var(--radius-md);
             text-align: center;
-            border: 2px solid var(--accent);
+            border: 2px solid transparent;
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
         }
+        
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            opacity: 0.1;
+            transition: left 0.5s;
+        }
+        
+        .stat-item:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-accent);
+        }
+        
+        .stat-item:hover::before {
+            left: 0;
+        }
+        
         .stat-number {
             font-size: 2.5rem;
-            color: var(--accent);
-            font-weight: bold;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             display: block;
+            margin-bottom: 0.5rem;
+            font-family: var(--font-secondary);
         }
+        
         .stat-label {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 500;
         }
+        
         .skills {
             display: flex;
             flex-wrap: wrap;
             gap: 1rem;
-            margin-top: 2rem;
+            margin-top: 2.5rem;
         }
+        
         .skill-tag {
-            background: var(--primary);
-            color: var(--accent);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            border: 1px solid var(--accent);
-            font-size: 0.9rem;
-            transition: all 0.3s;
+            background: var(--bg-light);
+            color: var(--text-primary);
+            padding: 0.7rem 1.5rem;
+            border-radius: var(--radius-xl);
+            font-size: 0.95rem;
+            font-weight: 600;
+            border: 2px solid rgba(255, 107, 107, 0.2);
+            transition: all var(--transition-normal);
+            cursor: default;
         }
+        
         .skill-tag:hover {
-            background: var(--accent);
-            color: var(--primary);
-            transform: scale(1.05);
+            background: var(--gradient-primary);
+            border-color: transparent;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-accent);
+            color: white;
         }
+        
         .services {
             display: grid;
             gap: 1.5rem;
         }
+        
         .service-item {
             background: var(--bg-light);
-            padding: 1.5rem;
-            border-radius: 10px;
-            border-left: 4px solid var(--accent);
-            transition: all 0.3s;
-            opacity: 0;
-            transform: translateX(20px);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            border-left: 4px solid var(--accent-color);
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
         }
-        .slide-in-right.visible .service-item {
-            opacity: 1;
-            transform: translateX(0);
+        
+        .service-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            opacity: 0.05;
+            transition: right 0.5s;
         }
-        .slide-in-right.visible .service-item:nth-child(1) {
-            transition-delay: 0.1s;
-        }
-        .slide-in-right.visible .service-item:nth-child(2) {
-            transition-delay: 0.2s;
-        }
-        .slide-in-right.visible .service-item:nth-child(3) {
-            transition-delay: 0.3s;
-        }
+        
         .service-item:hover {
             transform: translateX(10px);
-            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.2);
+            box-shadow: var(--shadow-md);
+            border-left-width: 6px;
         }
+        
+        .service-item:hover::before {
+            right: 0;
+        }
+        
         .service-item h3 {
-            color: var(--accent);
-            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
         }
-        /* Portfolio Section */
+        
+        .service-item p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        
+        /* ========================================
+           💼 Portfolio Section
+           ======================================== */
+        #portfolio {
+            padding-top: 8rem;
+        }
+        
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
+            margin-top: 3rem;
         }
+        
         .portfolio-item {
-            background: var(--bg-light);
-            border-radius: 15px;
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
             overflow: hidden;
-            transition: all 0.3s;
-            border: 1px solid transparent;
+            transition: all var(--transition-normal);
+            border: 2px solid transparent;
             cursor: pointer;
+            position: relative;
         }
+        
+        .portfolio-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-primary);
+            opacity: 0;
+            transition: opacity var(--transition-normal);
+            z-index: 1;
+        }
+        
         .portfolio-item:hover {
             transform: translateY(-10px);
-            border-color: var(--accent);
-            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
+            border-color: var(--accent-color);
+            box-shadow: var(--shadow-accent);
         }
+        
+        .portfolio-item:hover::before {
+            opacity: 0.1;
+        }
+        
         .portfolio-img {
             width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, var(--accent) 0%, #b8941e 100%);
+            height: 220px;
+            background: var(--gradient-primary);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
-            color: var(--primary);
-        }
-        .portfolio-info {
-            padding: 1.5rem;
-        }
-        .portfolio-info h3 {
-            color: var(--accent);
-            margin-bottom: 0.5rem;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
         }
         
-        /* Modal */
+        .portfolio-img::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s;
+        }
+        
+        .portfolio-item:hover .portfolio-img::after {
+            left: 100%;
+        }
+        
+        .portfolio-info {
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .portfolio-info h3 {
+            color: var(--text-primary);
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+        
+        .portfolio-info p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+        
+        /* ========================================
+           🔲 Modal Styles
+           ======================================== */
         .modal {
             display: none;
             position: fixed;
@@ -590,27 +990,38 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.95);
             z-index: 10000;
             overflow-y: auto;
+            backdrop-filter: blur(10px);
         }
+        
         .modal.active {
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 2rem;
+            animation: fadeIn 0.3s ease;
         }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
         .modal-content {
-            background: var(--bg-light);
-            border-radius: 20px;
+            background: var(--bg-card);
+            border-radius: var(--radius-xl);
             max-width: 900px;
             width: 100%;
             position: relative;
             animation: slideUp 0.4s ease;
-            border: 2px solid var(--accent);
+            border: 2px solid rgba(255, 107, 107, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
             max-height: 90vh;
             overflow-y: auto;
         }
+        
         @keyframes slideUp {
             from {
                 opacity: 0;
@@ -621,323 +1032,428 @@
                 transform: translateY(0);
             }
         }
+        
         .modal-close {
             position: absolute;
             top: 1.5rem;
             right: 1.5rem;
-            left: auto;
-            width: 40px;
-            height: 40px;
-            background: var(--accent);
-            color: var(--primary);
+            width: 45px;
+            height: 45px;
+            background: var(--accent-color);
+            color: white;
             border: none;
             border-radius: 50%;
             font-size: 1.5rem;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all var(--transition-normal);
             z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            box-shadow: var(--shadow-accent);
         }
+        
+        .modal-close:hover {
+            transform: rotate(90deg) scale(1.1);
+            box-shadow: 0 8px 30px rgba(255, 107, 107, 0.6);
+        }
+        
         body[dir="rtl"] .modal-close {
             right: auto;
             left: 1.5rem;
         }
-        .modal-close:hover {
-            transform: rotate(90deg);
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.5);
-        }
+        
         .modal-header {
-            padding: 3rem 3rem 1.5rem;
-            border-bottom: 2px solid var(--accent);
+            padding: 3rem 3rem 2rem;
+            border-bottom: 2px solid rgba(255, 107, 107, 0.2);
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, transparent 100%);
         }
+        
         .modal-header h2 {
-            color: var(--accent);
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2.2rem;
+            margin-bottom: 0.8rem;
+            font-weight: 800;
         }
+        
         .modal-client {
-            color: #999;
-            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-size: 1rem;
             font-style: italic;
         }
+        
         .modal-body {
-            padding: 2rem 3rem;
+            padding: 2.5rem 3rem;
         }
+        
         .modal-section {
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
         }
+        
         .modal-section h3 {
-            color: var(--accent);
-            font-size: 1.3rem;
+            color: var(--text-primary);
+            font-size: 1.4rem;
             margin-bottom: 1rem;
+            font-weight: 700;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.8rem;
         }
+        
         .modal-section h3::before {
-            content: '▸';
-            color: var(--accent);
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
         }
+        
         .modal-section p {
-            color: var(--text-light);
-            line-height: 1.8;
-            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.9;
+            font-size: 1.05rem;
         }
+        
         .tech-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.8rem;
-            margin-top: 1rem;
+            gap: 1rem;
+            margin-top: 1.5rem;
         }
+        
         .tech-tag {
-            background: var(--primary);
-            color: var(--accent);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            border: 1px solid var(--accent);
-            transition: all 0.3s;
+            background: var(--bg-light);
+            color: var(--text-primary);
+            padding: 0.6rem 1.3rem;
+            border-radius: var(--radius-xl);
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 2px solid rgba(255, 107, 107, 0.2);
+            transition: all var(--transition-normal);
         }
+        
         .tech-tag:hover {
-            background: var(--accent);
-            color: var(--primary);
-            transform: scale(1.05);
+            background: var(--gradient-primary);
+            border-color: transparent;
+            transform: translateY(-2px);
+            color: white;
+            box-shadow: var(--shadow-accent);
         }
+        
         .results-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        .result-item {
-            background: var(--primary);
-            padding: 1.5rem;
-            border-radius: 10px;
-            border-left: 3px solid var(--accent);
-            text-align: center;
-        }
-        .result-value {
-            color: var(--accent);
-            font-size: 1.8rem;
-            font-weight: bold;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-        .result-label {
-            color: var(--text-light);
-            font-size: 0.9rem;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
         }
         
-        /* Contact Section */
-        #contact {
+        .result-item {
             background: var(--bg-light);
+            padding: 2rem 1.5rem;
+            border-radius: var(--radius-md);
+            text-align: center;
+            border-left: 4px solid var(--accent-color);
+            transition: all var(--transition-normal);
         }
+        
+        .result-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .result-value {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2rem;
+            font-weight: 800;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-family: var(--font-secondary);
+        }
+        
+        .result-label {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+        /* ========================================
+           📬 Contact Section
+           ======================================== */
+        #contact {
+            background: var(--bg-card);
+            border-radius: var(--radius-xl);
+            padding: 6rem 3rem;
+            margin: 0 2rem 4rem;
+            box-shadow: var(--shadow-lg);
+        }
+        
         .contact-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            gap: 4rem;
             align-items: start;
         }
+        
         .contact-info h3 {
-            color: var(--accent);
-            font-size: 2rem;
-            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
         }
+        
         .contact-info p {
-            color: var(--text-light);
-            opacity: 0.9;
+            color: var(--text-secondary);
             line-height: 1.8;
-            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
         }
+        
         .contact-details {
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
         }
+        
         .contact-detail-item {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            background: var(--primary);
-            border-radius: 10px;
-            border-left: 3px solid var(--accent);
-            transition: all 0.3s;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: var(--bg-light);
+            border-radius: var(--radius-md);
+            border-left: 4px solid var(--accent-color);
+            transition: all var(--transition-normal);
         }
+        
         .contact-detail-item:hover {
-            transform: translateX(5px);
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+            transform: translateX(10px);
+            box-shadow: var(--shadow-md);
         }
-        .contact-detail-item .contact-icon {
+        
+        .contact-icon {
             font-size: 2rem;
-            color: var(--accent);
+            min-width: 50px;
+            text-align: center;
         }
+        
         .contact-detail-item h4 {
-            color: var(--accent);
+            color: var(--accent-color);
             font-size: 0.9rem;
             margin-bottom: 0.3rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
+        
         .contact-detail-item a {
-            color: var(--text-light);
+            color: var(--text-primary);
             text-decoration: none;
-            font-size: 1rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: color var(--transition-normal);
         }
+        
         .contact-detail-item a:hover {
-            color: var(--accent);
+            color: var(--accent-color);
         }
+        
         .social-links {
             display: flex;
             gap: 1rem;
             margin-top: 2rem;
         }
+        
         .social-btn {
-            width: 50px;
-            height: 50px;
-            background: var(--accent);
-            color: var(--primary);
+            width: 55px;
+            height: 55px;
+            background: var(--gradient-primary);
+            color: white;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
             text-decoration: none;
-            font-size: 1.3rem;
-            transition: all 0.3s;
-        }
-        .social-btn:hover {
-            transform: scale(1.2) rotate(10deg);
-            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.5);
+            font-size: 1.5rem;
+            transition: all var(--transition-normal);
+            box-shadow: var(--shadow-accent);
         }
         
-        /* Contact Form */
+        .social-btn:hover {
+            transform: scale(1.15) rotate(10deg);
+            box-shadow: 0 8px 30px rgba(255, 107, 107, 0.6);
+        }
+        
+        /* ========================================
+           📝 Contact Form
+           ======================================== */
         .contact-form {
-            background: var(--primary);
-            padding: 2.5rem;
-            border-radius: 15px;
-            border: 2px solid var(--accent);
+            background: var(--bg-light);
+            padding: 3rem;
+            border-radius: var(--radius-lg);
+            border: 2px solid rgba(255, 107, 107, 0.2);
         }
+        
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
         }
+        
         .form-group label {
             display: block;
-            color: var(--accent);
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
         }
+        
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 0.8rem;
-            background: var(--bg-light);
-            border: 2px solid transparent;
-            border-radius: 8px;
-            color: var(--text-light);
-            font-family: inherit;
+            padding: 1rem 1.3rem;
+            background: var(--bg-dark);
+            border: 2px solid rgba(255, 107, 107, 0.2);
+            border-radius: var(--radius-md);
+            color: var(--text-primary);
+            font-family: var(--font-primary);
             font-size: 1rem;
-            transition: all 0.3s;
+            transition: all var(--transition-normal);
         }
+        
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 4px rgba(255, 107, 107, 0.1);
         }
+        
         .form-group textarea {
             resize: vertical;
-            min-height: 120px;
+            min-height: 140px;
         }
-        .submit-btn {
-            width: 100%;
-            padding: 1rem;
-            background: var(--accent);
-            color: var(--primary);
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
-        }
-        .submit-btn:active {
-            transform: translateY(0);
-        }
+        
         .captcha-container {
-            margin-bottom: 1.5rem;
-            text-align: center;
+            margin-bottom: 1.8rem;
         }
+        
         .captcha-challenge {
-            background: var(--bg-light);
-            padding: 1rem;
-            border-radius: 8px;
+            background: var(--bg-dark);
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
             margin-bottom: 1rem;
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: var(--accent);
-            min-height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            text-align: center;
+            border: 2px solid rgba(255, 107, 107, 0.2);
         }
+        
         .captcha-input {
             width: 100%;
-            padding: 0.8rem;
-            background: var(--bg-light);
-            border: 2px solid transparent;
-            border-radius: 8px;
-            color: var(--text-light);
-            font-family: inherit;
+            padding: 1rem 1.3rem;
+            background: var(--bg-dark);
+            border: 2px solid rgba(255, 107, 107, 0.2);
+            border-radius: var(--radius-md);
+            color: var(--text-primary);
+            font-family: var(--font-primary);
             font-size: 1rem;
             text-align: center;
-            transition: all 0.3s;
+            transition: all var(--transition-normal);
         }
+        
         .captcha-input:focus {
             outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 4px rgba(255, 107, 107, 0.1);
         }
+        
         .captcha-refresh {
             background: transparent;
             border: none;
-            color: var(--accent);
+            color: var(--accent-color);
             cursor: pointer;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             margin-left: 0.5rem;
-            transition: transform 0.3s;
+            transition: transform var(--transition-normal);
         }
+        
         .captcha-refresh:hover {
             transform: rotate(180deg);
         }
-        .form-message {
-            padding: 1rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            text-align: center;
-            font-weight: bold;
+        
+        .submit-btn {
+            width: 100%;
+            padding: 1.3rem;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: var(--radius-xl);
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            box-shadow: var(--shadow-accent);
+            font-family: var(--font-primary);
         }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(255, 107, 107, 0.5);
+        }
+        
+        .submit-btn:active {
+            transform: translateY(-1px);
+        }
+        
+        .form-message {
+            padding: 1.2rem;
+            border-radius: var(--radius-md);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 600;
+        }
+        
         .form-message.success {
             background: rgba(40, 167, 69, 0.2);
             color: #28a745;
-            border: 1px solid #28a745;
+            border: 2px solid #28a745;
         }
+        
         .form-message.error {
             background: rgba(220, 53, 69, 0.2);
             color: #dc3545;
-            border: 1px solid #dc3545;
+            border: 2px solid #dc3545;
         }
         
-        /* Footer */
+        .hidden {
+            display: none;
+        }
+        
+        /* ========================================
+           🦶 Footer
+           ======================================== */
         footer {
             background: var(--bg-dark);
             text-align: center;
-            padding: 2rem;
-            border-top: 2px solid var(--accent);
+            padding: 2.5rem;
+            border-top: 2px solid rgba(255, 107, 107, 0.2);
+            color: var(--text-secondary);
         }
-        /* Scroll Buttons */
+        
+        footer p {
+            font-size: 1rem;
+        }
+        /* ========================================
+           ⬆️⬇️ Scroll Buttons
+           ======================================== */
         .scroll-buttons {
             position: fixed;
             right: 2rem;
@@ -948,17 +1464,19 @@
             z-index: 999;
             opacity: 0;
             transform: translateX(100px);
-            transition: all 0.3s ease;
+            transition: all var(--transition-normal);
         }
+        
         .scroll-buttons.visible {
             opacity: 1;
             transform: translateX(0);
         }
+        
         .scroll-btn {
-            width: 50px;
-            height: 50px;
-            background: var(--accent);
-            color: var(--primary);
+            width: 55px;
+            height: 55px;
+            background: var(--gradient-primary);
+            color: white;
             border: none;
             border-radius: 50%;
             cursor: pointer;
@@ -966,154 +1484,113 @@
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-            transition: all 0.3s ease;
-            will-change: transform;
-            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-accent);
+            transition: all var(--transition-normal);
+            font-weight: bold;
         }
+        
         .scroll-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+            transform: scale(1.15);
+            box-shadow: 0 8px 30px rgba(255, 107, 107, 0.6);
         }
+        
         .scroll-btn:active {
             transform: scale(0.95);
         }
         
-        /* Loading Screen */
-        .loading-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 99999;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-        }
-        .loading-screen.fade-out {
-            opacity: 0;
-            visibility: hidden;
-        }
-        .loader-content {
-            text-align: center;
-        }
-        .loader {
-            width: 60px;
-            height: 60px;
-            border: 4px solid rgba(212, 175, 55, 0.1);
-            border-top: 4px solid var(--accent);
-            border-radius: 50%;
-            margin: 0 auto 1.5rem;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        .loader-text {
-            color: var(--accent);
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            animation: pulse 2s ease-in-out infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-        .loader-subtitle {
-            color: var(--text-light);
-            font-size: 1rem;
-            opacity: 0.7;
-        }
-        .hidden {
-            display: none;
-        }
-        
         /* ========================================
-           💬 Chatbot Styles - UPDATED & FIXED
+           💬 Chatbot Styles
            ======================================== */
         .chatbot-button {
             position: fixed;
             bottom: 2rem;
             left: 2rem;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--accent) 0%, #b8941e 100%);
+            width: 65px;
+            height: 65px;
+            background: var(--gradient-primary);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
-            transition: all 0.3s ease;
+            box-shadow: var(--shadow-accent);
+            transition: all var(--transition-normal);
             z-index: 998;
-            border: 3px solid var(--primary);
+            border: 3px solid var(--bg-dark);
+            animation: glow 3s ease-in-out infinite;
         }
+        
         .chatbot-button:hover {
             transform: scale(1.1) rotate(10deg);
-            box-shadow: 0 6px 30px rgba(212, 175, 55, 0.6);
+            box-shadow: 0 10px 40px rgba(255, 107, 107, 0.6);
         }
+        
         .chatbot-button svg {
-            width: 30px;
-            height: 30px;
-            fill: var(--primary);
+            width: 32px;
+            height: 32px;
+            fill: white;
         }
         
         .chatbot-container {
             position: fixed;
-            bottom: 5rem;
+            bottom: 6rem;
             left: 2rem;
-            width: 380px;
-            height: 550px;
+            width: 400px;
+            height: 600px;
             max-width: calc(100vw - 4rem);
             max-height: calc(100vh - 12rem);
-            background: var(--bg-light);
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            background: var(--bg-card);
+            border-radius: var(--radius-xl);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
             display: none;
             flex-direction: column;
             overflow: hidden;
             z-index: 999;
-            border: 2px solid var(--accent);
+            border: 2px solid rgba(255, 107, 107, 0.3);
             animation: slideUp 0.4s ease;
-            -webkit-overflow-scrolling: touch;
         }
+        
         .chatbot-container.active {
             display: flex;
         }
         
         .chatbot-header {
-            background: linear-gradient(135deg, var(--accent) 0%, #b8941e 100%);
-            padding: 1.5rem;
+            background: var(--gradient-primary);
+            padding: 1.8rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: var(--shadow-md);
         }
+        
         .chatbot-header h3 {
-            color: var(--primary);
-            font-size: 1.2rem;
-            font-weight: bold;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
+        
         .chatbot-close {
-            background: transparent;
+            background: rgba(255, 255, 255, 0.2);
             border: none;
-            color: var(--primary);
-            font-size: 1.5rem;
+            color: white;
+            font-size: 1.8rem;
             cursor: pointer;
-            width: 30px;
-            height: 30px;
+            width: 35px;
+            height: 35px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            transition: all 0.3s;
+            transition: all var(--transition-normal);
+            font-weight: bold;
+            line-height: 1;
         }
+        
         .chatbot-close:hover {
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.3);
             transform: rotate(90deg);
         }
         
@@ -1121,218 +1598,308 @@
             flex: 1;
             padding: 1.5rem;
             overflow-y: auto;
-            background: var(--primary);
+            background: var(--bg-dark);
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent-color) var(--bg-light);
         }
+        
+        .chatbot-messages::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .chatbot-messages::-webkit-scrollbar-track {
+            background: var(--bg-light);
+            border-radius: 10px;
+        }
+        
+        .chatbot-messages::-webkit-scrollbar-thumb {
+            background: var(--accent-color);
+            border-radius: 10px;
+        }
+        
+        .chatbot-messages::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-hover);
+        }
+        
         .chat-message {
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
             display: flex;
-            gap: 0.5rem;
+            gap: 0.8rem;
             animation: fadeInUp 0.3s ease;
         }
+        
         .chat-message.bot {
             justify-content: flex-start;
         }
+        
         .chat-message.user {
             justify-content: flex-end;
         }
+        
         .message-bubble {
             max-width: 75%;
-            padding: 0.8rem 1rem;
-            border-radius: 15px;
-            font-size: 0.9rem;
-            line-height: 1.5;
+            padding: 1rem 1.3rem;
+            border-radius: var(--radius-lg);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            word-wrap: break-word;
         }
+        
         .chat-message.bot .message-bubble {
             background: var(--bg-light);
-            color: var(--text-light);
+            color: var(--text-primary);
             border-bottom-left-radius: 5px;
+            border: 1px solid rgba(255, 107, 107, 0.2);
         }
+        
         .chat-message.user .message-bubble {
-            background: var(--accent);
-            color: var(--primary);
+            background: var(--gradient-primary);
+            color: white;
             border-bottom-right-radius: 5px;
+            box-shadow: var(--shadow-accent);
         }
         
         .chatbot-options {
             padding: 1rem 1.5rem;
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
-            transition: all 0.3s ease;
+            gap: 0.7rem;
+            background: var(--bg-card);
+            border-top: 1px solid rgba(255, 107, 107, 0.1);
+            transition: all var(--transition-normal);
         }
+        
         .chatbot-options.hidden {
             display: none;
         }
+        
         .chat-option {
             background: var(--bg-light);
-            color: var(--accent);
-            border: 1px solid var(--accent);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
+            color: var(--text-primary);
+            border: 2px solid rgba(255, 107, 107, 0.3);
+            padding: 0.6rem 1.2rem;
+            border-radius: var(--radius-xl);
             font-size: 0.85rem;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all var(--transition-normal);
+            font-weight: 600;
         }
+        
         .chat-option:hover {
-            background: var(--accent);
-            color: var(--primary);
-            transform: scale(1.05);
+            background: var(--gradient-primary);
+            border-color: transparent;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-accent);
         }
         
         .chatbot-input {
-            padding: 1rem 1.5rem;
-            background: var(--bg-light);
-            border-top: 2px solid var(--accent);
+            padding: 1.2rem 1.5rem;
+            background: var(--bg-card);
+            border-top: 2px solid rgba(255, 107, 107, 0.2);
             display: flex;
-            gap: 0.5rem;
+            gap: 0.8rem;
         }
+        
         .chatbot-input input {
             flex: 1;
-            padding: 0.8rem;
-            background: var(--primary);
-            border: 2px solid transparent;
-            border-radius: 25px;
-            color: var(--text-light);
-            font-size: 0.9rem;
+            padding: 0.9rem 1.2rem;
+            background: var(--bg-dark);
+            border: 2px solid rgba(255, 107, 107, 0.2);
+            border-radius: var(--radius-xl);
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            font-family: var(--font-primary);
+            transition: all var(--transition-normal);
         }
+        
         .chatbot-input input:focus {
             outline: none;
-            border-color: var(--accent);
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
         }
+        
+        .chatbot-input input::placeholder {
+            color: var(--text-muted);
+        }
+        
         .chatbot-send {
-            background: var(--accent);
-            color: var(--primary);
+            background: var(--gradient-primary);
+            color: white;
             border: none;
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s;
+            transition: all var(--transition-normal);
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: var(--shadow-accent);
         }
+        
         .chatbot-send:hover {
             transform: scale(1.1);
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.5);
+            box-shadow: 0 6px 25px rgba(255, 107, 107, 0.5);
+        }
+        
+        .chatbot-send:active {
+            transform: scale(0.95);
+        }
+        /* ========================================
+           📱 Responsive Design - Tablet
+           ======================================== */
+        @media (max-width: 968px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
         }
         
         /* ========================================
-           📱 إصلاح Viewport على iOS
-           ======================================== */
-        @supports (-webkit-touch-callout: none) {
-            .chatbot-container {
-                height: -webkit-fill-available;
-                max-height: 70vh;
-            }
-            .chatbot-messages {
-                height: -webkit-fill-available;
-            }
-        }
-        
-        /* ========================================
-           📱 إصلاح Safe Area على الهواتف الحديثة
-           ======================================== */
-        @supports (padding: max(0px)) {
-            .chatbot-container {
-                padding-bottom: max(0px, env(safe-area-inset-bottom));
-            }
-            .chatbot-input {
-                padding-bottom: max(0.8rem, calc(0.8rem + env(safe-area-inset-bottom)));
-            }
-        }
-        /* ========================================
-           📱 Responsive Design - UPDATED
+           📱 Responsive Design - Mobile
            ======================================== */
         @media (max-width: 768px) {
-            nav { padding: 0 1.5rem; }
-            .nav-links { display: none; }
-            .hamburger-menu { display: flex; }
-            .lang-selector { display: none; }
+            :root {
+                --spacing-lg: 3rem;
+                --spacing-xl: 4rem;
+            }
+            
+            nav {
+                padding: 0 1.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hamburger-menu {
+                display: flex;
+            }
+            
+            .lang-selector {
+                display: none;
+            }
             
             .hero {
                 min-height: 100vh;
-                padding: 6rem 1.5rem 2rem;
+                padding: 7rem 1.5rem 3rem;
             }
+            
             .hero h1 {
-                font-size: 2.2rem;
-                line-height: 1.2;
+                font-size: 2.5rem;
             }
+            
             .hero h2 {
-                font-size: 1.4rem;
-                line-height: 1.3;
+                font-size: 1.5rem;
             }
+            
             .hero p {
                 font-size: 1rem;
-                padding: 0 1rem;
-            }
-            .profile-img {
-                width: 180px;
-                height: 180px;
-            }
-            .cta-btn {
-                padding: 0.8rem 2rem;
-                font-size: 0.95rem;
             }
             
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+            .profile-img {
+                width: 160px;
+                height: 160px;
             }
+            
+            .cta-btn {
+                padding: 1rem 2.5rem;
+                font-size: 1rem;
+            }
+            
+            section {
+                padding: 4rem 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            #about,
+            #contact {
+                padding: 4rem 2rem;
+                margin: 0 1rem;
+            }
+            
             .stats {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr;
                 gap: 1rem;
             }
-            .stat-item { padding: 1rem; }
-            .stat-number { font-size: 2rem; }
-            
-            .section-title { font-size: 2rem; }
-            section { padding: 3rem 1.5rem; }
             
             .portfolio-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
-            .portfolio-img {
-                height: 150px;
-                font-size: 2.5rem;
-            }
-            .portfolio-info { padding: 1.5rem; }
             
-            .contact-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            .contact-form { padding: 1.5rem; }
-            .social-btn {
-                width: 45px;
-                height: 45px;
-                font-size: 1.2rem;
+            .portfolio-img {
+                height: 180px;
+                font-size: 3rem;
             }
             
             .modal-content {
                 margin: 1rem;
                 max-height: 85vh;
             }
+            
             .modal-header {
-                padding: 2rem 1.5rem 1rem;
+                padding: 2.5rem 2rem 1.5rem;
             }
-            .modal-header h2 { font-size: 1.5rem; }
-            .modal-body { padding: 1.5rem; }
+            
+            .modal-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .modal-body {
+                padding: 2rem;
+            }
+            
             .modal-close {
                 top: 1rem;
                 right: 1rem;
-                left: auto;
-                width: 35px;
-                height: 35px;
+                width: 40px;
+                height: 40px;
                 font-size: 1.3rem;
             }
+            
             body[dir="rtl"] .modal-close {
                 right: auto;
                 left: 1rem;
             }
             
-            /* Chatbot - FIXED للموبايل */
+            .contact-form {
+                padding: 2rem;
+            }
+            
+            .social-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+            
+            .scroll-buttons {
+                right: 1rem;
+                bottom: 1rem;
+                gap: 0.8rem;
+            }
+            
+            .scroll-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+            
             .chatbot-container {
                 width: min(90vw, 380px);
                 height: auto;
@@ -1341,279 +1908,166 @@
                 left: 50%;
                 transform: translateX(-50%);
                 bottom: 6rem;
-                border-radius: 16px;
             }
-            .chatbot-container.active {
-                display: flex;
-            }
-            .chatbot-messages {
-                padding: 1rem;
-                flex: 1;
-                min-height: 250px;
-                max-height: calc(70vh - 180px);
-            }
-            .chatbot-input {
-                padding: 0.8rem 1rem;
-                position: sticky;
-                bottom: 0;
-                background: var(--bg-light);
-                z-index: 10;
-            }
-            .chatbot-input input {
-                font-size: 16px;
-            }
+            
             .chatbot-button {
                 bottom: 1.5rem;
                 left: 1rem;
-                width: 55px;
-                height: 55px;
+                width: 60px;
+                height: 60px;
             }
+            
             .chatbot-button svg {
-                width: 26px;
-                height: 26px;
+                width: 28px;
+                height: 28px;
             }
-            .message-bubble {
-                max-width: 85%;
-                font-size: 0.85rem;
-                padding: 0.7rem 0.9rem;
+        }
+        
+        /* ========================================
+           📱 Responsive Design - Small Mobile
+           ======================================== */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
             }
-            .chatbot-options {
-                padding: 0.8rem 1rem;
-                gap: 0.4rem;
+            
+            .hero h2 {
+                font-size: 1.3rem;
             }
-            .chat-option {
-                font-size: 0.8rem;
-                padding: 0.4rem 0.8rem;
+            
+            .hero p {
+                font-size: 0.95rem;
             }
-            .chatbot-send {
-                width: 38px;
-                height: 38px;
+            
+            .profile-img {
+                width: 140px;
+                height: 140px;
+            }
+            
+            .cta-btn {
+                padding: 0.9rem 2rem;
+                font-size: 0.95rem;
+            }
+            
+            section {
+                padding: 3rem 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            #about,
+            #contact {
+                padding: 3rem 1.5rem;
+            }
+            
+            .stat-item {
+                padding: 1.5rem 1rem;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .service-item {
+                padding: 1.5rem;
+            }
+            
+            .portfolio-img {
+                height: 150px;
+                font-size: 2.5rem;
+            }
+            
+            .portfolio-info {
+                padding: 1.5rem;
+            }
+            
+            .modal-header {
+                padding: 2rem 1.5rem 1rem;
+            }
+            
+            .modal-header h2 {
+                font-size: 1.5rem;
+            }
+            
+            .modal-body {
+                padding: 1.5rem;
+            }
+            
+            .modal-section h3 {
+                font-size: 1.2rem;
+            }
+            
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info h3 {
+                font-size: 2rem;
+            }
+            
+            .contact-form {
+                padding: 1.5rem;
+            }
+            
+            .submit-btn {
+                padding: 1.1rem;
                 font-size: 1rem;
             }
             
-            .scroll-buttons {
-                right: 1rem;
-                bottom: 1rem;
-                gap: 0.8rem;
-            }
             .scroll-btn {
                 width: 45px;
                 height: 45px;
                 font-size: 1.2rem;
             }
-        }
-        
-        @media (max-width: 480px) {
-            .hero {
-                padding: 5rem 1rem 2rem;
-            }
-            .hero h1 { font-size: 1.8rem; }
-            .hero h2 { font-size: 1.2rem; }
-            .hero p {
-                font-size: 0.95rem;
-                padding: 0 0.5rem;
-            }
-            .profile-img {
-                width: 150px;
-                height: 150px;
-            }
-            .cta-btn {
-                padding: 0.7rem 1.5rem;
-                font-size: 0.9rem;
-            }
             
-            section { padding: 2.5rem 1rem; }
-            .section-title { font-size: 1.7rem; }
-            
-            .stats {
-                grid-template-columns: 1fr;
-                gap: 0.8rem;
-            }
-            .stat-item { padding: 0.8rem; }
-            .stat-number { font-size: 1.8rem; }
-            .stat-label { font-size: 0.85rem; }
-            
-            .skills {
-                justify-content: center;
-                gap: 0.6rem;
-            }
-            .skill-tag {
-                font-size: 0.8rem;
-                padding: 0.4rem 0.8rem;
-            }
-            
-            .service-item { padding: 1rem; }
-            .service-item h3 { font-size: 1rem; }
-            .service-item p { font-size: 0.9rem; }
-            
-            .portfolio-img {
-                height: 120px;
-                font-size: 2rem;
-            }
-            .portfolio-info { padding: 1rem; }
-            .portfolio-info h3 { font-size: 1.1rem; }
-            .portfolio-info p { font-size: 0.9rem; }
-            
-            .modal-content {
-                margin: 0.5rem;
-                border-radius: 15px;
-            }
-            .modal-header {
-                padding: 1.5rem 1rem 0.8rem;
-            }
-            .modal-header h2 {
-                font-size: 1.3rem;
-                margin-bottom: 0.3rem;
-            }
-            .modal-body { padding: 1rem; }
-            .modal-section { margin-bottom: 1.5rem; }
-            .modal-section h3 { font-size: 1.1rem; }
-            .modal-section p { font-size: 0.9rem; }
-            .tech-tag {
-                font-size: 0.75rem;
-                padding: 0.4rem 0.8rem;
-            }
-            .result-item { padding: 1rem; }
-            .result-value { font-size: 1.5rem; }
-            .result-label { font-size: 0.8rem; }
-            .modal-close {
-                top: 0.5rem;
-                right: 0.5rem;
-                width: 32px;
-                height: 32px;
-                font-size: 1.2rem;
-            }
-            body[dir="rtl"] .modal-close {
-                right: auto;
-                left: 0.5rem;
-            }
-            
-            .contact-info h3 { font-size: 1.5rem; }
-            .contact-info p { font-size: 0.95rem; }
-            .contact-detail-item { padding: 0.8rem; }
-            .contact-icon { font-size: 1.6rem; }
-            .contact-detail-item h4 { font-size: 0.85rem; }
-            .contact-detail-item a { font-size: 0.9rem; }
-            .contact-form { padding: 1.2rem; }
-            .form-group label { font-size: 0.9rem; }
-            .form-group input,
-            .form-group textarea {
-                padding: 0.7rem;
-                font-size: 0.9rem;
-            }
-            .captcha-challenge {
-                font-size: 1.1rem;
-                padding: 0.8rem;
-            }
-            .captcha-input {
-                padding: 0.7rem;
-                font-size: 0.9rem;
-            }
-            .submit-btn {
-                padding: 0.9rem;
-                font-size: 0.95rem;
-            }
-            .social-btn {
-                width: 40px;
-                height: 40px;
-                font-size: 1.1rem;
-            }
-            
-            .scroll-buttons {
-                right: 0.5rem;
-                bottom: 0.5rem;
-                gap: 0.5rem;
-            }
-            .scroll-btn {
-                width: 40px;
-                height: 40px;
-                font-size: 1.1rem;
-            }
-            
-            .lang-btn {
-                padding: 0.25rem 0.6rem;
-                font-size: 0.85rem;
-            }
-            
-            .mobile-menu a {
-                font-size: 1.6rem;
-                margin: 0.8rem 0;
-                padding: 0.8rem 1.5rem;
-            }
-            .mobile-lang-selector {
-                gap: 0.8rem;
-                margin-top: 1.5rem;
-            }
-            .mobile-lang-selector .lang-btn {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.9rem;
-            }
-            
-            /* Chatbot - للشاشات الصغيرة جداً */
             .chatbot-container {
                 width: min(95vw, 360px);
-                height: auto;
                 max-height: 65vh;
                 min-height: 350px;
-                left: 50%;
-                transform: translateX(-50%);
-                bottom: 5.5rem;
-                border-radius: 14px;
             }
-            .chatbot-messages {
-                padding: 0.8rem;
-                min-height: 200px;
-                max-height: calc(65vh - 160px);
-            }
-            .chatbot-input {
-                padding: 0.6rem 0.8rem;
-            }
-            .chatbot-input input {
-                padding: 0.6rem 0.8rem;
-                font-size: 16px;
-            }
+            
             .chatbot-button {
-                width: 50px;
-                height: 50px;
-                left: 0.5rem;
-                bottom: 1rem;
+                width: 55px;
+                height: 55px;
             }
+            
             .chatbot-button svg {
-                width: 24px;
-                height: 24px;
+                width: 26px;
+                height: 26px;
             }
-            .chatbot-header { padding: 1rem; }
-            .chatbot-header h3 { font-size: 1rem; }
-            .chatbot-close {
-                width: 28px;
-                height: 28px;
-                font-size: 1.2rem;
+            
+            .chatbot-header {
+                padding: 1.5rem;
             }
+            
+            .chatbot-header h3 {
+                font-size: 1.1rem;
+            }
+            
+            .chatbot-messages {
+                padding: 1rem;
+            }
+            
             .message-bubble {
-                font-size: 0.8rem;
-                padding: 0.6rem 0.8rem;
-                max-width: 90%;
+                font-size: 0.85rem;
+                padding: 0.8rem 1rem;
             }
-            .chatbot-options {
-                padding: 0.6rem 0.8rem;
-                gap: 0.3rem;
-            }
+            
             .chat-option {
-                padding: 0.35rem 0.7rem;
-                font-size: 0.75rem;
-            }
-            .chatbot-send {
-                width: 35px;
-                height: 35px;
-                font-size: 0.9rem;
+                font-size: 0.8rem;
+                padding: 0.5rem 1rem;
             }
         }
     </style>
 </head>
-
 <body>
 <div role="main">
-<!-- Loading Screen -->
+
+<!-- ========================================
+     ⏳ Loading Screen
+     ======================================== -->
 <div id="loadingScreen" class="loading-screen">
     <div class="loader-content">
         <div class="loader"></div>
@@ -1622,6 +2076,9 @@
     </div>
 </div>
 
+<!-- ========================================
+     🧭 Header & Navigation
+     ======================================== -->
 <header>
     <nav>
         <a href="#" class="logo" onclick="reloadAndScrollTop(); return false;">AA</a>
@@ -1643,8 +2100,10 @@
     </nav>
 </header>
 
+<!-- ========================================
+     📱 Mobile Menu
+     ======================================== -->
 <div class="mobile-menu" id="mobileMenu">
-    <button class="mobile-menu-close" onclick="closeMobileMenu()">×</button>
     <a href="#about" data-translate="nav_about" onclick="closeMobileMenu()">About</a>
     <a href="#portfolio" data-translate="nav_portfolio" onclick="closeMobileMenu()">Portfolio</a>
     <a href="#contact" data-translate="nav_contact" onclick="closeMobileMenu()">Contact</a>
@@ -1655,18 +2114,26 @@
     </div>
 </div>
 
+<!-- ========================================
+     🌟 Hero Section
+     ======================================== -->
 <section class="hero">
     <div class="hero-content">
         <img src="https://i.ibb.co/v6GfWRYy/1447-04-14-01-59-41-1370e94e.jpg" alt="Abdulmalek Al-Darwish" class="profile-img">
         <h1>Abdulmalek Al-Darwish</h1>
-        <h2 data-translate="hero_title">Web Developer & AI Specialist</h2>
+        <h2 data-translate="hero_title">Full-Stack Developer & AI Specialist</h2>
         <p data-translate="hero_desc">Transforming ideas into digital reality through innovative web development, AI automation, and strategic digital marketing</p>
         <a href="#contact" class="cta-btn" data-translate="hero_cta">Get In Touch</a>
     </div>
 </section>
 
+<!-- ========================================
+     👤 About Section
+     ======================================== -->
 <section id="about">
     <h2 class="section-title fade-in" data-translate="about_title">About Me</h2>
+    <p class="section-subtitle fade-in" data-translate="about_subtitle">Passionate developer crafting digital experiences</p>
+    
     <div class="about-content">
         <div class="about-text slide-in-left">
             <p data-translate="about_intro">
@@ -1678,6 +2145,7 @@
             <p data-translate="about_approach">
                 My approach combines technical expertise with creative problem-solving, ensuring every project not only meets but exceeds expectations. Whether it's a complex e-commerce platform, an intelligent automation system, or a sophisticated web application, I deliver solutions that make an impact.
             </p>
+            
             <div class="stats stagger-animation">
                 <div class="stat-item">
                     <span class="stat-number" data-translate="stat1_num">5+</span>
@@ -1696,6 +2164,7 @@
                     <span class="stat-label" data-translate="stat4_label">Support Available</span>
                 </div>
             </div>
+            
             <div class="skills stagger-animation">
                 <span class="skill-tag">React</span>
                 <span class="skill-tag">Node.js</span>
@@ -1707,6 +2176,7 @@
                 <span class="skill-tag">PostgreSQL</span>
             </div>
         </div>
+        
         <div class="services slide-in-right">
             <div class="service-item">
                 <h3 data-translate="service1_title">🌐 Web Development</h3>
@@ -1724,8 +2194,13 @@
     </div>
 </section>
 
+<!-- ========================================
+     💼 Portfolio Section
+     ======================================== -->
 <section id="portfolio">
     <h2 class="section-title fade-in" data-translate="portfolio_title">My Work</h2>
+    <p class="section-subtitle fade-in" data-translate="portfolio_subtitle">Showcasing successful projects and real results</p>
+    
     <div class="portfolio-grid stagger-animation">
         <div class="portfolio-item" onclick="openModal('project1')">
             <div class="portfolio-img">🏥</div>
@@ -1734,6 +2209,7 @@
                 <p data-translate="project1_short">Comprehensive appointment system connecting patients with doctors efficiently</p>
             </div>
         </div>
+        
         <div class="portfolio-item" onclick="openModal('project2')">
             <div class="portfolio-img">🍽</div>
             <div class="portfolio-info">
@@ -1741,6 +2217,7 @@
                 <p data-translate="project2_short">Complete solution for orders, inventory, and staff management</p>
             </div>
         </div>
+        
         <div class="portfolio-item" onclick="openModal('project3')">
             <div class="portfolio-img">🤖</div>
             <div class="portfolio-info">
@@ -1748,6 +2225,7 @@
                 <p data-translate="project3_short">AI-powered chatbot answering customer inquiries 24/7</p>
             </div>
         </div>
+        
         <div class="portfolio-item" onclick="openModal('project4')">
             <div class="portfolio-img">📊</div>
             <div class="portfolio-info">
@@ -1755,6 +2233,7 @@
                 <p data-translate="project4_short">Analytical system turning complex data into clear insights</p>
             </div>
         </div>
+        
         <div class="portfolio-item" onclick="openModal('project5')">
             <div class="portfolio-img">🎓</div>
             <div class="portfolio-info">
@@ -1762,6 +2241,7 @@
                 <p data-translate="project5_short">Complete digital learning environment for students and teachers</p>
             </div>
         </div>
+        
         <div class="portfolio-item" onclick="openModal('project6')">
             <div class="portfolio-img">💼</div>
             <div class="portfolio-info">
@@ -1769,6 +2249,7 @@
                 <p data-translate="project6_short">Comprehensive solution for tracking customers and sales</p>
             </div>
         </div>
+        
         <div class="portfolio-item" onclick="openModal('project7')">
             <div class="portfolio-img">🌐</div>
             <div class="portfolio-info">
@@ -1776,6 +2257,7 @@
                 <p data-translate="project7_short">Corporate website with modern design and SEO optimization</p>
             </div>
         </div>
+        
         <div class="portfolio-item" onclick="openModal('project8')">
             <div class="portfolio-img">🛒</div>
             <div class="portfolio-info">
@@ -1786,19 +2268,27 @@
     </div>
 </section>
 
+<!-- ========================================
+     🔲 Modal for Project Details
+     ======================================== -->
 <div id="modal" class="modal" onclick="closeModal(event)">
     <div class="modal-content" onclick="event.stopPropagation()">
         <button class="modal-close" onclick="closeModal()">×</button>
         <div id="modalContent"></div>
     </div>
 </div>
-
+<!-- ========================================
+     📬 Contact Section
+     ======================================== -->
 <section id="contact">
     <h2 class="section-title fade-in" data-translate="contact_title">Contact Me</h2>
+    <p class="section-subtitle fade-in" data-translate="contact_subtitle">Let's discuss your next project</p>
+    
     <div class="contact-container">
         <div class="contact-info fade-in">
             <h3 data-translate="contact_info_title">Get In Touch</h3>
             <p data-translate="contact_info_desc">Have a project in mind? Let's discuss how I can help bring your ideas to life.</p>
+            
             <div class="contact-details">
                 <div class="contact-detail-item">
                     <div class="contact-icon">📧</div>
@@ -1815,11 +2305,13 @@
                     </div>
                 </div>
             </div>
+            
             <div class="social-links">
-                <a href="https://www.facebook.com/share/1AMQeKQNaa/?mibextid=wwXIfr" target="_blank" class="social-btn">f</a>
-                <a href="https://www.instagram.com/maleekrd?igsh=NTQwemJqcW1wZmQz&utm_source=qr" target="_blank" class="social-btn">📷</a>
+                <a href="https://www.facebook.com/share/1AMQeKQNaa/?mibextid=wwXIfr" target="_blank" class="social-btn" title="Facebook">f</a>
+                <a href="https://www.instagram.com/maleekrd?igsh=NTQwemJqcW1wZmQz&utm_source=qr" target="_blank" class="social-btn" title="Instagram">📷</a>
             </div>
         </div>
+        
         <form class="contact-form fade-in" id="contactForm" action="https://formspree.io/f/xyznddnj" method="POST">
             <div class="form-group">
                 <label for="name" data-translate="form_name">Your Name</label>
@@ -1834,9 +2326,7 @@
                 <textarea id="message" name="message" rows="5" required></textarea>
             </div>
             <div class="captcha-container">
-                <label for="captchaInput" style="color: var(--accent); font-weight: 500; margin-bottom: 0.5rem; display: block;">
-                    <span data-translate="form_captcha">I'm not a robot</span>
-                </label>
+                <label for="captchaInput" data-translate="form_captcha">I'm not a robot</label>
                 <div class="captcha-challenge" id="captchaChallenge"></div>
                 <input type="text" id="captchaInput" class="captcha-input" placeholder="Enter the result" required>
                 <button type="button" class="captcha-refresh" onclick="generateCaptcha()" title="Refresh CAPTCHA">↻</button>
@@ -1847,15 +2337,24 @@
     </div>
 </section>
 
+<!-- ========================================
+     🦶 Footer
+     ======================================== -->
 <footer>
     <p>&copy; 2025 Abdulmalek Al-Darwish. <span data-translate="footer_rights">All rights reserved.</span></p>
 </footer>
 
+<!-- ========================================
+     ⬆️⬇️ Scroll Buttons
+     ======================================== -->
 <div class="scroll-buttons" id="scrollButtons">
     <button class="scroll-btn" onclick="scrollToTop()" title="Scroll to top">↑</button>
     <button class="scroll-btn" onclick="scrollToBottom()" title="Scroll to bottom">↓</button>
 </div>
 
+<!-- ========================================
+     💬 Chatbot
+     ======================================== -->
 <div class="chatbot-button" id="chatbotButton" onclick="toggleChatbot()">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <path d="M12 2C6.48 2 2 6.48 2 12c0 1.54.36 3 .97 4.29L2 22l5.71-.97C9 21.64 10.46 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.38 0-2.63-.35-3.77-.95l-.27-.15-2.83.48.48-2.83-.15-.27C4.85 14.63 4.5 13.38 4.5 12c0-4.14 3.36-7.5 7.5-7.5s7.5 3.36 7.5 7.5-3.36 7.5-7.5 7.5z"/>
@@ -1892,9 +2391,11 @@
     </div>
 </div>
 
-<script>
+</div>
+<!-- End of role="main" -->
+ <script>
 // ========================================
-// 🌍 نظام الترجمات الكامل
+// 🌍 Translation System
 // ========================================
 
 const translations = {
@@ -1906,6 +2407,7 @@ const translations = {
         hero_desc: "Transforming ideas into digital reality through innovative web development, AI automation, and strategic digital marketing",
         hero_cta: "Get In Touch",
         about_title: "About Me",
+        about_subtitle: "Passionate developer crafting digital experiences",
         about_intro: "I'm a Full-Stack Developer with over 5 years of experience in crafting exceptional digital solutions. My journey in web development has been one of continuous growth and innovation, constantly pushing boundaries to deliver excellence.",
         about_expertise: "Through dedication and passion, I've evolved from mastering the fundamentals to becoming a sought-after professional in the industry. I specialize in building scalable web applications, implementing cutting-edge AI solutions, and creating digital strategies that drive real business results.",
         about_approach: "My approach combines technical expertise with creative problem-solving, ensuring every project not only meets but exceeds expectations. Whether it's a complex e-commerce platform, an intelligent automation system, or a sophisticated web application, I deliver solutions that make an impact.",
@@ -1924,6 +2426,7 @@ const translations = {
         service3_title: "📱 Digital Marketing",
         service3_desc: "Data-driven marketing strategies with SEO optimization and conversion-focused campaigns",
         portfolio_title: "My Work",
+        portfolio_subtitle: "Showcasing successful projects and real results",
         project1_title: "Smart Medical Booking Platform",
         project1_short: "Comprehensive appointment system connecting patients with doctors efficiently",
         project2_title: "Restaurant POS & Management",
@@ -1941,6 +2444,7 @@ const translations = {
         project8_title: "E-Commerce Platform",
         project8_short: "Modern online store with secure payment system",
         contact_title: "Contact Me",
+        contact_subtitle: "Let's discuss your next project",
         contact_info_title: "Get In Touch",
         contact_info_desc: "Have a project in mind? Let's discuss how I can help bring your ideas to life.",
         contact_email: "Email",
@@ -1972,6 +2476,7 @@ const translations = {
         hero_desc: "Transformerer ideer til digital virkelighet gjennom innovativ webutvikling, AI-automatisering og strategisk digital markedsføring",
         hero_cta: "Ta kontakt",
         about_title: "Om meg",
+        about_subtitle: "Lidenskapelig utvikler som skaper digitale opplevelser",
         about_intro: "Jeg er en Full-Stack-utvikler med over 5 års erfaring med å skape eksepsjonelle digitale løsninger. Min reise innen webutvikling har vært preget av kontinuerlig vekst og innovasjon, og jeg presser stadig grensene for å levere fortreffelighet.",
         about_expertise: "Gjennom dedikasjon og lidenskap har jeg utviklet meg fra å mestre det grunnleggende til å bli en ettertraktet profesjonell i bransjen. Jeg spesialiserer meg på å bygge skalerbare webapplikasjoner, implementere banebrytende AI-løsninger og skape digitale strategier som gir reelle forretningsresultater.",
         about_approach: "Min tilnærming kombinerer teknisk ekspertise med kreativ problemløsning, og sikrer at hvert prosjekt ikke bare møter, men overgår forventningene. Enten det er en kompleks e-handelsplattform, et intelligent automatiseringssystem eller en sofistikert webapplikasjon, leverer jeg løsninger som gjør en forskjell.",
@@ -1990,6 +2495,7 @@ const translations = {
         service3_title: "📱 Digital markedsføring",
         service3_desc: "Datadrevne markedsføringsstrategier med SEO-optimalisering og konverteringsfokuserte kampanjer",
         portfolio_title: "Mine arbeider",
+        portfolio_subtitle: "Viser vellykkede prosjekter og reelle resultater",
         project1_title: "Smart medisinsk bookingplattform",
         project1_short: "Omfattende timeavtalesystem som kobler pasienter med leger effektivt",
         project2_title: "Restaurant POS & ledelse",
@@ -2007,6 +2513,7 @@ const translations = {
         project8_title: "E-handelsplattform",
         project8_short: "Moderne nettbutikk med sikkert betalingssystem",
         contact_title: "Kontakt meg",
+        contact_subtitle: "La oss diskutere ditt neste prosjekt",
         contact_info_title: "Ta kontakt",
         contact_info_desc: "Har du et prosjekt i tankene? La oss diskutere hvordan jeg kan hjelpe deg med å realisere ideene dine.",
         contact_email: "E-post",
@@ -2038,6 +2545,7 @@ const translations = {
         hero_desc: "أحول الأفكار إلى واقع رقمي من خلال تطوير المواقع المبتكرة، وأتمتة الذكاء الاصطناعي، والتسويق الرقمي الاستراتيجي",
         hero_cta: "تواصل معي",
         about_title: "عن عبدالملك",
+        about_subtitle: "مطور شغوف يصنع تجارب رقمية",
         about_intro: "أنا مطور Full-Stack بخبرة تزيد عن 5 سنوات في صناعة الحلول الرقمية الاستثنائية. رحلتي في تطوير الويب كانت رحلة نمو وابتكار مستمر، أدفع دائماً الحدود لتقديم التميز.",
         about_expertise: "من خلال التفاني والشغف، تطورت من إتقان الأساسيات إلى أن أصبحت محترفاً مطلوباً في الصناعة. أتخصص في بناء تطبيقات ويب قابلة للتطوير، وتطبيق حلول ذكاء اصطناعي متطورة، وإنشاء استراتيجيات رقمية تحقق نتائج أعمال حقيقية.",
         about_approach: "نهجي يجمع بين الخبرة التقنية وحل المشكلات الإبداعي، مما يضمن أن كل مشروع لا يلبي التوقعات فحسب، بل يتجاوزها. سواء كانت منصة تجارة إلكترونية معقدة، أو نظام أتمتة ذكي، أو تطبيق ويب متطور، أقدم حلولاً تُحدث تأثيراً.",
@@ -2056,6 +2564,7 @@ const translations = {
         service3_title: "📱 التسويق الرقمي",
         service3_desc: "استراتيجيات تسويق مدفوعة بالبيانات مع تحسين SEO وحملات مركزة على التحويل",
         portfolio_title: "أعمالي",
+        portfolio_subtitle: "عرض المشاريع الناجحة والنتائج الحقيقية",
         project1_title: "منصة حجز طبي ذكية",
         project1_short: "نظام مواعيد شامل يربط المرضى بالأطباء بكفاءة",
         project2_title: "نظام نقاط البيع وإدارة المطاعم",
@@ -2073,6 +2582,7 @@ const translations = {
         project8_title: "منصة تجارة إلكترونية",
         project8_short: "متجر إلكتروني عصري بنظام دفع آمن",
         contact_title: "تواصل معي",
+        contact_subtitle: "لنناقش مشروعك القادم",
         contact_info_title: "ابقَ على تواصل",
         contact_info_desc: "هل لديك مشروع في ذهنك؟ لنناقش كيف يمكنني مساعدتك في تحقيق أفكارك.",
         contact_email: "البريد الإلكتروني",
@@ -2233,21 +2743,11 @@ document.querySelectorAll('.mobile-menu a').forEach(link => {
     link.addEventListener('click', closeMobileMenu);
 });
 
-document.addEventListener('click', function(event) {
-    const mobileMenu = document.getElementById('mobileMenu');
-    const hamburger = document.querySelector('.hamburger-menu');
-    
-    if (mobileMenu && mobileMenu.classList.contains('active') && 
-        !mobileMenu.contains(event.target) && 
-        !hamburger.contains(event.target)) {
-        closeMobileMenu();
-    }
-});
-
 function reloadAndScrollTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setTimeout(() => location.reload(), 500);
 }
+
 // ========================================
 // 🖼️ Modal Functions
 // ========================================
@@ -2744,10 +3244,10 @@ function showFormMessage(message, type) {
         formMessage.classList.add('hidden');
     }, 5000);
 }
-// ========================================
-// 💬 Chatbot Functions - UPDATED
-// ========================================
 
+// ========================================
+// 💬 Chatbot Functions
+// ========================================
 function toggleChatbot() {
     const container = document.getElementById('chatbotContainer');
     if (!container) return;
@@ -2758,7 +3258,6 @@ function toggleChatbot() {
     if (isOpening) {
         document.body.style.overflow = 'hidden';
         
-        // إصلاح مشكلة Viewport على iOS
         if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
             document.body.style.position = 'fixed';
             document.body.style.width = '100%';
@@ -2768,8 +3267,6 @@ function toggleChatbot() {
             const messages = document.getElementById('chatbotMessages');
             if (messages) messages.scrollTop = messages.scrollHeight;
         }, 100);
-        
-        fixKeyboardIssue();
     } else {
         document.body.style.overflow = 'auto';
         
@@ -2778,27 +3275,6 @@ function toggleChatbot() {
             document.body.style.width = '';
         }
     }
-}
-
-// دالة إصلاح مشكلة لوحة المفاتيح
-function fixKeyboardIssue() {
-    const chatInput = document.getElementById('chatInput');
-    if (!chatInput) return;
-    
-    chatInput.addEventListener('focus', function() {
-        setTimeout(() => {
-            const container = document.getElementById('chatbotContainer');
-            if (container) {
-                this.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
-        }, 300);
-    });
-    
-    chatInput.addEventListener('blur', function() {
-        setTimeout(() => {
-            window.scrollTo(0, 0);
-        }, 100);
-    });
 }
 
 function addMessage(text, isBot = true) {
@@ -2963,9 +3439,8 @@ function handleEnter(event) {
 }
 
 // ========================================
-// 🎉 نهاية الكود - End of JavaScript
+// 🎉 نهاية JavaScript
 // ========================================
 </script>
-</div>
 </body>
 </html>
