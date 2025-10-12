@@ -1270,570 +1270,364 @@
            📱 RESPONSIVE DESIGN - ENHANCED 100%
            ======================================== */
         
-        /* Tablet - iPad */
-        @media (max-width: 968px) {
-            nav { padding: 0 1.5rem; }
-            
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-            
-            .contact-container {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-            
-            .portfolio-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            }
-            
-            .section-title {
-                font-size: 2.2rem;
-            }
-        }
-        
-        /* Mobile - Large (iPhone Pro Max, Samsung S21+) */
-        @media (max-width: 768px) {
-            nav {
-                padding: 0 1.5rem;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .hamburger-menu {
-                display: flex;
-            }
-            
-            .lang-selector {
-                display: none;
-            }
-            
-            .hero {
-                min-height: 100vh;
-                padding: 6rem 1.5rem 2rem;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-                line-height: 1.2;
-            }
-            
-            .hero h2 {
-                font-size: 1.4rem;
-                line-height: 1.3;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-                padding: 0 1rem;
-            }
-            
-            .profile-img {
-                width: 180px;
-                height: 180px;
-            }
-            
-            .cta-btn {
-                padding: 0.8rem 2rem;
-                font-size: 0.95rem;
-            }
-            
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .stats {
-                grid-template-columns: 1fr 1fr;
-                gap: 1rem;
-            }
-            
-            .stat-item {
-                padding: 1rem;
-            }
-            
-            .stat-number {
-                font-size: 2rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            section {
-                padding: 3rem 1.5rem;
-            }
-            
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .portfolio-img {
-                height: 150px;
-                font-size: 2.5rem;
-            }
-            
-            .portfolio-info {
-                padding: 1.5rem;
-            }
-            
-            .contact-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .contact-form {
-                padding: 1.5rem;
-            }
-            
-            .social-btn {
-                width: 45px;
-                height: 45px;
-                font-size: 1.2rem;
-            }
-            
-            .modal-content {
-                margin: 1rem;
-                max-height: 85vh;
-            }
-            
-            .modal-header {
-                padding: 2rem 1.5rem 1rem;
-            }
-            
-            .modal-header h2 {
-                font-size: 1.5rem;
-            }
-            
-            .modal-body {
-                padding: 1.5rem;
-            }
-            
-            .modal-close {
-                top: 1rem;
-                right: 1rem;
-                left: auto;
-                width: 35px;
-                height: 35px;
-                font-size: 1.3rem;
-            }
-            
-            body[dir="rtl"] .modal-close {
-                right: auto;
-                left: 1rem;
-            }
-            
-            .scroll-buttons {
-                right: 1rem;
-                bottom: 1rem;
-                gap: 0.8rem;
-            }
-            
-            .scroll-btn {
-                width: 50px;
-                height: 50px;
-                font-size: 1.3rem;
-            }
-            
-            .chatbot-container {
-                width: min(90vw, 380px);
-                height: auto;
-                max-height: 70vh;
-                min-height: 400px;
-                left: 50%;
-                transform: translateX(-50%);
-                bottom: 6rem;
-            }
-            
-            .chatbot-button {
-                bottom: 1.5rem;
-                left: 1rem;
-                width: 60px;
-                height: 60px;
-            }
-            
-            .chatbot-button svg {
-                width: 28px;
-                height: 28px;
-            }
-        }
-        
-        /* Mobile - Small (iPhone SE, iPhone 12 mini) */
-        @media (max-width: 480px) {
-            .hero {
-                padding: 5rem 1rem 2rem;
-            }
-            
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            
-            .hero h2 {
-                font-size: 1.2rem;
-            }
-            
-            .hero p {
-                font-size: 0.95rem;
-                padding: 0 0.5rem;
-            }
-            
-            .profile-img {
-                width: 150px;
-                height: 150px;
-            }
-            
-            .cta-btn {
-                padding: 0.7rem 1.5rem;
-                font-size: 0.9rem;
-            }
-            
-            section {
-                padding: 2.5rem 1rem;
-            }
-            
-            .section-title {
-                font-size: 1.7rem;
-            }
-            
-            .stats {
-                grid-template-columns: 1fr;
-                gap: 0.8rem;
-            }
-            
-            .stat-item {
-                padding: 0.8rem;
-            }
-            
-            .stat-number {
-                font-size: 1.8rem;
-            }
-            
-            .stat-label {
-                font-size: 0.85rem;
-            }
-            
-            .skills {
-                justify-content: center;
-                gap: 0.6rem;
-            }
-            
-            .skill-tag {
-                font-size: 0.8rem;
-                padding: 0.4rem 0.8rem;
-            }
-            
-            .service-item {
-                padding: 1rem;
-            }
-            
-            .service-item h3 {
-                font-size: 1rem;
-            }
-            
-            .service-item p {
-                font-size: 0.9rem;
-            }
-            
-            .portfolio-img {
-                height: 120px;
-                font-size: 2rem;
-            }
-            
-            .portfolio-info {
-                padding: 1rem;
-            }
-            
-            .portfolio-info h3 {
-                font-size: 1.1rem;
-            }
-            
-            .portfolio-info p {
-                font-size: 0.9rem;
-            }
-            
-            .modal-content {
-                margin: 0.5rem;
-                border-radius: 15px;
-            }
-            
-            .modal-header {
-                padding: 1.5rem 1rem 0.8rem;
-            }
-            
-            .modal-header h2 {
-                font-size: 1.3rem;
-                margin-bottom: 0.3rem;
-            }
-            
-            .modal-body {
-                padding: 1rem;
-            }
-            
-            .modal-section {
-                margin-bottom: 1.5rem;
-            }
-            
-            .modal-section h3 {
-                font-size: 1.1rem;
-            }
-            
-            .modal-section p {
-                font-size: 0.9rem;
-            }
-            
-            .tech-tag {
-                font-size: 0.75rem;
-                padding: 0.4rem 0.8rem;
-            }
-            
-            .result-item {
-                padding: 1rem;
-            }
-            
-            .result-value {
-                font-size: 1.5rem;
-            }
-            
-            .result-label {
-                font-size: 0.8rem;
-            }
-            
-            .modal-close {
-                top: 0.5rem;
-                right: 0.5rem;
-                width: 32px;
-                height: 32px;
-                font-size: 1.2rem;
-            }
-            
-            body[dir="rtl"] .modal-close {
-                right: auto;
-                left: 0.5rem;
-            }
-            
-            .contact-info h3 {
-                font-size: 1.5rem;
-            }
-            
-            .contact-info p {
-                font-size: 0.95rem;
-            }
-            
-            .contact-detail-item {
-                padding: 0.8rem;
-            }
-            
-            .contact-icon {
-                font-size: 1.6rem;
-            }
-            
-            .contact-detail-item h4 {
-                font-size: 0.85rem;
-            }
-            
-            .contact-detail-item a {
-                font-size: 0.9rem;
-            }
-            
-            .contact-form {
-                padding: 1.2rem;
-            }
-            
-            .form-group label {
-                font-size: 0.9rem;
-            }
-            
-            .form-group input,
-            .form-group textarea {
-                padding: 0.7rem;
-                font-size: 0.9rem;
-            }
-            
-            .captcha-challenge {
-                font-size: 1.1rem;
-                padding: 0.8rem;
-            }
-            
-            .captcha-input {
-                padding: 0.7rem;
-                font-size: 0.9rem;
-            }
-            
-            .submit-btn {
-                padding: 0.9rem;
-                font-size: 0.95rem;
-            }
-            
-            .social-btn {
-                width: 40px;
-                height: 40px;
-                font-size: 1.1rem;
-            }
-            
-            .scroll-buttons {
-                right: 0.5rem;
-                bottom: 0.5rem;
-                gap: 0.5rem;
-            }
-            
-            .scroll-btn {
-                width: 45px;
-                height: 45px;
-                font-size: 1.2rem;
-            }
-            
-            .lang-btn {
-                padding: 0.25rem 0.6rem;
-                font-size: 0.85rem;
-            }
-            
-            .mobile-menu a {
-                font-size: 1.6rem;
-                margin: 0.8rem 0;
-                padding: 0.8rem 1.5rem;
-            }
-            
-            .mobile-lang-selector {
-                gap: 0.8rem;
-                margin-top: 1.5rem;
-            }
-            
-            .mobile-lang-selector .lang-btn {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.9rem;
-            }
-            
-            .chatbot-container {
-                width: min(95vw, 360px);
-                height: auto;
-                max-height: 65vh;
-                min-height: 350px;
-                left: 50%;
-                transform: translateX(-50%);
-                bottom: 5.5rem;
-                border-radius: 14px;
-            }
-            
-            .chatbot-messages {
-                padding: 1rem;
-                min-height: 200px;
-                max-height: calc(65vh - 160px);
-            }
-            
-            .chatbot-input {
-                padding: 0.6rem 0.8rem;
-            }
-            
-            .chatbot-input input {
-                padding: 0.6rem 0.8rem;
-                font-size: 16px;
-            }
-            
-            .chatbot-button {
-                width: 55px;
-                height: 55px;
-                left: 0.5rem;
-                bottom: 1rem;
-            }
-            
-            .chatbot-button svg {
-                width: 26px;
-                height: 26px;
-            }
-            
-            .chatbot-header {
-                padding: 1rem;
-            }
-            
-            .chatbot-header h3 {
-                font-size: 1rem;
-            }
-            
-            .chatbot-close {
-                width: 28px;
-                height: 28px;
-                font-size: 1.2rem;
-            }
-            
-            .message-bubble {
-                font-size: 0.85rem;
-                padding: 0.7rem 0.9rem;
-            }
-            
-            .chatbot-options {
-                padding: 0.8rem 1rem;
-                gap: 0.4rem;
-            }
-            
-            .chat-option {
-                font-size: 0.8rem;
-                padding: 0.4rem 0.8rem;
-            }
-            
-            .chatbot-send {
-                width: 35px;
-                height: 35px;
-                font-size: 0.9rem;
-            }
-        }
-        
-        /* Extra Small Mobile (iPhone SE 1st gen, very old phones) */
-        @media (max-width: 360px) {
-            .hero h1 {
-                font-size: 1.6rem;
-            }
-            
-            .hero h2 {
-                font-size: 1.1rem;
-            }
-            
-            .profile-img {
-                width: 130px;
-                height: 130px;
-            }
-            
-            .section-title {
-                font-size: 1.5rem;
-            }
-            
-            .stat-number {
-                font-size: 1.6rem;
-            }
-            
-            .portfolio-img {
-                height: 100px;
-                font-size: 1.8rem;
-            }
-        }
-        
-        /* Landscape Mode Fix for Mobile */
-        @media (max-height: 500px) and (orientation: landscape) {
-            .hero {
-                min-height: auto;
-                padding: 5rem 2rem 2rem;
-            }
-            
-            .profile-img {
-                width: 120px;
-                height: 120px;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero h2 {
-                font-size: 1.2rem;
-            }
-            
-            .chatbot-container {
-                max-height: 80vh;
-            }
-        }
+        /* Tablet */
+@media (max-width: 968px) {
+    .nav-links {
+        gap: 1.5rem;
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+    }
+}
+
+/* Mobile Large */
+@media (max-width: 768px) {
+    /* Hide desktop menu */
+    .nav-links {
+        display: none !important;
+    }
+    
+    .lang-selector {
+        display: none !important;
+    }
+    
+    .hamburger-menu {
+        display: flex !important;
+    }
+    
+    /* Hero adjustments */
+    .hero {
+        min-height: 100vh;
+        padding: 7rem 1.5rem 3rem;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem !important;
+        line-height: 1.2;
+    }
+    
+    .hero h2 {
+        font-size: 1.5rem !important;
+    }
+    
+    .hero p {
+        font-size: 1rem !important;
+    }
+    
+    .profile-img {
+        width: 180px !important;
+        height: 180px !important;
+    }
+    
+    .cta-btn {
+        padding: 1rem 2rem !important;
+        font-size: 1rem !important;
+    }
+    
+    /* Sections */
+    section {
+        padding: 4rem 1.5rem !important;
+    }
+    
+    .section-title {
+        font-size: 2rem !important;
+    }
+    
+    /* About section */
+    .about-content {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+    
+    .stats {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 1rem !important;
+    }
+    
+    .stat-item {
+        padding: 1.2rem !important;
+    }
+    
+    .stat-number {
+        font-size: 2rem !important;
+    }
+    
+    /* Portfolio */
+    .portfolio-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+    
+    .portfolio-img {
+        height: 180px !important;
+    }
+    
+    /* Contact */
+    .contact-container {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+    
+    .contact-form {
+        padding: 2rem !important;
+    }
+    
+    /* Modal */
+    .modal-content {
+        margin: 1rem !important;
+        max-height: 85vh !important;
+    }
+    
+    .modal-header {
+        padding: 2.5rem 1.5rem 1.5rem !important;
+    }
+    
+    .modal-header h2 {
+        font-size: 1.6rem !important;
+    }
+    
+    .modal-body {
+        padding: 1.5rem !important;
+    }
+    
+    .modal-close {
+        width: 40px !important;
+        height: 40px !important;
+        top: 1rem !important;
+        right: 1rem !important;
+    }
+    
+    body[dir="rtl"] .modal-close {
+        right: auto !important;
+        left: 1rem !important;
+    }
+    
+    /* Scroll button */
+    .scroll-buttons {
+        right: 1rem !important;
+        bottom: 1rem !important;
+    }
+    
+    .scroll-btn {
+        width: 50px !important;
+        height: 50px !important;
+        font-size: 1.3rem !important;
+        border-width: 2px !important;
+    }
+    
+    /* Chatbot */
+    .chatbot-container {
+        width: calc(100vw - 2rem) !important;
+        max-width: 380px !important;
+        left: 1rem !important;
+        right: 1rem !important;
+        bottom: 6rem !important;
+        height: auto !important;
+        max-height: 70vh !important;
+    }
+    
+    .chatbot-button {
+        width: 60px !important;
+        height: 60px !important;
+        left: 1rem !important;
+        bottom: 1.5rem !important;
+    }
+}
+
+/* Mobile Small */
+@media (max-width: 480px) {
+    .hero {
+        padding: 6rem 1rem 2rem !important;
+    }
+    
+    .hero h1 {
+        font-size: 2rem !important;
+    }
+    
+    .hero h2 {
+        font-size: 1.3rem !important;
+    }
+    
+    .hero p {
+        font-size: 0.95rem !important;
+    }
+    
+    .profile-img {
+        width: 150px !important;
+        height: 150px !important;
+    }
+    
+    .cta-btn {
+        padding: 0.9rem 1.8rem !important;
+        font-size: 0.95rem !important;
+    }
+    
+    section {
+        padding: 3rem 1rem !important;
+    }
+    
+    .section-title {
+        font-size: 1.7rem !important;
+    }
+    
+    .stats {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .stat-number {
+        font-size: 1.8rem !important;
+    }
+    
+    .portfolio-img {
+        height: 150px !important;
+        font-size: 2rem !important;
+    }
+    
+    .modal-header h2 {
+        font-size: 1.4rem !important;
+    }
+    
+    .scroll-btn {
+        width: 45px !important;
+        height: 45px !important;
+        font-size: 1.2rem !important;
+    }
+    
+    .chatbot-button {
+        width: 55px !important;
+        height: 55px !important;
+    }
+    
+    .contact-form {
+        padding: 1.5rem !important;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        font-size: 16px !important;
+    }
+}
+
+/* Extra Small */
+@media (max-width: 360px) {
+    .hero h1 {
+        font-size: 1.7rem !important;
+    }
+    
+    .profile-img {
+        width: 130px !important;
+        height: 130px !important;
+    }
+    
+    .section-title {
+        font-size: 1.5rem !important;
+    }
+}
+        /* ========================================
+   ⬆️ إصلاح تأثير السائل - FIXED
+   ======================================== */
+.scroll-btn {
+    width: 55px;
+    height: 55px;
+    background: transparent !important;
+    color: var(--accent);
+    border: 3px solid var(--accent);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    transition: transform 0.3s ease;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+}
+
+/* الخلفية - السائل الذهبي */
+.scroll-btn::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: var(--accent);
+    transition: none;
+    z-index: -1;
+}
+
+/* الموجة على السائل */
+.scroll-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -50%;
+    width: 200%;
+    height: 15px;
+    background: var(--accent);
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: wave 3s ease-in-out infinite;
+    z-index: -1;
+    transform: translateY(100%);
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: translateX(0) translateY(0);
+    }
+    50% {
+        transform: translateX(25%) translateY(-3px);
+    }
+}
+
+.scroll-btn:hover {
+    transform: scale(1.15);
+    box-shadow: 0 6px 25px rgba(212, 175, 55, 0.6);
+}
+
+.scroll-btn:active {
+    transform: scale(0.95);
+}
+
+/* الأيقونة تبقى فوق السائل */
+.scroll-btn span {
+    position: relative;
+    z-index: 1;
+    color: var(--accent);
+    transition: color 0.3s ease;
+}
+
+/* عندما يمتلئ السائل، الأيقونة تصير سوداء */
+.scroll-btn.filled span {
+    color: var(--primary);
+}
+/* تحديث مباشر لارتفاع السائل */
+.scroll-btn {
+    --liquid-height: 0%;
+}
+
+.scroll-btn::before {
+    height: var(--liquid-height) !important;
+    bottom: 0 !important;
+}
+
+.scroll-btn::after {
+    bottom: var(--liquid-height) !important;
+}
     </style>
 </head>
 <body>
@@ -2497,16 +2291,36 @@ function scrollToTop() {
 }
 
 // Update scroll progress with liquid fill effect
+// ========================================
+// ⬆️ Scroll Progress - FIXED VERSION
+// ========================================
 function updateScrollProgress() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrollProgress = (scrollTop / scrollHeight) * 100;
+    const scrollProgress = Math.min((scrollTop / scrollHeight) * 100, 100);
+    
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
     
     if (scrollTopBtn) {
+        // تحديث ارتفاع السائل
         scrollTopBtn.style.setProperty('--scroll-progress', scrollProgress + '%');
+        
+        const beforeElement = scrollTopBtn.querySelector('::before');
+        const afterElement = scrollTopBtn.querySelector('::after');
+        
+        // تطبيق الارتفاع على السائل
+        scrollTopBtn.style.setProperty('--liquid-height', scrollProgress + '%');
+        
+        // إضافة class عندما يمتلئ أكثر من 20%
+        if (scrollProgress > 20) {
+            scrollTopBtn.classList.add('filled');
+        } else {
+            scrollTopBtn.classList.remove('filled');
+        }
     }
     
     // Show/hide scroll buttons
+    const scrollButtons = document.getElementById('scrollButtons');
     if (scrollTop > 300) {
         scrollButtons.classList.add('visible');
     } else {
@@ -2514,8 +2328,16 @@ function updateScrollProgress() {
     }
 }
 
+// تحديث فوري عند تحميل الصفحة
+window.addEventListener('load', function() {
+    updateScrollProgress();
+    // تحديث مرة ثانية بعد 100ms للتأكد
+    setTimeout(updateScrollProgress, 100);
+});
+
 window.addEventListener('scroll', updateScrollProgress);
 window.addEventListener('resize', updateScrollProgress);
+
 
 // ========================================
 // 🍔 Mobile Menu
